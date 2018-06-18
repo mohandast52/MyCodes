@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css"></script>
+    <script type="text/javascript" src="../js/rippleEffect.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/rippleEffect.css">
+    <style>
+        body {
+            padding: 50px 10px;
+            margin: 0;
+            box-sizing: border-box;
+            background: linear-gradient(#1976d2, #2196f3) no-repeat;
+        }
+
+        hr {
+            margin: 0;
+        }
+
+        /* CARDS */
+
+        .cards {
+            width: 100%;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .card {
+            height: auto;
+            min-height: 340px;
+            width: 240px;
+            background-color: #ffffff;
+            border-radius: 3px;
+            overflow: hidden;
+            transition: all .2s ease;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+        }
+
+        .card:hover {
+            cursor: pointer;
+            box-shadow: 0 8px 9px -5px rgba(0, 0, 0, .2), 0 15px 22px 2px rgba(0, 0, 0, .14), 0 6px 28px 5px rgba(0, 0, 0, .12);
+            /* transform: scale(1.2); */
+        }
+
+        /* ripple effect */
+
+        .card:hover .card-p-1 span {
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            margin-top: 170px;
+            /* already centered hence used margin */
+            background-color: rgb(255, 64, 129);
+            animation: card-ripple .5s ease-in-out forwards;
+            /* forwards : oh-hover keeping scale as it is */
+            transform: scale(0);
+            /* transition: all; */
+        }
+
+        @keyframes card-ripple {
+            100% {
+                transform: scale(4);
+                opacity: 1;
+            }
+        }
+
+        .card-p-1 {
+            height: 170px;
+            display: flex;
+            /* to make the icons center in the above box */
+            justify-content: center;
+            align-items: center;
+            border-radius: inherit;
+
+            /* ripple effect to be only in the card-1-p and not to spread to other elemets */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img {
+            z-index: 10;
+        }
+
+        .card-p-2 {
+            border-radius: inherit;
+            text-align: center;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="buttons">
+            <button class="button">Button</button>
+        </div>
+
+        <!--   CARDS     -->
+        <div class="cards">
+            <div class="card card-1">
+                <div class="card-p-1">
+                    <span></span>
+                    <div class="card-img">
+                        <p>Icon - 1</p>
+                    </div>
+                </div>
+                <div class="card-p-2">
+                    <h4>Random Text</h4>
+                    <p>Hey, how are you! Hope your doing good buddy. Keep Smiling</p>
+                </div>
+            </div>
+            <div class="card card-1">
+                <div class="card-p-1">
+                    <span></span>
+                    <div class="card-img">
+                        <p>Icon - 1</p>
+                    </div>
+                </div>
+                <div class="card-p-2">
+                    <h4>Random Text</h4>
+                    <p>This color palette comprises primary and accent colors that can be used for illustration or to develop
+                        your brand colors.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- javascript -->
+    <script>
+        // console.log('gott');
+    </script>
+</body>
+
+</html>

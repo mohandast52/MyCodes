@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <link rel="stylesheet" type="text/css" href="/home/mohan/D/CODING/Libraries/bootstrap/css/bootstrap.min.css">
+    <script src="/home/mohan/D/CODING/Libraries/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/home/mohan/D/CODING/Libraries/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/rippleEffect.css">
+
+    <style>
+        .container {
+            padding: 40px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: indigo;
+            position: relative;
+            animation-name: moveIt;
+            animation-duration: 4s;
+            animation-direction: normal;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes moveIt {
+            0% {
+                background-color: indigo;
+                left: 0;
+                top: 0;
+            }
+            25% {
+                background-color: red;
+                left: 200px;
+                top: 0;
+            }
+            50% {
+                background-color: yellow;
+                left: 200px;
+                top: 200px;
+            }
+            75% {
+                background-color: aqua;
+                left: 0;
+                top: 200px;
+            }
+            100% {
+                background-color: indigo;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .line-loader {
+            margin-top: 250px;
+            width: 100%;
+            height: 5px;
+            position: relative;
+            background-color: red;
+        }
+
+        .line-bar {
+            position: absolute;
+            height: 5px;
+            width: 0px;
+            animation-name: loader;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+
+        .line-bar:nth-child(1) {
+            background-color: rgb(255, 255, 0);
+            animation-delay: 0s;
+        }
+
+
+        .line-bar:nth-child(2) {
+            background-color: #E91E63;
+            animation-delay: 1s;
+        }
+
+        .line-bar:nth-child(3) {
+            background-color: #303F9F;
+            animation-delay: 2s;
+        }
+
+        .line-bar:nth-child(4) {
+            background-color: #00796B;
+            animation-delay: 3s;
+        }
+
+        @keyframes loader {
+            0% {
+                left: 50%;
+                width: 0;
+                z-index: 100;
+            }
+            33.3% {
+                left: 0;
+                width: 100%;
+                z-index: 10;
+            }
+            100% {
+                left: 0;
+                width: 100%;
+            }
+        }
+
+
+        /* loader-2 */
+
+        .loader-2 {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .loader-2 div {
+            width: 10px;
+            height: 30px;
+            margin: 2px;
+            border-radius: 4px;
+            /* display: inline-block; */
+            float: right;
+            background-color: #303F9F;
+            animation-name: loader-2;
+            animation-duration: 1s;
+            animation-direction: normal;
+            animation-iteration-count: infinite;
+        }
+
+        .loader-2 div:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .loader-2 div:nth-child(2) {
+            animation-delay: .2s;
+            background-color: red;
+        }
+
+        .loader-2 div:nth-child(3) {
+            animation-delay: .4s;
+            background-color: red;
+        }
+
+        .loader-2 div:nth-child(4) {
+            animation-delay: .6s;
+            background-color: red;
+        }
+        .loader-2 div:nth-child(5) {
+            animation-delay: .8s;
+            background-color: red;
+        }
+        @keyframes loader-2 {
+            50%{
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="line-loader">
+            <div class="line-bar"></div>
+            <div class="line-bar"></div>
+            <div class="line-bar"></div>
+            <div class="line-bar"></div>
+        </div>
+
+        <!-- My loader -->
+        <div class="loader-2">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            
+        </div>
+    </div>
+</body>
+
+</html>

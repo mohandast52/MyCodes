@@ -1,0 +1,295 @@
+/* 
+learn more from here about SASS
+https://sass-lang.com/
+*/
+/* 
+juice has built in mixins 
+http://kylebrumm.com/juice/
+*/
+.container {
+  background-color: #dddddd;
+}
+
+/* 
+all css from file _importEg.scss will be integrated here.
+and all the variables defined there can be used freely here
+*/
+/* darker version of $blue */
+.variable {
+  width: 50px;
+  height: 50px;
+  margin: 5% auto;
+  background-color: navy;
+}
+
+.nested {
+  text-align: center;
+}
+.nested .nestedChild a, .nested .nestedChild p {
+  font-size: 22px;
+  text-decoration: none;
+}
+.nested .nestedChild p {
+  /* gets all the css from above 'a' tag css */
+  color: #fff;
+  background-color: #d32c2c;
+  border: 2px solid #ebeb45;
+}
+.nested p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.mixins {
+  width: 200px;
+  height: 100px;
+  border: 5px solid #337ab7;
+  margin: auto;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+
+.make-triangle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*
+ in the above css, we can see that the border are bigger than the 
+ actual width and height of the box,
+ which creates each border as triangle
+*/
+.triangle-1 {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-top: 60px solid blue;
+  border-bottom: 60px solid red;
+  border-left: 60px solid green;
+  border-right: 60px solid cyan;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  margin: 20px 100px;
+}
+
+.triangle-2 {
+  width: 0px;
+  height: 0px;
+  background-color: transparent;
+  border-top: none;
+  border-bottom: 60px solid red;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  margin: 20px 100px;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  background-color: #2146E4;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  display: block;
+}
+.circle:hover {
+  background-color: #e99f5f;
+}
+
+.triangle {
+  width: 0px;
+  height: 0px;
+  background-color: transparent;
+  border-top: 100px solid #888;
+  border-bottom: none;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  display: block;
+}
+
+.ir {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+ul.social-links {
+  height: 200px;
+}
+ul.social-links li {
+  width: 200px;
+  display: block;
+  list-style: none;
+  float: left;
+}
+ul.social-links li a, ul.social-links li .nested .nestedChild p, .nested .nestedChild ul.social-links li p {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+/* for each loop */
+.twit {
+  background: url("../images/twit.jpg") no-repeat;
+}
+
+.insta {
+  background: url("../images/insta.jpg") no-repeat;
+}
+
+.fb {
+  background: url("../images/fb.jpg") no-repeat;
+}
+
+.p-one {
+  background: black;
+  /* get the 2nd element (i.e. 'black') and applying as css */
+  color: white;
+}
+
+.p-two {
+  background: green;
+  /* get the 2nd element (i.e. 'black') and applying as css */
+  color: white;
+}
+
+.p-three {
+  background: red;
+  /* get the 2nd element (i.e. 'black') and applying as css */
+  color: white;
+}
+
+.p-four {
+  background: blue;
+  /* get the 2nd element (i.e. 'black') and applying as css */
+  color: white;
+}
+
+/* 550px and 890px may be contast and now the width will be dynamic as percentage is used*/
+.scssFunction {
+  background-color: black;
+    /*
+    // for loop
+    @for $i from 1 through 4 {
+        .className-1 {
+            margin: 10px; //it will generate .className-1 to .className-2 etc and apply css to all the class
+        }
+    }
+
+    // while loop
+    @while $i < 5{
+        .className-1{
+            margin: 10px; //it will generate .className-1 to .className-2 etc and apply css to all the class
+        }
+        $i : $i + 1;
+    }
+    */
+}
+.scssFunction .fn-p1 {
+  width: 38.1944444444%;
+  float: left;
+  color: #b3b3b3;
+}
+.scssFunction .fn-p2 {
+  width: 61.8055555556%;
+  float: right;
+  color: #b3b3b3;
+  /* custom function made */
+}
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/*
+ mixin replaces the whole code inside the block, 
+ hence it never reuses the code.
+
+ to reuse we have '%' , exmaple below
+ */
+.placeHolder div.sign, .placeHolder div.box, .placeHolder div.rect, .placeHolder div.earth {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin: 20px;
+  background-color: #fa405f;
+}
+
+.placeHolder .earth {
+  border-radius: 50%;
+}
+
+.main-header {
+  /* means less than 480ox */
+}
+.main-header .header {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+@media only screen and (max-width: 480px) {
+  .main-header .header {
+    width: 80%;
+  }
+}
+
+.left-area, .right-area {
+  color: red;
+}
+
+.nest1,
+.nest2 {
+  display: inline-block;
+}
+
+.nest1 .btn, .nest2 .btn {
+  color: pink;
+  background-color: grey;
+  margin: 25px;
+}
+
+.juice-container {
+  background-color: #FFFFFF;
+}
+@media only screen and (max-width: 64em) {
+  .juice-container {
+    background-color: #DDDDDD;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .juice-container {
+    background-color: #BBBBBB;
+  }
+}
+
+.boxyy {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: red;
+}
+.boxyy:hover {
+  background-color: #1ee3e4;
+}
+@media only screen and (max-width: 40em) {
+  .boxyy {
+    background-color: blue;
+  }
+}

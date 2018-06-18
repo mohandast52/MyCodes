@@ -1,0 +1,214 @@
+$whole-height: 4000px;
+$light-grey: #e5e5e5;
+body {
+    font-family: "Open Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+.button {
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background: black;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.bird-box {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    background-image: url(../images/bird-bg.jpg);
+    background-size: auto 600px;
+    background-position: top center;
+    background-attachment: fixed;
+    .black-bird {
+        width: 960px;
+        height: 298px; // height of the bird
+        position: absolute;
+        background-image: url(../images/back-bird.png);
+        background-repeat: no-repeat;
+        background-position: top left;
+        /* position the transparent black-bird*/
+        left: 50%;
+        margin-left: -480px;
+    }
+    .logo {
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        margin-top: -50px; // half of the logo height
+        background-image: url(../images/black-bird-logo.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .fore-bird {
+        width: 960px;
+        height: 733px; // height of the bird
+        position: absolute;
+        background-image: url(../images/fore-bird.png);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        /* position the bird*/
+        left: 50%;
+        margin-left: -480px;
+        top: 380px;
+    }
+}
+
+.content {
+    position: relative;
+    background-color: white;
+    margin-bottom: 300px;    
+    z-index: 2;
+    height: auto;
+    article {
+        padding: 60px 0px;
+        text-align: center;
+        h1 {
+            font-size: 3rem;
+            font-weight: 100;
+            color: darken($light-grey, 20%);
+        }
+        hr {
+            margin: 50px auto;
+            background-color: $light-grey;
+        }
+    }
+    .clothes-pics {
+        margin-bottom: 100px;
+        figure {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            opacity: 0; // initially opacity 0
+            transform: translateX(-20px);
+            transition: all 0.3s ease-in-out;
+            &.is-showing {
+                opacity: 1; // when class is activated
+                transform: translateX(0px);
+            }
+            & img {
+                max-width: 100%;
+                max-height: 100%;
+                cursor: pointer;
+                transform: scale(1);
+                transition: all 0.3s ease-in-out;
+            }
+            & .figCaption {
+                position: absolute;
+                bottom: 0px;
+                left: -100%;
+                background-color: #000;
+                color: #fff;
+                padding: 2px 8px;
+                font-size: 12px;
+                letter-spacing: .9px;
+                transition: all .3s ease-in-out;
+            }
+            &:hover {
+                .figCaption {
+                    left: 15px;
+                }
+                img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+    /* periscope  */
+    .large-window {
+        height: 640px;
+        width: 640px;
+        border-radius: 50%;
+        margin: 100px auto;
+        position: relative;
+        background-image: url(../images/model2.jpg);
+        background-position: top center;
+        background-attachment: fixed;
+        .window-tint {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            border-radius: 50%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* 
+            making all zero means streching to parent container 
+            i.e. to width and height of .large-window 
+            */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .promo-text {
+                color: #fff;
+                font-weight: 100;
+                font-size: 40px;
+                line-height: 1.2;
+                strong {
+                    display: block;
+                    font-size: 28px;
+                    margin-bottom: 20px;
+                    span {
+                        font-weight: 300;
+                        font-size: 18px;
+                        font-style: italic;
+                        color: rgba(255, 255, 255, 0.6);
+                    }
+                }
+                .window-cta {
+                    font-size: 20px;
+                    text-decoration: none;
+                    color: white;
+                    border: 1px solid white;
+                    padding: 10px 20px;
+                    transition: all .3s ease-in-out;
+                    &:hover {
+                        background: white;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+    .blog-posts {
+        .post {
+            background-color: white;
+            border: 1px solid #e1e1e1;
+            padding: 20px 20px 30px;
+            position: relative;
+            transition: all .5s ease;
+            /* bottom is 0px */
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+        }
+    }
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 40px 0px;
+    width: 100%;    
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    .footer-stuff {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    a {
+        color: white;
+    }
+}

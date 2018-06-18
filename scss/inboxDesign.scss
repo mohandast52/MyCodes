@@ -1,0 +1,189 @@
+$icon-width: 40px;
+$icon-height: 40px;
+$font:90%;
+// colors
+$red :#d94235;
+$blue: #4184f3;
+$grey: #c9c9c9;
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+    border: none;
+    outline: none;
+}
+
+* {
+    transition: all .3s ease-in-out 0s;
+}
+
+body {
+    background-color: #f2f2f2;
+    font-size: $font;
+    overflow-x: hidden;
+    font-family: 'Helvetica Neue', 'Helvetica,Arial,sans-serif';
+    overflow-y: scroll;
+    padding: 30px 0px;
+}
+
+@mixin md-f-1dp {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+}
+
+@mixin md-f-2dp {
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12);
+}
+
+@mixin md-f-3dp {
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .2), 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12);
+}
+
+@mixin icon($ic-he, $ic-wd) {
+    height: $ic-he;
+    width: $ic-wd;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #d23f31;
+}
+
+@mixin absolute-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// icon
+div%icon {
+    width: 80px;
+    &>div {
+        position: relative;
+        margin: 0 auto;
+        @include icon($icon-height, $icon-width);
+        & span {
+            @include absolute-center;
+        }
+    }
+}
+
+%header-action {
+    height: 20px !important;
+    width: 20px !important;
+    path {
+        fill: darken($color: $grey, $amount: 40%) !important;
+    }
+}
+
+.inbox {
+    @include md-f-3dp;
+}
+
+.autoHeight{
+    max-height: 9999px !important;
+}
+.mail {
+    transition: all .2s;
+    background-color: #fff;
+    /* mail header css */
+    .mail-header {
+        position: relative;
+        padding: 6px 0px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        border-bottom: 1px solid $grey;
+        .mail-header-icon {
+            @extend %icon;
+        }
+        .mail-header-sender {
+            width: 180px;
+        }
+        .mail-header-content {
+            flex: 1;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .mail-header-action {
+            max-width: 180px;
+            margin: 5px 15px 0px 15px;
+            & span {
+                & svg {
+                    @extend %header-action;
+                }
+            }
+        }
+    }
+    /* mail content css */
+    & .mail-content {
+        width: 560px;
+        padding: 40px 0;
+        margin: 0 auto;
+    }
+    /* mail footer css */
+    & .mail-footer>div {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        height: 80px;
+        border-top: 1px solid $grey;
+        background-color: lighten($color: $grey, $amount: 18%);
+        .mail-footer-icon {
+            @extend %icon;
+        }
+        .mail-footer-content {
+            flex: 1;
+        }
+        .mail-footer-arrow {
+            width: 40px;
+            & svg {
+                @extend %header-action;
+            }
+        }
+    }
+}
+
+// google card
+.google-mail {
+    @include md-f-1dp;
+    & .g-head {
+        height: 100px;
+        background-color: $red;
+        position: relative;
+        & h3 {
+            position: absolute;
+            color: #fff;
+            font-size: $font + 80%;
+            top: 60%;
+            margin-left: 20px;
+        }
+    }
+    & .g-content {
+        font-size: 85%;
+        padding: 20px;
+        background-color: lighten($color: $grey, $amount: 18%);
+        & .dark-color {
+            font-size: $font + 20%;
+            font-weight: bold;
+        }
+        & .light-color {
+            font-size: $font - 10%;
+            color: darken($color: $grey, $amount: 25%);
+        }
+        & button {
+            width: auto;
+            height: 30px;
+            padding: 5px 15px;
+            margin-bottom: 20px;
+            outline: none;
+            letter-spacing: 1.3px;
+            font-weight: bold;
+            border: none;
+            background-color: $blue;
+            border-radius: 2px;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}

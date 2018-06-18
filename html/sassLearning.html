@@ -1,0 +1,158 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <link rel="stylesheet" type="text/css" href="/home/mohan/D/CODING/Libraries/bootstrap/css/bootstrap.min.css">
+    <script src="/home/mohan/D/CODING/Libraries/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/home/mohan/D/CODING/Libraries/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/sassLearning.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="variable">
+        </div>
+        <div class="nested">
+            <div class="nestedChild">
+                <a href="#">Link - 1</a>
+                <a href="#">Link - 2</a>
+                <a href="#">Link - 3</a>
+                <p>Paragraph inside nestedChild</p>
+            </div>
+            <p>The End paragraph</p>
+        </div>
+        <br>
+        <div class="mixins"></div>
+    </div>
+
+    <!-- triangle making -->
+    <div class="container make-triangle">
+        <div class="triangle-1"></div>
+        <div class="triangle-2"></div>
+    </div>
+    <p class="container">
+        From the 1st triangle, border top has been removed, left and right are made transparent and background is also made transparent!
+        to male perfect triangle.
+        <br> https://www.youtube.com/watch?v=igYBKYQ15g0&index=6&list=PL2CB1F80266E986EA
+    </p>
+    <!-- some advanced concepts -->
+    <div class="container">
+        <div class="shape">
+            <a href="#" class="circle ir">Circle</a>
+            <a href="#" class="triangle ir">Triangle</a>
+        </div>
+    </div>
+
+    <!-- use of list in SCSS -->
+    <div class="container listscss">
+        <ul class="social-links">
+            <li>
+                <a class="twit" href="#">Twitter</a>
+            </li>
+            <li>
+                <a class="insta" href="#">Instagram</a>
+            </li>
+            <li>
+                <a class="fb" href="#">Facebook</a>
+            </li>
+        </ul>
+        <div class="nth-term">
+            <p class="p-one">Paragraph 1</p>
+            <p class="p-two">Paragraph 1</p>
+            <p class="p-three">Paragraph 1</p>
+            <p class="p-four">Paragraph 1</p>
+        </div>
+    </div>
+
+    <!-- using Function css -->
+    <div class="container scssFunction clearfix">
+        <!-- 
+            1. rgba(#333, 0.5) => css is => rbg(51, 51, 51, 0.5)
+                rgba converts into rgb of real color
+
+            2. fade-out(#333, 0.5) => css is => rbg(51, 51, 51, 0.5)
+
+            3. percentage
+
+            more Scss functions : 
+            https://sass-lang.com/documentation/Sass/Script/Functions.html
+        -->
+        <p class="fn-p1">
+            Inline items cannot have a width. You have to use display: block or display:inline-block, but the latter is not supported
+            everywhere.
+        </p>
+        <p class="fn-p2">
+            Declare the a element as display: inline-block and drop the width and height from the li element. Alternatively, apply a
+            float: left to the li element and use display: block on the a element. This is a bit more cross browser compatible,
+            as display: inline-block is not supported in Firefox for example. The first method allows you to have a dynamically
+            centered list if you give the ul element a width of 100% (so that it spans from left to right edge) and then
+            apply text-align: center. Use line-height to control the text 's Y-position inside the element.
+        </p>
+    </div>
+
+
+    <!-- MIXIN vs placeholder -->
+    <div class="container placeHolder">
+        <div class="sign"></div>
+        <div class="box"></div>
+        <div class="rect"></div>
+        <div class="earth"></div>
+    </div>
+
+    <!--
+         media queryies using mixin
+        (it makes code more organized)
+    -->
+
+    <div class="container main-header">
+        <div class="header"></div>
+    </div>
+
+
+
+
+
+    <!-- CUSTOM GRID CREATED USING singularitygs -->
+    <br>
+    <br>
+    <div class="selector-append">
+        <aside class="left-area">Declare the a element as display: inline-block and drop the width and height from the li element. Alternatively,
+            apply a float: left to the li element and use display: block on the a element. This is a bit more cross browser
+            compatible, as display: inline-block is not supported in Firefox for example. </aside>
+        <div class="right-area">Declare the a element as display: inline-block and drop the width and height from the li element. Alternatively,
+            apply a float: left to the li element and use display: block on the a element. This is a bit more cross browser
+            compatible, as display: inline-block is not supported in Firefox for example. The first method allows you to
+            have a dynamically centered list if you give the ul element a width of 100% (so that it spans from left to right
+            edge) and then apply text-align: center. Use line-height to control the text 's Y-position inside the element.Declare
+            the a element as display: inline-block and drop the width and height from the li element. Alternatively, apply
+            a float: left to the li element and use display: block on the a element.</div>
+
+        <div class="selector-nest">
+            <div class="nest1">
+                <button class="btn"> BTN 1</button>
+            </div>
+            <div class="nest2">
+                <button class="btn"> BTN 2</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- using juice  -->
+    <div class="juice-container">
+        <div class="boxyy"></div>
+    </div>
+
+
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+</body>
+
+</html>

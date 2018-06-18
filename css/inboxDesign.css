@@ -1,0 +1,166 @@
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+* {
+  -webkit-transition: all .3s ease-in-out 0s;
+  transition: all .3s ease-in-out 0s;
+}
+
+body {
+  background-color: #f2f2f2;
+  font-size: 90%;
+  overflow-x: hidden;
+  font-family: 'Helvetica Neue', 'Helvetica,Arial,sans-serif';
+  overflow-y: scroll;
+  padding: 30px 0px;
+}
+
+.mail .mail-header div.mail-header-icon, .mail .mail-footer > div div.mail-footer-icon {
+  width: 80px;
+}
+.mail .mail-header div.mail-header-icon > div, .mail .mail-footer > div div.mail-footer-icon > div {
+  position: relative;
+  margin: 0 auto;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #d23f31;
+}
+.mail .mail-header div.mail-header-icon > div span, .mail .mail-footer > div div.mail-footer-icon > div span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.mail .mail-header .mail-header-action span svg, .mail .mail-footer > div .mail-footer-arrow svg {
+  height: 20px !important;
+  width: 20px !important;
+}
+.mail .mail-header .mail-header-action span svg path, .mail .mail-footer > div .mail-footer-arrow svg path {
+  fill: #636363 !important;
+}
+
+.inbox {
+  -webkit-box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);
+}
+
+.autoHeight {
+  max-height: 9999px !important;
+}
+
+.mail {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  background-color: #fff;
+  /* mail header css */
+  /* mail content css */
+  /* mail footer css */
+}
+.mail .mail-header {
+  position: relative;
+  padding: 6px 0px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  border-bottom: 1px solid #c9c9c9;
+}
+.mail .mail-header .mail-header-sender {
+  width: 180px;
+}
+.mail .mail-header .mail-header-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.mail .mail-header .mail-header-action {
+  max-width: 180px;
+  margin: 5px 15px 0px 15px;
+}
+.mail .mail-content {
+  width: 560px;
+  padding: 40px 0;
+  margin: 0 auto;
+}
+.mail .mail-footer > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  height: 80px;
+  border-top: 1px solid #c9c9c9;
+  background-color: #f7f7f7;
+}
+.mail .mail-footer > div .mail-footer-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.mail .mail-footer > div .mail-footer-arrow {
+  width: 40px;
+}
+
+.google-mail {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.google-mail .g-head {
+  height: 100px;
+  background-color: #d94235;
+  position: relative;
+}
+.google-mail .g-head h3 {
+  position: absolute;
+  color: #fff;
+  font-size: 170%;
+  top: 60%;
+  margin-left: 20px;
+}
+.google-mail .g-content {
+  font-size: 85%;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+.google-mail .g-content .dark-color {
+  font-size: 110%;
+  font-weight: bold;
+}
+.google-mail .g-content .light-color {
+  font-size: 80%;
+  color: #898989;
+}
+.google-mail .g-content button {
+  width: auto;
+  height: 30px;
+  padding: 5px 15px;
+  margin-bottom: 20px;
+  outline: none;
+  letter-spacing: 1.3px;
+  font-weight: bold;
+  border: none;
+  background-color: #4184f3;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,40 @@
+.container {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+}
+
+section.section {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+section.page-1 {
+  color: #ececec;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  position: relative;
+  background-image: url("../images/skew.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #3b3c41;
+}
+
+section.page-1::before {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 0px;
+  content: ' ';
+  background-image: url("../images/small-skew.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+section.page-1 .content {
+  margin: 0 auto;
+  padding: 20px;
+}

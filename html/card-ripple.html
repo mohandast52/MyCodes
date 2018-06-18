@@ -1,0 +1,148 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- custom -->
+    <script type="text/javascript" src="../js/rippleEffect.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/rippleEffect.css">
+    <style>
+        body {
+            padding: 60px 10px;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: #00bcd4;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .main-card {
+            height: 340px;
+            width: 240px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            /* transition: all .5s; */
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+        }
+
+        * {
+            transition: all .5s;
+        }
+
+        .main-card-bar {
+            height: 20px;
+            background-color: #0288D1;
+        }
+
+        .main-card-header {
+            height: 40px;
+            background-color: #03A9F4;
+        }
+
+        /* overridding button class to make it round */
+
+        .card-inner-1 {
+            height: 240px;
+            /* (main-card) - (main-car-bar) - (main-card-header) */
+            width: 240px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        .card-inner-1-rb {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            border-radius: 50%;
+            background-color: #ffffff;
+        }
+
+        .round-button {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        .card-inner-2 {
+            left: 0;
+            right: 0;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 80px;
+            width: 240px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="cards">
+            <div class="main-card">
+                <div class="main-card-bar">
+
+                </div>
+                <div class="main-card-header">
+                </div>
+
+                <div class="card-inner-1">
+                    <div class="card-inner-1-rb">
+                        <button class="button round-button"></button>
+                    </div>
+                </div>
+                <div class="card-inner-2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $('.round-button').on('click', function (e) {
+                // $(this).parent().get(0).className
+
+
+                $(".main-card").css({
+                    height: '410px',
+                    width: '320px',
+                    boxShadow: '0 6px 6px -3px rgba(0,0,0,.2),0 10px 14px 1px rgba(0,0,0,.14),0 4px 18px 3px rgba(0,0,0,.12)'
+                });
+
+                $(".main-card-bar").css({
+                    backgroundColor: '#303F9F'
+                });
+
+                $(".main-card-header").css({
+                    height: '80px',
+                    backgroundColor: '#536DFE'
+                });
+
+                $(".card-inner-1").css({
+                    marginTop: '-60px',
+                    boxShadow: '0 1px 8px 0 rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.12)'
+                });
+
+                $(".card-inner-1-rb").css({
+                    right: '20px',
+                    bottom: '290px'
+                });
+
+                $(".card-inner-2").css({
+                    boxShadow: '0 1px 8px 0 rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.12)'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

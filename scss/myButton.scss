@@ -1,0 +1,246 @@
+$btn-width: 250px;
+$btn-height: 70px;
+@mixin background {
+    background: linear-gradient(to right, #3519d2, rgb(135, 30, 233));
+}
+
+.container {
+    padding: 20px 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.btn-parent {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.button {
+    width: $btn-width;
+    height: $btn-height;
+    padding: 15px 20px;
+    font-size: 24px;
+    position: relative;
+    color: #000000;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px -1px rgba(0, 0, 0, .2), 0 3px 2px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+}
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+    border: none;
+    outline: none;
+}
+
+.button-1 {
+    color: white;
+    overflow: hidden;
+    background: linear-gradient(to right, #3519d2, rgb(135, 30, 233));
+    &:before {
+        content: '';
+        width: $btn-width;
+        height: $btn-height;
+        position: absolute;
+        top: 0;
+        left: -($btn-width + 20);
+        background-color: white;
+        transform: skewX(-30deg);
+        transition: all .5s ease-in-out;
+    }
+    &:hover::before {
+        left: 270px;
+    }
+}
+
+.button-2 {
+    color: white;
+    overflow: hidden;
+    background: linear-gradient(to right, #3519d2, rgb(135, 30, 233));
+    &:before {
+        content: 'Button 2';
+        width: $btn-width;
+        height: $btn-height;
+        padding: 15px 20px;
+        font-size: 24px;
+        position: relative;
+        background-color: transparent;
+        z-index: 2;
+    }
+    &:after {
+        content: '';
+        width: $btn-width + 60;
+        height: $btn-height;
+        position: absolute;
+        top: 0;
+        left: -($btn-width + 80);
+        background-color: white;
+        transform: skewX(-30deg);
+        transition: all .3s ease-in-out;
+        z-index: 1;
+    }
+    &:hover {
+        border: 2px solid rgb(135, 30, 233);
+        color: rgb(135, 30, 233);
+    }
+    &:hover::after {
+        left: -20px;
+        /* to move the white background from left to right, which is initially hidden*/
+    }
+}
+
+// Button 3
+.button-3 {
+    position: relative;
+    overflow: hidden;
+    color: rgb(135, 30, 233);
+    border: 2px solid rgb(135, 30, 233);
+    span {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &:before,
+    &:after {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: linear-gradient(to right, #3519d2, rgb(135, 30, 233)); // transition: left .2s ease-in-out, right .2s ease-in-out 0s, height .2s .2s, width .2s .2s, color .2s .3s;
+    }
+    &:before {
+        left: -20px;
+        transform: translate(-50%, -50%);
+    }
+    &:after {
+        right: -20px;
+        transform: translate(50%, -50%);
+    }
+    &:hover {
+        color: #fff;
+        border-color: #337ab7;
+    }
+    &:hover::before {
+        animation-name: button-3-animate-before;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+    &:hover::after {
+        animation-name: button-3-animate-after;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+    @keyframes button-3-animate-before {
+        0% {
+            left: -20px;
+        }
+        20% {
+            left: 50%;
+        }
+        90% {
+            left: 50%;
+        }
+        100% {
+            left: 50%;
+            width: max($btn-width, $btn-height) + 50px;
+            height: max($btn-width, $btn-height) + 50px;
+        }
+    }
+    @keyframes button-3-animate-after {
+        0% {
+            right: -20px;
+        }
+        20% {
+            right: 50%;
+        }
+        90% {
+            right: 50%;
+        }
+        100% {
+            right: 50%;
+            width: max($btn-width, $btn-height) + 50px;
+            height: max($btn-width, $btn-height) + 50px;
+        }
+    }
+}
+
+.button-4 {
+    position: relative;
+    overflow: hidden;
+    color: rgb(135, 30, 233);
+    border: 2px solid rgb(135, 30, 233);
+    transition: color .2s ease-in-out .1s;
+    span {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &:hover {
+        color: white;
+    }
+    &:before,
+    &:after {
+        content: ' ';
+        position: absolute;
+        width: $btn-width;
+        height: $btn-height;
+        top: -2px;
+        margin: 0;
+        border: 2px solid rgb(135, 30, 233);
+        border-left-color: #3519d2;
+        @include background;
+    }
+    &:before {
+        left: -$btn-width;
+    }
+    &:after {
+        left: $btn-width;
+        transition: all 1s;
+    }
+    &:hover::before {
+        left: -1px;
+        animation-name: btn-4-before;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    &:hover::after {
+        left: 0;
+        transition: left 0s ease-in-out 1s;
+    }
+    @keyframes btn-4-before {
+        0% {
+            left: -$btn-width;
+        }
+        100% {
+            left: 0px;
+        }
+    }
+}
+
+/*
+.button-2 {
+    border-radius: 40px;
+    color: white;
+    background-color: #E91E63;
+    border: 2px solid #E91E63;
+    transition: all .3s;
+}
+
+.button-2:hover {
+    background-color: white;
+    color: #E91E63;
+}
+*/

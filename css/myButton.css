@@ -1,0 +1,302 @@
+.container {
+  padding: 20px 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.btn-parent {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.button {
+  width: 250px;
+  height: 70px;
+  padding: 15px 20px;
+  font-size: 24px;
+  position: relative;
+  color: #000000;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 3px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 3px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.button-1 {
+  color: white;
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, right top, from(#3519d2), to(#871ee9));
+  background: linear-gradient(to right, #3519d2, #871ee9);
+}
+.button-1:before {
+  content: '';
+  width: 250px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: -270px;
+  background-color: white;
+  -webkit-transform: skewX(-30deg);
+          transform: skewX(-30deg);
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+.button-1:hover::before {
+  left: 270px;
+}
+
+.button-2 {
+  color: white;
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, right top, from(#3519d2), to(#871ee9));
+  background: linear-gradient(to right, #3519d2, #871ee9);
+}
+.button-2:before {
+  content: 'Button 2';
+  width: 250px;
+  height: 70px;
+  padding: 15px 20px;
+  font-size: 24px;
+  position: relative;
+  background-color: transparent;
+  z-index: 2;
+}
+.button-2:after {
+  content: '';
+  width: 310px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: -330px;
+  background-color: white;
+  -webkit-transform: skewX(-30deg);
+          transform: skewX(-30deg);
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  z-index: 1;
+}
+.button-2:hover {
+  border: 2px solid #871ee9;
+  color: #871ee9;
+}
+.button-2:hover::after {
+  left: -20px;
+  /* to move the white background from left to right, which is initially hidden*/
+}
+
+.button-3 {
+  position: relative;
+  overflow: hidden;
+  color: #871ee9;
+  border: 2px solid #871ee9;
+}
+.button-3 span {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.button-3:before, .button-3:after {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: -webkit-gradient(linear, left top, right top, from(#3519d2), to(#871ee9));
+  background: linear-gradient(to right, #3519d2, #871ee9);
+}
+.button-3:before {
+  left: -20px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.button-3:after {
+  right: -20px;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+.button-3:hover {
+  color: #fff;
+  border-color: #337ab7;
+}
+.button-3:hover::before {
+  -webkit-animation-name: button-3-animate-before;
+          animation-name: button-3-animate-before;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.button-3:hover::after {
+  -webkit-animation-name: button-3-animate-after;
+          animation-name: button-3-animate-after;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes button-3-animate-before {
+  0% {
+    left: -20px;
+  }
+  20% {
+    left: 50%;
+  }
+  90% {
+    left: 50%;
+  }
+  100% {
+    left: 50%;
+    width: 300px;
+    height: 300px;
+  }
+}
+@keyframes button-3-animate-before {
+  0% {
+    left: -20px;
+  }
+  20% {
+    left: 50%;
+  }
+  90% {
+    left: 50%;
+  }
+  100% {
+    left: 50%;
+    width: 300px;
+    height: 300px;
+  }
+}
+@-webkit-keyframes button-3-animate-after {
+  0% {
+    right: -20px;
+  }
+  20% {
+    right: 50%;
+  }
+  90% {
+    right: 50%;
+  }
+  100% {
+    right: 50%;
+    width: 300px;
+    height: 300px;
+  }
+}
+@keyframes button-3-animate-after {
+  0% {
+    right: -20px;
+  }
+  20% {
+    right: 50%;
+  }
+  90% {
+    right: 50%;
+  }
+  100% {
+    right: 50%;
+    width: 300px;
+    height: 300px;
+  }
+}
+.button-4 {
+  position: relative;
+  overflow: hidden;
+  color: #871ee9;
+  border: 2px solid #871ee9;
+  -webkit-transition: color .2s ease-in-out .1s;
+  transition: color .2s ease-in-out .1s;
+}
+.button-4 span {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.button-4:hover {
+  color: white;
+}
+.button-4:before, .button-4:after {
+  content: ' ';
+  position: absolute;
+  width: 250px;
+  height: 70px;
+  top: -2px;
+  margin: 0;
+  border: 2px solid #871ee9;
+  border-left-color: #3519d2;
+  background: -webkit-gradient(linear, left top, right top, from(#3519d2), to(#871ee9));
+  background: linear-gradient(to right, #3519d2, #871ee9);
+}
+.button-4:before {
+  left: -250px;
+}
+.button-4:after {
+  left: 250px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+.button-4:hover::before {
+  left: -1px;
+  -webkit-animation-name: btn-4-before;
+          animation-name: btn-4-before;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.button-4:hover::after {
+  left: 0;
+  -webkit-transition: left 0s ease-in-out 1s;
+  transition: left 0s ease-in-out 1s;
+}
+@-webkit-keyframes btn-4-before {
+  0% {
+    left: -250px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@keyframes btn-4-before {
+  0% {
+    left: -250px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+/*
+.button-2 {
+    border-radius: 40px;
+    color: white;
+    background-color: #E91E63;
+    border: 2px solid #E91E63;
+    transition: all .3s;
+}
+
+.button-2:hover {
+    background-color: white;
+    color: #E91E63;
+}
+*/

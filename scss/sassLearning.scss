@@ -1,0 +1,348 @@
+/* 
+learn more from here about SASS
+https://sass-lang.com/
+*/
+
+@import "juice";
+/* 
+juice has built in mixins 
+http://kylebrumm.com/juice/
+*/
+
+@import "importEg";
+/* 
+all css from file _importEg.scss will be integrated here.
+and all the variables defined there can be used freely here
+*/
+
+// variables
+$blue: #2146E4;
+$light-blue: $blue - 100;
+$red: #d32c2c;
+/* darker version of $blue */
+
+$margin: 5%;
+.variable {
+    width: 50px;
+    height: 50px;
+    margin: $margin auto;
+    background-color: $light-blue;
+}
+
+// nested 
+.nested {
+    text-align: center;
+    .nestedChild {
+        a {
+            font-size: 22px;
+            text-decoration: none;
+        }
+        p {
+            @extend a;
+            /* gets all the css from above 'a' tag css */
+            color: #fff;
+            background-color: $red;
+            border: 2px solid #ebeb45;
+        }
+    }
+    p {
+        margin: 0;
+        font-size: 18px;
+    }
+}
+
+// mixins
+@mixin border-radius($radius: 20px)
+/* 20px is nothing but default value when no argument is passed*/
+
+    {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+.mixins {
+    width: 200px;
+    height: 100px;
+    border: 5px solid #337ab7;
+    margin: auto;
+    @include border-radius;
+}
+
+// creating triangle 
+.make-triangle {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin triangleExample {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-top: 60px solid blue;
+    border-bottom: 60px solid red;
+    border-left: 60px solid green;
+    border-right: 60px solid cyan;
+    box-sizing: content-box;
+}
+
+/*
+ in the above css, we can see that the border are bigger than the 
+ actual width and height of the box,
+ which creates each border as triangle
+*/
+
+.triangle-1 {
+    @include triangleExample();
+    margin: 20px 100px;
+}
+
+.triangle-2 {
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+    border-top: none;
+    border-bottom: 60px solid red;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    box-sizing: content-box;
+    margin: 20px 100px;
+}
+
+// advanced
+@mixin circle($width, $color) {
+    width: $width;
+    height: $width;
+    background-color: $color;
+    border-radius: $width/2;
+    -webkit-border-radius: $width/2;
+}
+
+@mixin triangle($width, $direction, $color) {
+    @if $direction==up {
+        width: 0px;
+        height: 0px;
+        background-color: transparent;
+        border-top: none;
+        border-bottom: $width/2 solid $color;
+        border-left: $width/2 solid transparent;
+        border-right: $width/2 solid transparent;
+        box-sizing: content-box;
+    }
+    @else if $direction==down {
+        width: 0px;
+        height: 0px;
+        background-color: transparent;
+        border-top: $width/2 solid $color;
+        border-bottom: none;
+        border-left: $width/2 solid transparent;
+        border-right: $width/2 solid transparent;
+        box-sizing: content-box;
+    } // same for right and left triangle
+}
+
+.circle {
+    @include circle(200px, $blue);
+    display: block;
+    &:hover {
+        // &: here is parent reference
+        background-color: rgb(233, 159, 95);
+    }
+}
+
+.triangle {
+    @include triangle(200px, down, #888);
+    display: block;
+}
+
+.ir {
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
+
+// list in scss
+ul.social-links {
+    height: 200px;
+    li {
+        width: 200px;
+        display: block;
+        list-style: none;
+        float: left;
+    }
+    li a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+$icons:(twit, insta, fb);
+/* for each loop */
+
+@each $social in $icons {
+    .#{$social} {
+        background: url('../images/#{$social}.jpg') no-repeat;
+    }
+}
+
+// for each using nth Function
+@each $p in ( p-one black,
+p-two green,
+p-three red,
+p-four blue) {
+    .#{nth($p, 1)}/* get the 1st element (i.e. 'p-one')  */
+        {
+        background: #{nth($p, 2)};
+        /* get the 2nd element (i.e. 'black') and applying as css */
+        color: white;
+    }
+}
+
+// scssFunction
+/* 550px and 890px may be contast and now the width will be dynamic as percentage is used*/
+
+@function text-contrast($background) {
+    /* if background-color dark then its return color light so it would be visible and vice versa*/
+    @if(lightness($background) < 50%) {
+        @return lighten($background,
+        70%);
+    }
+    @else {
+        @return darken($background,
+        70%);
+    }
+}
+
+$i: 1; // declare this outside class!!!
+.scssFunction {
+    background-color: black;
+    /*
+    // for loop
+    @for $i from 1 through 4 {
+        .className-#{$i} {
+            margin: 10px; //it will generate .className-1 to .className-2 etc and apply css to all the class
+        }
+    }
+
+    // while loop
+    @while $i < 5{
+        .className-#{$i}{
+            margin: 10px; //it will generate .className-1 to .className-2 etc and apply css to all the class
+        }
+        $i : $i + 1;
+    }
+    */
+    .fn-p1 {
+        width: percentage(550px/1440px);
+        float: left;
+        color: text-contrast(black)/* passing the background-color and return the color which will be opposite to bg color*/
+        ;
+    }
+    .fn-p2 {
+        width: percentage(890px/1440px);
+        float: right;
+        color: text-contrast(black);
+        /* custom function made */
+    }
+}
+
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/*
+ mixin replaces the whole code inside the block, 
+ hence it never reuses the code.
+
+ to reuse we have '%' , exmaple below
+ */
+
+.placeHolder div%dabba {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 20px;
+    background-color: rgb(250, 64, 95);
+}
+
+// inspect and see, all the classes will re-use it
+.placeHolder {
+    .sign {
+        @extend %dabba;
+    }
+    .box {
+        @extend %dabba;
+    }
+    .rect {
+        @extend %dabba;
+    }
+    .earth {
+        @extend %dabba;
+        border-radius: 50%;
+    }
+}
+
+// header
+@mixin header-phone {
+    /* means less than 480ox */
+    @media only screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+.main-header {
+    .header {
+        width: 100%;
+        height: 100px;
+        background-color: #fff;
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    }
+    @include header-phone {
+        .header {
+            width: 80%;
+        }
+    }
+}
+
+// different types of selector functions
+#{selector-append(".left, .right","-area")} {
+    // css is : .left-area, .right-area
+    color: red
+}
+
+.nest1,
+.nest2 {
+    display: inline-block;
+}
+
+#{selector-nest(".nest1, .nest2",".btn")} {
+    // css is : .nest1 .btn, .nest2 .btn
+    color: pink;
+    background-color: grey;
+    margin: 25px;
+}
+
+// some 'juice' mixin exammple
+.juice-container {
+    @include responsive(background-color,
+    #FFFFFF,
+    #DDDDDD,
+    #BBBBBB);
+}
+
+.boxyy {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    @include border-top-radius(10px);
+    @include border-bottom-radius(100px);
+    @include rotate(45deg);
+    @include hoverer(background-color,
+    red,
+    #1ee3e4);
+    @include bp(small) {
+        background-color: blue;
+    }
+}
