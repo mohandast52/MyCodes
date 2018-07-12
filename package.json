@@ -4,14 +4,15 @@
   "description": "",
   "main": "gulpFile.js",
   "dependencies": {
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^4.0.0-beta.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-livereload": "^3.8.1",
     "gulp-plumber": "^1.2.0",
     "gulp-ruby-sass": "^3.0.0",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.3.1"
   },
   "devDependencies": {},
   "scripts": {

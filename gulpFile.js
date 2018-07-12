@@ -32,6 +32,27 @@ gulp.task('styles', function () {
         .pipe(livereload()); /* reloads whenever css is changed and saved  */
 });
 
+// BOOTSTRAP 4 - start
+
+// to migrate bootstrap 4 js to /Boostrap 4 project/js folder
+gulp.task('B4js', function () {
+    gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js'])
+        .pipe(gulp.dest('Bootstrap 4 project/js'));
+});
+
+// sass to css in /Boostrap 4 project/css/ folder
+gulp.task('B4css', function () {
+    return sass(['node_modules/bootstrap/scss/bootstrap.scss', 'Bootstrap 4 project/scss/*.scss'], {
+            style: 'expanded'
+        })
+        .on('error', errorLog)
+        .pipe(prefix('last 2 version'))
+        .pipe(gulp.dest('Bootstrap 4 project/css'))
+        .pipe(livereload());
+});
+
+
+// BOOTSTRAP 4 - end
 
 /*
 // NOT WORKING
@@ -55,10 +76,11 @@ gulp.task('watch', function () {
     // looks for changes in js/*.js (means any js files in js Folder) and runs the scripts in the array
     gulp.watch('js/*.js', ['scripts']);
     gulp.watch('scss/*.scss', ['styles']);
+    gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'Bootstrap 4 project/scss/*.scss'], ['B4css']);
 });
 
 
-gulp.task('default', ['scripts', 'styles', 'watch']);
+gulp.task('default', ['scripts', 'styles', 'B4js', 'B4css', 'watch']);
 
 
 
