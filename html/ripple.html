@@ -10,10 +10,12 @@
     <link rel="stylesheet" type="text/css" href="../css/rippleEffect.css">
     <style>
         body {
+            height: 100vh;
             padding: 50px 10px;
             margin: 0;
             box-sizing: border-box;
-            background: linear-gradient(#1976d2, #2196f3) no-repeat;
+            background-color: #F3F3F3;
+            /* background: linear-gradient(180deg, #E0E0E0 0%, rgba(117, 164, 205, 1) 100%); */
         }
 
         hr {
@@ -24,7 +26,7 @@
 
         .cards {
             width: 100%;
-            margin-top: 40px;
+            margin-top: 10%;
             display: flex;
             justify-content: space-around;
         }
@@ -55,7 +57,7 @@
             border-radius: 50%;
             margin-top: 170px;
             /* already centered hence used margin */
-            background-color: rgb(255, 64, 129);
+            background-color: #1565c0;
             animation: card-ripple .5s ease-in-out forwards;
             /* forwards : oh-hover keeping scale as it is */
             transform: scale(0);
@@ -76,10 +78,13 @@
             justify-content: center;
             align-items: center;
             border-radius: inherit;
-
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
             /* ripple effect to be only in the card-1-p and not to spread to other elemets */
             position: relative;
             overflow: hidden;
+            background-color: #bbdefb;
+            border-bottom: 1px solid gainsboro;
         }
 
         .card-img {
@@ -90,6 +95,7 @@
             border-radius: inherit;
             text-align: center;
             overflow: hidden;
+            padding: 10px;
         }
     </style>
 </head>
@@ -106,7 +112,7 @@
                 <div class="card-p-1">
                     <span></span>
                     <div class="card-img">
-                        <p>Icon - 1</p>
+                        <p></p>
                     </div>
                 </div>
                 <div class="card-p-2">
@@ -118,7 +124,7 @@
                 <div class="card-p-1">
                     <span></span>
                     <div class="card-img">
-                        <p>Icon - 1</p>
+                        <p></p>
                     </div>
                 </div>
                 <div class="card-p-2">

@@ -1,0 +1,164 @@
+img {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+.wrapper div {
+  padding: 5px;
+}
+.wrapper > div:nth-child(even) {
+  background-color: #eee;
+}
+.wrapper > div:nth-child(odd) {
+  background-color: rgba(250, 186, 186, 0.829);
+}
+
+.example-1 {
+  display: grid;
+  /* 
+  1st column will be 60% in width and other 40% !
+  using this may cause mismatch in padding, margin. as we can see
+  scroll bar down.
+  */
+  grid-template-columns: 60% 40%;
+  /* gap between column */
+  grid-column-gap: 10px;
+  /* gap between rows */
+  grid-row-gap: 10px;
+}
+
+.example-2 {
+  display: grid;
+  /* instead of using percentages, we can use fractions */
+  /* 
+  grid-template-columns: 1fr 1fr 1fr; is the same as below.
+  i.e repeat 3 times 1fr 
+  (recommended to use 'fr') 
+  */
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  /* it will have height 100px, but is the content goes beyond that..it will overflow 
+  hence, minmax is used
+  grid-auto-rows: 100px;
+  */
+  /* minmax(100px auto): mininum 100px and after that auto */
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.example-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.example-3 .nested {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  /* height of each nested grid will be 100px; */
+  grid-auto-rows: 100px;
+}
+.example-3 .nested > div {
+  background-color: #a4fe98;
+  text-align: center;
+}
+
+.example-4 {
+  border: 5px solid #0e35f9;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: 200px;
+  justify-items: center;
+  /* from left:  */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* from top: */
+}
+.example-4 .box {
+  border: 2px solid red;
+}
+.example-4 .box-1 {
+  justify-self: left;
+}
+.example-4 .box-2 {
+  justify-self: right;
+}
+.example-4 .box-3 {
+  -ms-flex-item-align: start;
+      align-self: start;
+}
+.example-4 .box-4 {
+  -ms-flex-item-align: end;
+      align-self: end;
+}
+
+.example-5 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+  grid-gap: 15px;
+}
+.example-5 .box {
+  background-color: #3d76f0 !important;
+  color: white;
+  font-size: 36px;
+}
+.example-5 .box-1 {
+  /* grid-column: 1 / -1; goes from 1st to last column */
+  /* from column 1 to 3 */
+  grid-column: 1/3;
+  grid-row: 1;
+}
+.example-5 .box-2 {
+  /* we can see the overlapping and tranparancy */
+  background-color: #e83f3980 !important;
+  grid-column: 2/3;
+  grid-row: 1/3;
+  border: 5px solid #c0001c;
+}
+.example-5 .box-3 {
+  grid-row: 2/4;
+}
+.example-5 .box-5 {
+  grid-row: 2/5;
+}
+
+.example-6 {
+  display: grid;
+  /* gives more flexibility like bootstrap */
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px 200px 40px;
+  font-size: 24px;
+  text-align: center;
+  color: white;
+}
+.example-6 .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.example-6 .eg-6-layout-1 {
+  background-color: #673AB7 !important;
+  grid-column: 1/-1;
+}
+.example-6 .eg-6-layout-2 {
+  background-color: #757575 !important;
+  grid-column: 1/3;
+}
+.example-6 .eg-6-layout-3 {
+  background-color: #4CAF50 !important;
+  grid-column: 3/-1;
+}
+.example-6 .eg-6-layout-4 {
+  background-color: #0288D1 !important;
+  grid-column: 1/-1;
+}
