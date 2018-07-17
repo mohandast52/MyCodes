@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drag & Drop</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0px;
+            background-color: #512DA8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .empty {
+            display: inline-block;
+            height: 160px;
+            width: 160px;
+            margin: 20px;
+            background-color: white;
+            border: 3px solid #515151;
+        }
+
+        .fill {
+            background-size: contain;
+            position: relative;
+            height: 145px;
+            width: 145px;
+            cursor: pointer;
+            top: 5px;
+            left: 5px;
+        }
+
+        .draggableItem1 {
+            background-image: url('../images/SVGs/dance1.svg');
+        }
+
+        .draggableItem2 {
+            background-image: url('../images/SVGs/dance2.svg');
+        }
+
+        .draggableItem3 {
+            background-image: url('../images/SVGs/dance3.svg');
+        }
+
+        .draggableItem4 {
+            background-image: url('../images/SVGs/dance4.svg');
+        }
+
+        .hold {
+            border: solid #ccc 4px;
+        }
+
+        .hovered {
+            opacity: 0.2;
+            border-style: dashed;
+        }
+
+        .invisible {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="empty">
+            <div class="fill draggableItem1" draggable="true"></div>
+        </div>
+        <div class="empty">
+            <div class="fill draggableItem2" draggable="true"></div>
+        </div>
+        <div class="empty">
+            <div class="fill draggableItem3" draggable="true"></div>
+        </div>
+        <div class="empty">
+            <div class="fill draggableItem4" draggable="true"></div>
+        </div>
+
+    </div>
+    <script>
+        const fills = document.querySelectorAll('.fill');
+        const empties = document.querySelectorAll('.empty');
+
+        var sourceEmpty;
+        for (const eachFill of fills) {
+            eachFill.addEventListener('dragstart', dragStart);
+            eachFill.addEventListener('dragend', dragEnd);
+
+            function dragStart(e) {
+                // e.preventDefault();
+                sourceEmpty = this.parentElement;
+                e.dataTransfer.setData('text', 'Mohan!');
+                setTimeout(() => e.target.classList.add('invisible'), 0);
+            }
+
+            function dragEnd(e) {
+                e.preventDefault();
+                e.target.classList.remove('invisible');
+            }
+        }
+
+        for (const empty of empties) {
+            empty.addEventListener('dragover', dragOver);
+            empty.addEventListener('dragenter', dragEnter);
+            empty.addEventListener('dragleave', dragLeave);
+            empty.addEventListener('drop', dragDrop);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+        }
+
+        function dragEnter(e) {
+            e.preventDefault();
+            e.target.classList.add('hovered');
+        }
+
+        function dragLeave(e) {
+            e.target.classList.remove('hovered');
+        }
+
+        function dragDrop(e) {
+            e.preventDefault();
+            const destinationEmpty = this;
+            var childOfdestinationEmpty = destinationEmpty.firstElementChild;
+
+            // replacing destination's child element with source which is picked
+            destinationEmpty.replaceChild(sourceEmpty.firstElementChild, destinationEmpty.firstElementChild);
+            // adding the child of destination which we have saved in variable 'childOfdestinationEmpty'
+            sourceEmpty.appendChild(childOfdestinationEmpty);
+
+            // the above 2 functions are just to swap the elements
+
+            childOfdestinationEmpty.classList.remove('hovered');
+        }
+        //e.preventDefault(): Necessary, Allows us to drop.
+    </script>
+</body>
+
+</html>

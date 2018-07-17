@@ -1,45 +1,51 @@
 $whiteBgWidth: 100%;
 $whiteBgHeight: 320px;
 $lightgray: #d3d3d3;
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: $lightgray;
 }
 
-.white-bg {
-    width: $whiteBgWidth;
-    height: $whiteBgHeight;
-    margin-top: 50px;
-    padding: 15px;
-    background-color: #ffffff;
-    border: 1px solid;
-    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
-    border-radius: 3px;
-}
-
-.movable-gradient {
-    width: $whiteBgWidth - 1%;
-    height: $whiteBgHeight/2;
-    margin: 0 auto;
-    background-color: #eeeeee;
-    opacity: .7;
-    position: relative;
-    overflow: hidden;
-}
-.movable-gradient>div {
-    width: $whiteBgWidth - 1%;
-    height: $whiteBgHeight/2;
-    position: absolute;
-    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-    animation-name: gradient-ani;
-    animation-duration: 1.3s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-}
-@keyframes gradient-ani {
-    0% {
-        left: -$whiteBgWidth/5;
-    }
-    100% {
-        left: $whiteBgWidth;
+.container {
+    margin: 0px 20px;
+    .white-bg {
+        width: $whiteBgWidth;
+        height: $whiteBgHeight;
+        margin-top: 50px;
+        padding: 15px;
+        background-color: #ffffff;
+        border: 1px solid;
+        border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+        border-radius: 3px;
+        .movable-gradient {
+            width: $whiteBgWidth - 1%;
+            height: $whiteBgHeight/2;
+            margin: 0 auto;
+            background-color: #eeeeee;
+            opacity: .7;
+            position: relative;
+            overflow: hidden;
+        }
+        .movable-gradient>div {
+            width: $whiteBgWidth - 1%;
+            height: $whiteBgHeight/2;
+            position: absolute;
+            background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%); // from left to right, from 0% to 8% of the width it's #eeeeee, from 9% to 18% it's #dddddd and so on.
+            animation-name: gradient-ani;
+            animation-duration: 1.3s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+        @keyframes gradient-ani {
+            0% {
+                left: -$whiteBgWidth/5;
+            }
+            100% {
+                left: $whiteBgWidth;
+            }
+        }
     }
 }
