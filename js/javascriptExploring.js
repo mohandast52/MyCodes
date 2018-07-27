@@ -193,3 +193,124 @@ box.addEventListener('mousemove', function (event) {
     output.textContent = "X : " + event.offsetX + " Y : " + event.offsetY;
     box.style.backgroundColor = "rgb(" + event.offsetX + "," + event.offsetY + ", 40)";
 });
+
+
+/* 
+   Immediately Invked Function Expression (IIFE) : 
+   - its JS function runs as soon as it is defined
+   - seperated global and local variables.
+   
+   var a = 2; // global
+   (function (){
+       console.log('Mohan Das');
+       var a = 5;
+       console.log(a); // local
+       // scope is separated.
+   })();
+   console.log(a);
+
+   - frameworks use this technique so that program and library function 
+   or variable names don't conflict.
+
+   Dependency Injection (DI) is a Design pattern which implements Inversion of Control (IoC)
+*/
+
+
+/*
+   // 'use strict'
+   
+   function(){
+       ...
+       x = 10; //  this will define itself in global scope because,
+                   we haven't specified 'var'.
+       ..
+   }
+   if we put 'use strict' it will give us error that variable x is not defined.
+*/
+
+// --- prototypal inheritance (simple parent child inheritance) ---
+/*
+ 
+*/
+
+var parent = {
+    value: "parentValue",
+    obj: {
+        objValue: "parentObjValue"
+    },
+    walk: function () {
+        console.log('walking');
+    }
+};
+
+var child = Object.create(parent);
+console.log("child.value: " + child.value);
+console.log("child.obj.objValue: " + child.obj.objValue);
+console.log("parent.value: " + parent.value);
+console.log("paren.obj.objValue: " + parent.obj.objValue);
+console.log(child); // see the <prototype> in console, which is actually parent object.
+console.log(parent);
+
+child.value = "childValue";
+child.obj.objValue = "childObjValue";
+console.log("child.value: " + child.value);
+console.log("child.obj.objValue: " + child.obj.objValue);
+console.log("parent.value: " + parent.value);
+console.log("paren.obj.objValue: " + parent.obj.objValue);
+
+console.log("child.value === parent.value?: " + (child.value === parent.value));
+console.log("child.obj === parent.obj?: " + (child.obj === parent.obj));
+// similarly for grand children.
+
+// Function Constructors
+
+function Dog(name) {
+    this.name = name;
+    console.log("'this' is: ", (this)); // retirns the myDog object
+}
+
+// new keyword is necessary to actually create object.
+// function name starting with capital letter is mostly Function constructor.
+var myDog = new Dog("Max1");
+console.log("myDog: ", myDog);
+
+// not being used as a function constructor
+Dog("Max2"); // this will return a global scope which is window object.
+
+
+
+
+// Difference between object literal and object constructor.
+/*
+Object literal: they are singleton object, if we change the object it will affect all the other object.
+*/
+
+var emp = {
+    name: "John"
+}
+var newEmp = emp;
+console.log("emp name " + emp.name);
+newEmp.name = "Mohan"; // change in newEmp, emp is also changed
+console.log("emp name " + emp.name);
+
+/*
+
+Object constructor: Object defined with a function constructor lets us have multiple instances.
+eg. 
+var emp = function(){
+    this.name = "Mohan";
+}
+var employee = new emp();
+var NewEmployee = new emp();
+*/
+
+
+
+
+
+
+
+
+
+
+

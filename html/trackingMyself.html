@@ -15,20 +15,31 @@
             margin: 20px;
         }
 
+        .niteMode {
+            color: white;
+            background-color: black;
+        }
+
         .year {
-            font-size: 24px;
+            font-size: 1.2em;
         }
 
         .month {
-            font-size: 20px;
+            font-size: 0.9em;
         }
 
         .dates>li {
-            font-size: 16px;
+            font-size: 0.8em;
             margin: 8px 0px;
         }
 
-        .studiedNew {}
+        .sub_parts {
+            font-size: 0.7rem;
+        }
+
+        .studiedNew {
+            text-decoration: none;
+        }
 
         .productive {
             text-decoration: underline;
@@ -45,10 +56,15 @@
             text-decoration-style: wavy;
             text-decoration-color: #E040FB;
         }
+
+        /*
+            use '<' and '@' bindings only.
+            never change property of passed in object or array (because it javascript feature to do that)
+        */
     </style>
 </head>
 
-<body>
+<body class="niteMode">
     <h1></h1>
     <main>
         <div>
@@ -56,11 +72,72 @@
                 <li class="year">2018</li>
                 <ul>
                     <li class="month">July</li>
-                    <ol class="dates" start="16"> 
+                    <ol class="dates" start="16">
                         <li class="studiedNew">Explored some javascripts event and methods.</li>
                         <li class="productive">Created simple image Drag & Drop project.</li>
                         <li class="wasted">Wasted by OverThinking</li>
-                        <li class="revised">{ 18 - 17 }</li>
+                        <li class="wasted">Wasted by OverThinking and ubuntu update to 18.04</li>
+                        <li class="studiedNew">Wasted by OverThinking and started
+                            <i>Angular project for interview!</i>
+                        </li>
+                        <li class="productive">
+                            <i>AngularJS!</i>
+                            <ul class="sub_parts">
+                                <li>Filter, $scope, $digest, $apply</li>
+                                <li>$watch, $injector</li>
+                                <li>$$ (angularJS internal)</li>
+                                <li>controller 'as' syntax</li>
+                                <li>prototypal interitance</li>
+                                <li>M-V-VM (common design pattern)</li>
+                            </ul>
+                        </li>
+                        <li class="wasted">Sunday and Wasted by OverThinking (k app)</li>
+                        <li class="productive">
+                            <i>AngularJS!</i>
+                            <ul class="sub_parts">
+                                <li>services using Service, Factory, Provider</li>
+                                <li>ng-if, ng-hide, ng-show</li>
+                                <li>Object literal(Singleton) vs Object constructor</li>
+                            </ul>
+                        </li>
+                        <li class="productive">
+                            <i>AngularJS!</i>
+                            <ul class="sub_parts">
+                                <li>$http</li>
+                                <li>directive => restrict, custom directive, =, @ etc</li>
+                                <li class="wasted">Wasted most of the time</li>
+                            </ul>
+                        </li>
+                        <li class="productive">
+                            <i>AngularJS!</i>
+                            <ul class="sub_parts">
+                                <li>directive with controllers</li>
+                                <li>& in directive</li>
+                                <li>link, ng-transclude</li>
+                            </ul>
+                        </li>
+                        <li class="productive">
+                            <i>AngularJS!</i>
+                            <ul class="sub_parts">
+                                <li>Component</li>
+                                <li>publish-subscribe design pattern</li>
+                                <li>$emit, $broadcast, $on</li>
+                            </ul>
+                        </li>
+                        <li class="productive">
+                            <i>AngularJS!</i>
+                            <ul class="sub_parts">
+                                <li>Module (split every component, controller, etc in different files)</li>
+                                <li>Routing</li>
+                                <li></li>
+                            </ul>
+                        </li>
+                        <li class="productive">
+                            <i>AngularJS!</i>
+                            <ul class="sub_parts">
+                                <li>Interview project within a day</li>
+                            </ul>
+                        </li>
                     </ol>
                 </ul>
             </ul>
@@ -69,3 +146,8 @@
 </body>
 
 </html>
+
+<!-- 
+
+    browser-sync start --server --directory --files "**/*"
+ -->
