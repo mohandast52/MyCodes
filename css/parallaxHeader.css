@@ -1,7 +1,6 @@
 body {
   font-family: "Open Sans", sans-serif;
-  overflow-x: hidden;
-}
+  overflow-x: hidden; }
 
 .button {
   padding: 10px 20px;
@@ -9,14 +8,11 @@ body {
   border: 1px solid black;
   background-color: white;
   color: black;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-.button:hover {
-  background: black;
-  color: white;
-  text-decoration: none;
-}
+  transition: all .3s ease-in-out; }
+  .button:hover {
+    background: black;
+    color: white;
+    text-decoration: none; }
 
 .bird-box {
   position: relative;
@@ -25,41 +21,37 @@ body {
   background-image: url(../images/bird-bg.jpg);
   background-size: auto 600px;
   background-position: top center;
-  background-attachment: fixed;
-}
-.bird-box .black-bird {
-  width: 960px;
-  height: 298px;
-  position: absolute;
-  background-image: url(../images/back-bird.png);
-  background-repeat: no-repeat;
-  background-position: top left;
-  /* position the transparent black-bird*/
-  left: 50%;
-  margin-left: -480px;
-}
-.bird-box .logo {
-  height: 100px;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  margin-top: -50px;
-  background-image: url(../images/black-bird-logo.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.bird-box .fore-bird {
-  width: 960px;
-  height: 733px;
-  position: absolute;
-  background-image: url(../images/fore-bird.png);
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  /* position the bird*/
-  left: 50%;
-  margin-left: -480px;
-  top: 380px;
-}
+  background-attachment: fixed; }
+  .bird-box .black-bird {
+    width: 960px;
+    height: 298px;
+    position: absolute;
+    background-image: url(../images/back-bird.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    /* position the transparent black-bird*/
+    left: 50%;
+    margin-left: -480px; }
+  .bird-box .logo {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    background-image: url(../images/black-bird-logo.svg);
+    background-position: center;
+    background-repeat: no-repeat; }
+  .bird-box .fore-bird {
+    width: 960px;
+    height: 733px;
+    position: absolute;
+    background-image: url(../images/fore-bird.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    /* position the bird*/
+    left: 50%;
+    margin-left: -480px;
+    top: 380px; }
 
 .content {
   position: relative;
@@ -67,143 +59,108 @@ body {
   margin-bottom: 300px;
   z-index: 2;
   height: auto;
-  /* periscope  */
-}
-.content article {
-  padding: 60px 0px;
-  text-align: center;
-}
-.content article h1 {
-  font-size: 3rem;
-  font-weight: 100;
-  color: #b2b2b2;
-}
-.content article hr {
-  margin: 50px auto;
-  background-color: #e5e5e5;
-}
-.content .clothes-pics {
-  margin-bottom: 100px;
-}
-.content .clothes-pics figure {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 20px;
-  opacity: 0;
-  -webkit-transform: translateX(-20px);
-          transform: translateX(-20px);
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.content .clothes-pics figure.is-showing {
-  opacity: 1;
-  -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-}
-.content .clothes-pics figure img {
-  max-width: 100%;
-  max-height: 100%;
-  cursor: pointer;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.content .clothes-pics figure .figCaption {
-  position: absolute;
-  bottom: 0px;
-  left: -100%;
-  background-color: #000;
-  color: #fff;
-  padding: 2px 8px;
-  font-size: 12px;
-  letter-spacing: .9px;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-.content .clothes-pics figure:hover .figCaption {
-  left: 15px;
-}
-.content .clothes-pics figure:hover img {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-.content .large-window {
-  height: 640px;
-  width: 640px;
-  border-radius: 50%;
-  margin: 100px auto;
-  position: relative;
-  background-image: url(../images/model2.jpg);
-  background-position: top center;
-  background-attachment: fixed;
-}
-.content .large-window .window-tint {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  border-radius: 50%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  /* 
-  making all zero means streching to parent container 
-  i.e. to width and height of .large-window 
-  */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.content .large-window .window-tint .promo-text {
-  color: #fff;
-  font-weight: 100;
-  font-size: 40px;
-  line-height: 1.2;
-}
-.content .large-window .window-tint .promo-text strong {
-  display: block;
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-.content .large-window .window-tint .promo-text strong span {
-  font-weight: 300;
-  font-size: 18px;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.6);
-}
-.content .large-window .window-tint .promo-text .window-cta {
-  font-size: 20px;
-  text-decoration: none;
-  color: white;
-  border: 1px solid white;
-  padding: 10px 20px;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-.content .large-window .window-tint .promo-text .window-cta:hover {
-  background: white;
-  color: black;
-}
-.content .blog-posts .post {
-  background-color: white;
-  border: 1px solid #e1e1e1;
-  padding: 20px 20px 30px;
-  position: relative;
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
-  /* bottom is 0px */
-}
-.content .blog-posts img {
-  max-width: 100%;
-  max-height: 100%;
-  cursor: pointer;
-}
+  /* periscope  */ }
+  .content article {
+    padding: 60px 0px;
+    text-align: center; }
+    .content article h1 {
+      font-size: 3rem;
+      font-weight: 100;
+      color: #b2b2b2; }
+    .content article hr {
+      margin: 50px auto;
+      background-color: #e5e5e5; }
+  .content .clothes-pics {
+    margin-bottom: 100px; }
+    .content .clothes-pics figure {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.3s ease-in-out; }
+      .content .clothes-pics figure.is-showing {
+        opacity: 1;
+        transform: translateX(0px); }
+      .content .clothes-pics figure img {
+        max-width: 100%;
+        max-height: 100%;
+        cursor: pointer;
+        transform: scale(1);
+        transition: all 0.3s ease-in-out; }
+      .content .clothes-pics figure .figCaption {
+        position: absolute;
+        bottom: 0px;
+        left: -100%;
+        background-color: #000;
+        color: #fff;
+        padding: 2px 8px;
+        font-size: 12px;
+        letter-spacing: .9px;
+        transition: all .3s ease-in-out; }
+      .content .clothes-pics figure:hover .figCaption {
+        left: 15px; }
+      .content .clothes-pics figure:hover img {
+        transform: scale(1.2); }
+  .content .large-window {
+    height: 640px;
+    width: 640px;
+    border-radius: 50%;
+    margin: 100px auto;
+    position: relative;
+    background-image: url(../images/model2.jpg);
+    background-position: top center;
+    background-attachment: fixed; }
+    .content .large-window .window-tint {
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      border-radius: 50%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      /* 
+            making all zero means streching to parent container 
+            i.e. to width and height of .large-window 
+            */
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .content .large-window .window-tint .promo-text {
+        color: #fff;
+        font-weight: 100;
+        font-size: 40px;
+        line-height: 1.2; }
+        .content .large-window .window-tint .promo-text strong {
+          display: block;
+          font-size: 28px;
+          margin-bottom: 20px; }
+          .content .large-window .window-tint .promo-text strong span {
+            font-weight: 300;
+            font-size: 18px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6); }
+        .content .large-window .window-tint .promo-text .window-cta {
+          font-size: 20px;
+          text-decoration: none;
+          color: white;
+          border: 1px solid white;
+          padding: 10px 20px;
+          transition: all .3s ease-in-out; }
+          .content .large-window .window-tint .promo-text .window-cta:hover {
+            background: white;
+            color: black; }
+  .content .blog-posts .post {
+    background-color: white;
+    border: 1px solid #e1e1e1;
+    padding: 20px 20px 30px;
+    position: relative;
+    transition: all .5s ease;
+    /* bottom is 0px */ }
+  .content .blog-posts img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer; }
 
 footer {
   background-color: black;
@@ -213,11 +170,9 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
-}
-footer .footer-stuff {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-footer a {
-  color: white;
-}
+  z-index: -1; }
+  footer .footer-stuff {
+    max-width: 1200px;
+    margin: 0 auto; }
+  footer a {
+    color: white; }

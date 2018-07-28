@@ -4,6 +4,11 @@ img {
     padding-bottom: 15px;
 }
 
+h2 {
+    text-align: center;
+    color: black;
+}
+
 // flexbox : for one dimention
 // css-grid : for 2 dimention
 .wrapper {
@@ -29,7 +34,7 @@ img {
     /* gap between column */
     grid-column-gap: 10px;
     /* gap between rows */
-    grid-row-gap: 10px; // grid-gap: 10px; /* 10px for both column and rows */
+    grid-row-gap: 20px; // grid-gap: 10px; /* 10px for both column and rows */
 }
 
 .example-2 {

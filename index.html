@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Projects and Practise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --cardWidth: 250px;
+            --cardHeight: 100px;
+            --blue: #3F51B5;
+            --white: rgb(255, 255, 255, 0.87);
+            --green: #388e3c;
+            --red: #FF5252;
+            --grey: #d3d3d3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--grey);
+
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                width: 970px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                width: 1170px;
+            }
+        }
+
+        .allProjects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .allProjects a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--cardWidth);
+            height: var(--cardHeight);
+            margin: 20px;
+            text-decoration: none;
+            background: linear-gradient(to right, #3519d2, #871ee9);
+            color: white;
+            border-radius: 7px;
+            transition: all .2s ease;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+        }
+
+        .allProjects a:hover {
+            width: 270px;
+            height: 120px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 1px;
+            box-shadow: 0 8px 9px -5px rgba(0, 0, 0, .2), 0 15px 22px 2px rgba(0, 0, 0, .14), 0 6px 28px 5px rgba(0, 0, 0, .12);
+        }
+
+        .allProjects a>div {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <div class="allProjects">
+
+            <a href="/MyCodes/html/animation.html">
+                <div>
+                    Animation
+                </div>
+            </a>
+
+            <a href="/MyCodes/html/card-ripple.html">
+                <div>Card-ripple</div>
+            </a>
+
+            <a href="/MyCodes/html/cssGridLearning.html">
+                <div>CSS grid learning</div>
+            </a>
+
+
+            <a href="/MyCodes/html/dragAndDrop.html">
+                <div>
+                    Drag and Drop using Javascript
+                </div>
+            </a>
+
+            <a href="/MyCodes/html/fcc-productLandingPage.html">
+                <div>FCC Landing Page Project</div>
+            </a>
+
+
+            <a href="/MyCodes/html/inboxDesign.html">
+                <div>
+                    Inbox Design
+                    <span>(WORKING)</span>
+                </div>
+            </a>
+
+
+            <a href="/MyCodes/html/javascriptExploring.html">
+                <div>
+                    Javascript Exploring
+                    <span>(WORKING)</span>
+                </div>
+            </a>
+
+
+            <a href="/MyCodes/html/modernLoader.html">
+                <div>
+                    Modern Loader
+                </div>
+            </a>
+
+
+            <a href="/MyCodes/html/myButton.html">
+                <div>
+                    Different Button Styles
+                </div>
+            </a>
+
+
+            <a href="/MyCodes/html/parallaxHeader.html">
+                <div>
+                    Parallax
+                    <span>WORKING</span>
+                </div>
+            </a>
+
+
+            <a href="/MyCodes/html/ripple.html">
+                <div>Ripple Effect</div>
+            </a>
+
+
+            <!-- 
+                <a href="/MyCodes/html"></a>
+                     -->
+        </div>
+    </main>
+</body>
+
+</html>

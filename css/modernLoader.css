@@ -1,62 +1,40 @@
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
-  background-color: #d3d3d3;
-}
+  background-color: #d3d3d3; }
 
 .container {
-  margin: 0px 20px;
-}
-.container .white-bg {
-  width: 100%;
-  height: 320px;
-  margin-top: 50px;
-  padding: 15px;
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
-  border-radius: 3px;
-}
-.container .white-bg .movable-gradient {
-  width: 99%;
-  height: 160px;
-  margin: 0 auto;
-  background-color: #eeeeee;
-  opacity: .7;
-  position: relative;
-  overflow: hidden;
-}
-.container .white-bg .movable-gradient > div {
-  width: 99%;
-  height: 160px;
-  position: absolute;
-  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  -webkit-animation-name: gradient-ani;
-          animation-name: gradient-ani;
-  -webkit-animation-duration: 1.3s;
-          animation-duration: 1.3s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-direction: normal;
-          animation-direction: normal;
-}
-@-webkit-keyframes gradient-ani {
-  0% {
-    left: -20%;
-  }
-  100% {
-    left: 100%;
-  }
-}
+  margin: 0px 20px; }
+  .container .white-bg {
+    width: 100%;
+    height: 320px;
+    margin-top: 50px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px; }
+    .container .white-bg .movable-gradient {
+      width: 99%;
+      height: 160px;
+      margin: 0 auto;
+      background-color: #eeeeee;
+      opacity: .7;
+      position: relative;
+      overflow: hidden; }
+    .container .white-bg .movable-gradient > div {
+      width: 99%;
+      height: 160px;
+      position: absolute;
+      background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+      animation-name: gradient-ani;
+      animation-duration: 1.3s;
+      animation-iteration-count: infinite;
+      animation-direction: normal; }
+
 @keyframes gradient-ani {
   0% {
-    left: -20%;
-  }
+    left: -20%; }
   100% {
-    left: 100%;
-  }
-}
+    left: 100%; } }

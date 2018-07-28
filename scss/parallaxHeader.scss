@@ -65,7 +65,7 @@ body {
 .content {
     position: relative;
     background-color: white;
-    margin-bottom: 300px;    
+    margin-bottom: 300px;
     z-index: 2;
     height: auto;
     article {
@@ -199,11 +199,11 @@ footer {
     background-color: black;
     color: white;
     padding: 40px 0px;
-    width: 100%;    
+    width: 100%;
     position: fixed;
     left: 0;
     bottom: 0;
-
+    z-index: -1;
     .footer-stuff {
         max-width: 1200px;
         margin: 0 auto;

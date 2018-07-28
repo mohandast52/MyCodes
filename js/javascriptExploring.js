@@ -49,7 +49,7 @@ console.log("innerHTML : " + h1_id_header_title.innerHTML);
 h1_id_header_title.innerHTML = "<h3>Mohan Das from Javascript</h3>";
 
 // changing style
-h1_id_header_title.style.borderBottom = "3px solid #337ab7";
+h1_id_header_title.style.borderBottom = "3px solid #303F9F";
 
 // 2. getElementByClassName
 
