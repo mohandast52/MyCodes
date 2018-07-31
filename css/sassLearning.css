@@ -5,11 +5,7 @@ https://sass-lang.com/
 /* 
 juice has built in mixins 
 http://kylebrumm.com/juice/
-*/
-.container {
-  background-color: #dddddd; }
 
-/* 
 all css from file _importEg.scss will be integrated here.
 and all the variables defined there can be used freely here
 */

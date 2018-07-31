@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Hackerrank Clone</title>
+
+
+        <script src="/MyCodes/js/jquery-3.3.1.min.js"></script>
+
+        <link rel="stylesheet" href="../css/hackerrankClone.css">
+    </head>
+</head>
+
+<body>
+
+    <div class="page page-1 fixed-bg" id="front-page" data-nav-link=1>
+        <a href="#" class="logo"></a>
+        <h1>Front-End Developer Internship 2018</h1>
+
+        <div id="navigation">
+            <ul>
+                <!-- every href should have data-nav-link attribute with same number i.e id="navigation-[number]" -->
+                <li>
+                    <a href="#front-page" id="navigation-1">
+                        <svg>
+                            <circle cx="20" cy="20" r="8" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#page-3" id="navigation-3">
+                        <svg>
+                            <circle cx="20" cy="20" r="8" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#page-4" id="navigation-4">
+                        <svg>
+                            <circle cx="20" cy="20" r="8" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#page-5" id="navigation-5">
+                        <svg>
+                            <circle cx="20" cy="20" r="8" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#page-6" id="navigation-6">
+                        <svg>
+                            <circle cx="20" cy="20" r="8" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#page-7" id="navigation-7">
+                        <svg>
+                            <circle cx="20" cy="20" r="8" />
+                        </svg>
+                    </a>
+                </li>
+                <li style="height: 30px;">
+                </li>
+                <!-- social icons -->
+                <li>
+                    <a href="https://github.com/mohandast52" title="GitHub" class="socialIcons" target="_blank">
+                        <svg viewBox="0 0 512 512">
+                            <path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 
+                            12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 
+                            1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 
+                            -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 
+                            19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 
+                            44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 
+                            0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"
+                            />
+                        </svg>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.linkedin.com/in/mohan-das-6a5a50123/" title="LinkedIn" class="socialIcons" target="_blank">
+                        <svg viewBox="0 0 512 512">
+                            <path d="M186.4 142.4c0 19-15.3 34.5-34.2 34.5 -18.9 0-34.2-15.4-34.2-34.5 0-19 15.3-34.5 34.2-34.5C171.1 
+                            107.9 186.4 123.4 186.4 142.4zM181.4 201.3h-57.8V388.1h57.8V201.3zM273.8 201.3h-55.4V388.1h55.4c0 0 0-69.3 
+                            0-98 0-26.3 12.1-41.9 35.2-41.9 21.3 0 31.5 15 31.5 41.9 0 26.9 0 98 0 98h57.5c0 0 0-68.2 0-118.3 0-50-28.3-74.2-68-74.2 
+                            -39.6 0-56.3 30.9-56.3 30.9v-25.2H273.8z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://codepen.io/mohandast52" title="Codepen" class="socialIcons" target="_blank">
+                        <svg viewBox="0 0 24 24" style="transform: scale(0.5);">
+                            <path d="M24 8.182l-.018-.087-.017-.05c-.01-.024-.018-.05-.03-.075-.003-.018-.015-.034-.02-.05l-.035-.067-.03-.05-.044-.06-.046-.045-.06-.045-.046-.03-.06-.044-.044-.04-.015-.02L12.58.19c-.347-.232-.796-.232-1.142 0L.453 
+                            7.502l-.015.015-.044.035-.06.05-.038.04-.05.056-.037.045-.05.06c-.02.017-.03.03-.03.046l-.05.06-.02.06c-.02.01-.02.04-.03.07l-.01.05C0 8.12 
+                            0 8.15 0 8.18v7.497c0 .044.003.09.01.135l.01.046c.005.03.01.06.02.086l.015.05c.01.027.016.053.027.075l.022.05c0 
+                            .01.015.04.03.06l.03.04c.015.01.03.04.045.06l.03.04.04.04c.01.013.01.03.03.03l.06.042.04.03.01.014 10.97 
+                            7.33c.164.12.375.163.57.163s.39-.06.57-.18l10.99-7.28.014-.01.046-.037.06-.043.048-.036.052-.058.033-.045.04-.06.03-.05.03-.07.016-.052.03-.077.015-.045.03-.08v-7.5c0-.05 0-.095-.016-.14l-.014-.045.044.003zm-11.99 
+                            6.28l-3.65-2.44 3.65-2.442 3.65 2.44-3.65 2.44zm-1.034-6.674l-4.473 2.99L2.89 8.362l8.086-5.39V7.79zm-6.33 4.233l-2.582 1.73V10.3l2.582 
+                            1.726zm1.857 1.25l4.473 2.99v4.82L2.89 15.69l3.618-2.417v-.004zm6.537 2.99l4.474-2.98 3.613 2.42-8.087
+                             5.39v-4.82zm6.33-4.23l2.583-1.72v3.456l-2.583-1.73zm-1.855-1.24L13.042 7.8V2.97l8.085 5.39-3.612 2.415v.003z"
+                            />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/mohandast52" title="freeCodeCamp" class="socialIcons" target="_blank">
+                        <svg viewBox="0 0 24 24" style="transform: scale(0.5);">
+                            <path d="M23.967 12.317c0 2.5-.854 4.718-2.598 6.681-.635.729-1.143 1.076-1.488 1.076-.121 
+                            0-.256-.033-.346-.125-.092-.096-.15-.223-.15-.35 0-.188.225-.475.674-.889 1.814-1.736 2.727-3.895 
+                            2.727-6.456 0-2.846-.943-5.152-2.816-6.936-.374-.342-.57-.627-.57-.852 0-.12.061-.256.164-.345.105-.09.225-.149.346-.149.418 
+                            0 1.049.509 1.842 1.527C23.25 7.402 24 9.694 24 12.345l-.033-.028zM0 11.682c0-2.499.854-4.719 2.598-6.681.635-.729 1.143-1.076 
+                            1.49-1.076.119 0 .254.033.344.125.09.095.15.189.15.314 0 .188-.225.477-.674.918-1.781 1.744-2.711 3.895-2.711 6.462 0 2.847.951 
+                            5.158 2.821 6.935.38.344.569.633.569.854 0 .127-.061.256-.16.348-.099.094-.225.16-.352.16-.436 0-1.033-.51-1.828-1.518C.734 16.654
+                             0 14.373 0 11.682zm17.699 6.869H6.715c-.35 0-.668-.287-.668-.666 0-.383.285-.668.668-.668h10.984c.348 0 
+                             .668.285.668.668-.006.385-.287.666-.668.666zm-6-8.919c.197-.025.344.615.361.749.046.353-.071.693-.231 1.003-.597 
+                             1.165-1.978 2.104-1.612 3.575.166.635.494 1.076 1.514 1.619-.345.119-.824-.111-1.094-.301-1.199-.816-1.963-2.156-1.888-3.619.03-.464.12-.92.239-1.368.375-1.281 
+                             1.139-2.401 1.588-3.647.225-.599.39-1.324.211-1.953-.09-.309-.255-.599-.465-.849-.061-.076-.404-.465-.539-.42.6-.225 1.139-.016 1.662.299.404.24.72.585.959.975.449.719.629 
+                             1.542.719 2.381.031.345-.015 1.184.39 1.35.419.179.749-.525.839-.81.195-.645-.06-1.259-.314-1.858.061.121.285.255.389.346l.36.344c.435.449.704 1.004.884 1.604.164.539.24
+                              1.093.27 1.633.074 1.123-.18 2.278-.629 3.311-.195.463-.449.898-.779 1.273-.319.373-.748.613-1.093.957.808-.809 1.238-2.127 1.123-3.131-.06-.553-.239-1.063-.659-1.572 
+                              0 0 .045.358.087.583.075.495-.255 1.02-.644.959-.285-.029-.136-.643-.105-.838.105-.584-.03-1.154-.244-1.693-.209-.509-.6-.914-1.198-.823l-.101-.079z"
+                            />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page page-2">
+        <a href="#" id="sticky-logo"></a>
+        <div class="subPage">
+            <h2>Hello World</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Adipiscing elit pellentesque habitant morbi tristique senectus et netus. Eu ultrices vitae auctor eu. Sed
+                id semper risus in hendrerit gravida rutrum quisque. Porttitor leo a diam sollicitudin tempor id. Cras ornare
+                arcu dui vivamus arcu felis bibendum ut tristique.
+                <br>
+                <br> Id interdum velit laoreet id donec. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque
+                habitant. Tristique senectus et netus et. Cursus mattis molestie a iaculis at. Cras sed felis eget velit.
+                Ultrices sagittis orci a scelerisque. Auctor eu augue ut lectus arcu bibendum at. Viverra aliquet eget sit
+                amet tellus. Sit amet justo donec enim diam vulputate. Gravida dictum fusce ut placerat. Sed felis eget velit
+                aliquet. Cursus turpis massa tincidunt dui ut. Laoreet id donec ultrices tincidunt arcu non sodales. Porta
+                nibh venenatis cras sed felis eget velit aliquet sagittis.
+                <br>
+                <br> Aenean euismod elementum nisi quis. Tempor orci dapibus ultrices in iaculis nunc sed augue. Aliquet enim
+                tortor at auctor urna nunc id cursus metus. Nec ultrices dui sapien eget mi proin. Et sollicitudin ac orci
+                phasellus egestas tellus rutrum tellus pellentesque. Sodales ut eu sem integer.
+                <br>
+                <br>
+                <strong>Mohan Das</strong>
+            </p>
+        </div>
+    </div>
+
+    <div class="page page-3" id="page-3" data-nav-link=3>
+        <div>
+            <h2>Read Me </h2>
+            <table>
+                <tr>
+                    <td>01</td>
+                    <td>
+                        <p>Hello,</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>
+                        <p>Completely made from scratch.</p>
+                        <p>Took almost 2 days with 8-10 hours per day.</p>
+                        <p>Technologies used : HTML, SCSS, Jquery, Vanila JavaScript</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>
+                        <p>Images</p>
+                        <p>Radomly selected</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>04</td>
+                    <td>
+                        <p>Graphs</p>
+                        <p>Used infogram, which HackerRank used</p>
+                        <p>Datas are completely random and dummy.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>05</td>
+                    <td>
+                        <p>Text</p>
+                        <p>Used lorem paragraph and from HackerRank's page</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>06</td>
+                    <td>
+                        <p>Idea</p>
+                        <p>Taken by HackerRank, but layout is totally my idea.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>07</td>
+                    <td>
+                        <p>Projects</p>
+                        <p>I strongly recommend to see my GitHub and Codepen profile.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>08</td>
+                    <td>
+                        <p>Thank you.</p>
+                        <p>Looking forward to hear from you.</p>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="page page-4" id="page-4" data-nav-link=4>
+        <div class="subPage">
+            <h2>1 in 4 developers started coding before they could drive</h2>
+            <div>
+                <p>It’s never too early — or too late! — to start coding. Of the roughly 39,000 developers surveyed across all
+                    professional levels, more than a quarter of&nbsp;developers wrote their first piece of code before they
+                    were 16 years old.
+                    <br>
+                    <br> Meanwhile, of all the developers who started coding after the age of 26, 36%&nbsp;are&nbsp;now senior
+                    or even higher-level developers, growing quickly in their careers.
+                </p>
+            </div>
+        </div>
+
+        <div class="subPage">
+            <div class="graph">
+                <script id="infogram_0_70e5f41e-9254-47fd-a283-eaee198df71a" title="Bar Chart" src="https://e.infogram.com/js/dist/embed.js?UWz"
+                    type="text/javascript"></script>
+            </div>
+        </div>
+
+        <div class="subPage">
+            <h2>The PC revolution sparked a&nbsp;unique ambition among ‘70s&nbsp;kids</h2>
+            <div>
+                <p>Unlike generations thereafter, if kids of the seventies wanted to see innovative technology, they’d have
+                    to build it themselves — they had no other choice. There were no widespread resources to teach them how
+                    to build software. Almost half of all developers (47%) between the ages of 45 and 54 started coding before
+                    they were 16&nbsp;years old. Meanwhile, developers between 18 and 24 today are the least likely to&nbsp;have
+                    started coding before 16 (only 20%).
+                    <br>
+                    <br> Developers between the ages of 45 and 54 were among the first to get their hands on relatively powerful
+                    PCs, like the Acorn Archimedes, TRS-80, Commodore 64, and Apple II. With limited to no access to formal
+                    education, young people in the PC Revolution had an unusually strong drive to learn to code on their
+                    own.
+                </p>
+            </div>
+        </div>
+        <div class="subPage">
+            <div class="graph">
+                <script id="infogram_0_0d503db8-5f88-4a2d-8a39-7d0740378891" title="Dummy" src="https://e.infogram.com/js/dist/embed.js?WlE"
+                    type="text/javascript"></script>
+            </div>
+        </div>
+
+        <div class="subPage">
+            <h2>Hats off to the UK for leading the pack for youngest coders</h2>
+            <div>
+                <p>Of the 17 countries represented in the survey with at least 100 respondents, the UK stands out with the highest
+                    share of developers who started coding as young as 5 to 10 years old. The majority of those developers
+                    are in their 30s and 40s today.
+                    <br>
+                    <br> When these developers were schoolyard kids, the Acorn Archimedes, a Cambridge-based PC, hit the scene.
+                    Thanks to a partnership with Tesco in which schools received these PCs in exchange for shopping at Tesco,
+                    more kids had access to&nbsp;computers. This initiative spread across Europe and Australia.
+                    <br>
+                    <br> Today, this culture of forward-thinking education has persisted in the UK — it&nbsp;became the first
+                    nation to modernize its curriculum by requiring kids as young as&nbsp;5 to take programming classes.
+                    <br>
+                    <br> Policymakers repeatedly cite that early exposure to coding is an important step in&nbsp;creating a gateway
+                    to careers in software and understanding the principles of&nbsp;computational thinking and software that
+                    influences daily life.
+                </p>
+            </div>
+        </div>
+        <div class="subPage">
+            <div class="graph">
+                <script id="infogram_0_bf7a50d8-4b43-4787-9b77-891a49ae86bf" title="" src="https://e.infogram.com/js/dist/embed.js?HD2" type="text/javascript"></script>
+            </div>
+        </div>
+    </div>
+
+    <div class="page page-5" id="page-5" data-nav-link=5>
+        <div class="subPage">
+            <div class="row row-1">
+                <h2>Developers are learning the languages employers are looking for most</h2>
+                <p>Even though new languages arise frequently, it’s most important for developers to master core, legacy languages.
+                    By and large, employers’ most common requirement today are: JavaScript, Java, Python, C++, and C.</p>
+                <h3>Which languages do employers look for by industry?</h3>
+            </div>
+
+            <div class="row row-2">
+                <div class="graph">
+                    <div class="graph">
+                        <script id="infogram_0_92a941b4-29f6-4c13-b008-b87a85295c2a" title="Copy: Cols" src="https://e.infogram.com/js/dist/embed.js?EIr"
+                            type="text/javascript"></script>
+                    </div>
+                </div>
+            </div>
+            <div class="column column-1">
+                <p>When you compare the most in-demand languages by employers with that of the most common languages that developers
+                    know, there is no gap. Java, JavaScript, C and C++, and Python all top the list of languages developers
+                    know.
+                </p>
+            </div>
+            <div class="column column-2">
+                <p>
+                    There’s slight variation in the top in-demand languages by industry. Java, for instance, has been popular in the world of
+                    financial services for years. C dominates hardware because of its performance, direct low-level hardware
+                    API, and availability of compilers across many platforms. And C# is more common among government organizations.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page page-6" id="page-6" data-nav-link=6>
+        <div class="subPage">
+            <h2>Almost all employers prioritize problem-solving skills first</h2>
+
+            <div>
+                <p>Problem-solving skills are almost unanimously the most important qualification that employers look for….more
+                    than programming languages proficiency, debugging, and system design. Demonstrating computational thinking
+                    or the ability to break down large, complex problems is just as valuable (if not more so) than the baseline
+                    technical skills required for a job.
+                    <br>
+                    <br> There are, however, some nuances between what small companies care about most versus what large companies
+                    care about. For instance, smaller companies look for framework proficiency in candidates more than medium-sized
+                    to large companies.
+                    <br>
+                    <br> The difference may exist because having the right knowledge of frameworks is&nbsp;more important for
+                    startups since they need to launch code quickly, and frameworks help developers push code faster.
+                    <br>
+                </p>
+            </div>
+        </div>
+
+        <div class="subPage table-data">
+            <h3>Which core competencies do employers look for?</h3>
+            <table>
+                <tr>
+                    <td>Data-1</td>
+                    <td>10.00%</td>
+                    <td>20.22%</td>
+                    <td>30.44%</td>
+                    <td>40.55%</td>
+                </tr>
+                <tr>
+                    <td>Programming language proficieny</td>
+                    <td>1.00%</td>
+                    <td>2.00%</td>
+                    <td>2.33%</td>
+                    <td>4.55%</td>
+                </tr>
+                <tr>
+                    <td>Data-3</td>
+                    <td>22.22%</td>
+                    <td>22.44%</td>
+                    <td>33.44%</td>
+                    <td>77.55$</td>
+                </tr>
+                <tr>
+                    <td>Database design</td>
+                    <td>10.00%</td>
+                    <td>20.22%</td>
+                    <td>30.44%</td>
+                    <td>40.55%</td>
+                </tr>
+                <tr>
+                    <td>Performance optimization</td>
+                    <td>1.00%</td>
+                    <td>2.00%</td>
+                    <td>2.33%</td>
+                    <td>4.55%</td>
+                </tr>
+                <tr>
+                    <td>Data-3</td>
+                    <td>22.22%</td>
+                    <td>22.44%</td>
+                    <td>33.44%</td>
+                    <td>77.55$</td>
+                </tr>
+                <tr>
+                    <td>Data-2</td>
+                    <td>1.00%</td>
+                    <td>2.00%</td>
+                    <td>2.33%</td>
+                    <td>4.55%</td>
+                </tr>
+                <tr>
+                    <td>Data-3</td>
+                    <td>22.22%</td>
+                    <td>22.44%</td>
+                    <td>33.44%</td>
+                    <td>77.55$</td>
+                </tr>
+                <tr>
+                    <td>Data-1</td>
+                    <td>10.00%</td>
+                    <td>20.22%</td>
+                    <td>30.44%</td>
+                    <td>40.55%</td>
+                </tr>
+                <tr>
+                    <td>Data-2</td>
+                    <td>1.00%</td>
+                    <td>2.00%</td>
+                    <td>2.33%</td>
+                    <td>4.55%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="subPage">
+            <h2>The PC revolution sparked a&nbsp;unique ambition among ‘70s&nbsp;kids</h2>
+            <div>
+                <p>Unlike generations thereafter, if kids of the seventies wanted to see innovative technology, they’d have
+                    to build it themselves — they had no other choice. There were no widespread resources to teach them how
+                    to build software. Almost half of all developers (47%) between the ages of 45 and 54 started coding before
+                    they were 16&nbsp;years old. Meanwhile, developers between 18 and 24 today are the least likely to&nbsp;have
+                    started coding before 16 (only 20%).
+                    <br>
+                    <br> Developers between the ages of 45 and 54 were among the first to get their hands on relatively powerful
+                    PCs, like the Acorn Archimedes, TRS-80, Commodore 64, and Apple II. With limited to no access to formal
+                    education, young people in the PC Revolution had an unusually strong drive to learn to code on their
+                    own.
+                    <br>
+                </p>
+            </div>
+        </div>
+        <div class="subPage">
+            <h3>What qualifications do execs look for most?</h3>
+            <div class="graph">
+                <script id="infogram_0_2bf6d269-451d-4a52-8c41-cb162dc0727a" title="Copy: Bar Chart" src="https://e.infogram.com/js/dist/embed.js?tFU"
+                    type="text/javascript"></script>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page page-7" id="page-7" data-nav-link=7>
+        <div class="subPage">
+            <div class="row row-1">
+                <h2>Developers are learning the languages employers are looking for most</h2>
+                <p>Even though new languages arise frequently, it’s most important for developers to master core, legacy languages.
+                    By and large, employers’ most common requirement today are: JavaScript, Java, Python, C++, and C.</p>
+                <h3>Which languages do employers look for by industry?</h3>
+            </div>
+
+            <div class="row row-2">
+                <div class="graph">
+                    <script id="infogram_0_10ce2df3-040c-40bc-a5ee-02c3865ae959" title="Copy: Page 6" src="https://e.infogram.com/js/dist/embed.js?QsT"
+                        type="text/javascript"></script>
+                </div>
+            </div>
+            <div class="column column-1">
+                <p>When you compare the most in-demand languages by employers with that of the most common languages that developers
+                    know, there is no gap. Java, JavaScript, C and C++, and Python all top the list of languages developers
+                    know.
+                    <br> </p>
+            </div>
+            <div class="column column-2">
+                <p>
+                    There’s slight variation in the top in-demand languages by industry. Java, for instance, has been popular in the world of
+                    financial services for years. C dominates hardware because of its performance, direct low-level hardware
+                    API, and availability of compilers across many platforms. And C# is more common among government organizations.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="subPage">
+            <div class="column column-1">
+                <h2>Hats off to the UK for leading the pack for youngest coders</h2>
+                <div>
+                    <p>Of the 17 countries represented in the survey with at least 100 respondents, the UK stands out with the
+                        highest share of developers who started coding as young as 5 to 10 years old. The majority of those
+                        developers are in their 30s and 40s today.
+                        <br>
+                        <br> When these developers were schoolyard kids, the Acorn Archimedes, a Cambridge-based PC, hit the
+                        scene. Thanks to a partnership with Tesco in which schools received these PCs in exchange for shopping
+                        at Tesco, more kids had access to&nbsp;computers. This initiative spread across Europe and Australia.
+                        <br>
+                        <br> Today, this culture of forward-thinking education has persisted in the UK — it&nbsp;became the first
+                        nation to modernize its curriculum by requiring kids as young as&nbsp;5 to take programming classes.
+                        <br>
+                        <br> Policymakers repeatedly cite that early exposure to coding is an important step in&nbsp;creating
+                        a gateway to careers in software and understanding the principles of&nbsp;computational thinking
+                        and software that influences daily life.
+                    </p>
+                </div>
+            </div>
+            <div class="column column-2">
+                <div class="graph">
+                    <script id="infogram_0_6453eba3-0efe-4554-95bd-a7fa8a4286d6" title="Page-7" src="https://e.infogram.com/js/dist/embed.js?akP"
+                        type="text/javascript"></script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page page-8">
+
+
+        <div class="subPage">
+            <h2>The PC revolution sparked a&nbsp;unique ambition among ‘70s&nbsp;kids</h2>
+            <div class="methodology-cotent">
+                <p>Unlike generations thereafter, if kids of the seventies wanted to see innovative technology, they’d have
+                    to build it themselves — they had no other choice. There were no widespread resources to teach them how
+                    to build software. Almost half of all developers (47%) between the ages of 45 and 54 started coding before
+                    they were 16&nbsp;years old. Meanwhile, developers between 18 and 24 today are the least likely to&nbsp;have
+                    started coding before 16 (only 20%).
+                    <br>
+                    <br> Developers between the ages of 45 and 54 were among the first to get their hands on relatively powerful
+                    PCs, like the Acorn Archimedes, TRS-80, Commodore 64, and Apple II. With limited to no access to formal
+                    education, young people in the PC Revolution had an unusually strong drive to learn to code on their
+                    own.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="subPage">
+            <h2>More Research</h2>
+            <div class="types">
+                <div class="type-1">
+                    <a href="#" title="Read the report">Tech Recruiting
+                        <br>Report
+                        <br> May 22, 2018
+                    </a>
+                </div>
+                <div class="type-2">
+                    <a href="#" title="Read the report">Women in
+                        <br>Tech Report
+                        <br> March 1, 2018
+                    </a>
+                </div>
+                <div class="type-3">
+                    <a href="#" title="Read the report">The United States
+                        <br>of Developers
+                        <br> July 26, 2017
+                    </a>
+                </div>
+                <div class="type-4">
+                    <a href="#" title="Read the report">Programming
+                        <br>Olympics
+                        <br> August 25, 2016
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page page-9">
+        <div class="subPage">
+            <div>
+                <a href="#" class="logo"></a>
+                <div class="personal-info">
+                    <h6>
+                        Email:
+                        <em>mohandast52@gmail.com</em>
+                    </h6>
+                    <h6>
+                        Phone:
+                        <em>+91 8898162324</em>
+                    </h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="subPage">
+            <div>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Adipiscing elit pellentesque habitant morbi tristique senectus et netus. Eu ultrices vitae
+                    auctor eu. Sed id semper risus in hendrerit gravida rutrum quisque. Porttitor leo a diam sollicitudin
+                    tempor id. Cras ornare arcu dui vivamus arcu felis bibendum ut tristique.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+
+
+
+        $(document).ready(function () {
+
+            var navigationAnchorIds = []; // get all the achors href!
+            $.each($.find("[data-nav-link]"), function () {
+                navigationAnchorIds.push(this.getAttribute('data-nav-link'));
+            });
+            console.log(navigationAnchorIds);
+
+            // making logo fixed at top.
+            var navEle = document.getElementById("sticky-logo");
+            var sticky = navEle.offsetTop;
+
+            // call this function after windows loads, because user may not navigate!
+            activateNavigation();
+
+            // onScroll
+            $(document).scroll(activateNavigation);
+
+
+            function activateNavigation() {
+                // adding and removing class 'sticky'
+                if (window.pageYOffset > (window.innerHeight)) {
+                    navEle.classList.add("sticky");
+                } else {
+                    navEle.classList.remove("sticky");
+                }
+
+                // check if navigation id's offset has reached in view
+                var pageInMinimumDistance = "1"; // default value
+                $.each(navigationAnchorIds, function () {
+                    var min = 999999999;
+                    var dis = window.pageYOffset - $("[data-nav-link = " + this + "]").offset().top + 5;
+                    if ((dis >= 0) && (min > dis)) {
+                        pageInMinimumDistance = this[0];
+                        min = dis;
+                    }
+                    $.each(navigationAnchorIds, function () {
+                        $("#navigation-" + this + " svg circle").removeClass('active-nav');
+                    });
+                });
+
+                // 
+                $("#navigation-" + pageInMinimumDistance + " svg circle").addClass('active-nav');
+
+            };
+
+            // on anchar tag click : not used because scrolling takes care of it!! :)
+            /*
+            var clickNav = undefined;
+            $("#navigation a").on('click', function () {
+                var svgEle = $(this).find('svg')[0];
+                console.log($(this)[0].id); // id of anchor tag
+
+                $.each(navigationAnchorIds, function (eachVal) {
+                    console.log(eachVal + 1);
+                    eachVal = eachVal + 1;
+                    $("#navigation-" + eachVal + " svg circle").removeClass('active-nav');
+                });
+                // remove 'active-nav' class from other and then add
+                $("#" + $(this)[0].id + " svg circle").addClass('active-nav');
+
+            });
+
+            */
+
+
+            $(document).on('click', 'a[href^="#"]', function (event) {
+                event.preventDefault();
+                // console.log(this.getAttribute('href')); get id and finds it offset!
+                $('html, body').animate({
+                    scrollTop: $(this.getAttribute('href')).offset().top
+                }, 500);
+            });
+        });
+
+    </script>
+</body>
+
+</html>

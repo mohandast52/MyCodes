@@ -305,8 +305,30 @@ var NewEmployee = new emp();
 */
 
 
+/* const vs let vs var */
+
+// const: as the name suggests, it is used to assing Constant values and unchangable.
+console.log('--{ const vs let vs var }--');
+const Pi = 3.14
+// Pi = 1; if i try to change it, it will give an error!
 
 
+// let: block level variables!
+// console.log(i); throws error
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+/*
+console.log(i);
+if we try to access it, we will get error. (means, it is accessible only inside a block)
+*/
+
+// console.log(j); it knows the variable j is defined but it can't find it; 
+for (var j = 0; j < 5; j++) {
+    console.log(j);
+}
+console.log(j);
+// we can access it and use that outside block too.
 
 
 

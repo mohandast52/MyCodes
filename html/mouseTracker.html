@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mouse Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+            top: 0;
+            left: 0;
+            margin: 0;
+        }
+
+        html {
+            background-color: #344855;
+        }
+
+        main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .lineX {
+            position: relative;
+            width: 100%;
+            border: 2px solid #f9aa33;
+            top: 50%;
+        }
+
+        .lineY {
+            position: relative;
+            width: 0%;
+            height: 100%;
+            border: 2px solid #f9aa33;
+            left: 50%;
+        }
+
+        .circle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #337ab7;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid #f9aa33;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="lineX"></div>
+        <div class="lineY"></div>
+        <div class="circle"></div>
+    </main>
+    <script src="/Libraries/jquery/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('main').on('mousemove', function (ev) {
+                $('.lineX').animate({
+                    top: ev.pageY + 0 + "px"
+                }, 1);
+
+                $('.lineY').animate({
+                    left: ev.pageX + 0 + "px"
+                }, 1);
+
+                $('.circle').animate({
+                    left: ev.pageX + 0 + "px",
+                    top: ev.pageY + 0 + "px"
+                }, 18);
+            });
+        });
+    </script>
+</body>
+
+</html>

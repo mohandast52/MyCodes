@@ -1,0 +1,623 @@
+$primary-color-dark: #303F9F;
+$primary-color: #3F51B5;
+$primary-color-light: #C5CAE9;
+$primary-color-text: #FFFFFF;
+$accent-color: #32c766;
+$primary-text-color: #212121;
+$secondary-text-color: #757575;
+$divider-color: #BDBDBD;
+$nav-width: 200px;
+// padding for each page section
+$total-padding: 160px;
+// width of each block (for paragraph and graph)
+$section-width: 550px;
+// padding-right for each block
+$padding-right: 8%;
+$left-margin: calc(#{$nav-width} - 50px);
+@font-face {
+    src: url(/MyCodes/fonts/andika/Andika-Regular.ttf);
+    font-family: customFont;
+}
+
+@font-face {
+    src: url(/MyCodes/fonts/josefin-sans/JosefinSans-Light.ttf);
+    font-family: customFontThin;
+}
+
+@mixin logo {
+    position: absolute;
+    background: url('../images/SVGs/MohanLogo.svg');
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 55px;
+    background-size: 100%;
+    transform: rotate(-1deg);
+    /* image is slightly tilted */
+}
+
+@mixin fixed-background-image {
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+@mixin vertical-center {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+@mixin tiny-font {
+    font-family: customFontThin;
+    font-size: 1.1em;
+}
+
+@mixin h3 {
+    margin: 40px 0px;
+    font-size: 1.2em;
+}
+
+@mixin header-font {
+    margin: 40px 0px;
+    font-size: 2.3em;
+    word-spacing: 1px;
+    letter-spacing: 2px;
+    color: $primary-color-text;
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(3, 3, 3, 0.82);
+    &:after {
+        content: "\258D";
+        color: $accent-color;
+        animation: 1.5s blinks infinite;
+        margin-left: 2px;
+        font-size: 1.0em;
+    }
+}
+
+@keyframes blinks {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    font-family: customFont;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+}
+
+.active-nav {
+    fill: #32c766 !important;
+    fill-opacity: 1 !important;
+    stroke-width: 2;
+    stroke: #32c766 !important;
+}
+
+#navigation {
+    $navigation-width: 30px;
+    $icon-width: 40px;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    padding-left: 20px;
+    ul {
+        li {
+            list-style: none;
+            a {
+                display: block;
+                width: $navigation-width;
+                height: $navigation-width;
+                outline: none;
+                svg {
+                    height: $navigation-width;
+                    width: $navigation-width;
+                    transform: scale(.75);
+                    circle {
+                        stroke-width: 2;
+                        fill-opacity: 0;
+                        stroke: white;
+                    }
+                }
+                &:socialIcons {
+                    svg path {
+                        stroke: white;
+                        fill: white;
+                    }
+                }
+            }
+            a.socialIcons {
+                width: $icon-width;
+                height: $icon-width;
+                svg {
+                    width: $icon-width;
+                    height: $icon-width;
+                    path {
+                        stroke: white;
+                        fill: white;
+                    }
+                }
+                &:hover svg path {
+                    stroke: $accent-color;
+                    fill: $accent-color;
+                }
+            }
+        }
+    }
+}
+
+.page {
+    color: $primary-color-text;
+    .graph {
+        .igc-tabs .igc-tab .igc-tab-content,
+        .igc-tabs .igc-tab.icon-down,
+        .igc-tabs .igc-tab,
+        .igc-tab-switcher {
+            color: white !important;
+        }
+    }
+}
+
+.page-1 {
+    @include fixed-background-image;
+    position: relative;
+    padding: $total-padding/2 $total-padding;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9247899843531162) 0%, rgba(0, 0, 0, 0.8491597322522759) 69%, rgba(0, 0, 0, 0.737114914325105) 100%), url(../images/Wallpaper-Hd-For-Desktop-Backgrounds-Plain-Plane-Background-Images-Damask.jpg);
+    .logo {
+        @include logo;
+    }
+    h1 {
+        position: absolute;
+        font-weight: 200;
+        top: 50vh;
+        font-size: 64px;
+        max-width: $section-width;
+        line-height: 70px;
+        font-family: customFontThin;
+        text-shadow: 4px 4px 2px rgba(3, 3, 3, 0.82)
+    }
+}
+
+.sticky {
+    position: fixed !important;
+}
+
+.page-2 {
+    max-height: 1200px;
+    position: relative;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background: linear-gradient(90deg, rgba(55, 233, 117, 0.7427171552214635) 0%, rgba(64, 193, 90, 0.7791317210477942) 69%, rgba(0, 0, 0, 0.737114914325105) 100%), url(../images/green.jpg);
+    padding: $total-padding;
+    #sticky-logo {
+        position: absolute;
+        background: url("../images/SVGs/MohanLogo.svg");
+        background-repeat: no-repeat;
+        width: 240px;
+        height: 45px;
+        background-size: 100%;
+        transform: rotate(-1deg);
+        right: 50px;
+        top: 50px;
+    }
+    .subPage {
+        max-width: $section-width;
+        p {
+            @include tiny-font;
+        }
+        h2 {
+            @include header-font;
+        }
+    }
+}
+
+.page-3 {
+    @include fixed-background-image;
+    @include vertical-center;
+    height: auto !important;
+    max-height: 1200px;
+    padding: $total-padding;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 78, 94, 0.33375356978728987) 100%), url(../images/877212.jpg);
+    div {
+        width: 550px;
+        table {
+            tr {
+                td,
+                p {
+                    font-family: customFontThin;
+                    font-size: 1.0em;
+                }
+                p:first-child {
+                    font-weight: bold;
+                }
+                p:hover {
+                    text-decoration: underline;
+                }
+                td {
+                    line-height: 1.6em;
+                }
+                td:first-child {
+                    padding-right: 5px;
+                    vertical-align: top;
+                    font-weight: bold;
+                }
+            }
+        }
+        h2 {
+            @include header-font;
+        }
+    }
+}
+
+.page-4 {
+    background-color: #39424e;
+    padding: $total-padding;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    >.subPage {
+        width: 50%;
+        padding-right: $padding-right;
+        >div {
+            max-width: $section-width;
+            padding-bottom: 60px;
+            p {
+                @include tiny-font;
+            }
+        }
+        h2 {
+            @include header-font;
+        }
+        .graph {
+            padding-top: 60px;
+        }
+    }
+}
+
+.page-5 {
+    background-color: #2e353e;
+    padding: $total-padding;
+    >.subPage {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 30px;
+        .row {
+            width: 100%;
+        }
+        .row-1 {
+            margin-bottom: 50px;
+            h2 {
+                @include header-font;
+            }
+            p {
+                @include tiny-font;
+            }
+            h3 {
+                @include h3;
+            }
+        }
+        .column {
+            display: flex;
+            flex-direction: row;
+            p {
+                @include tiny-font;
+            }
+        }
+        .graph {
+            height: 550px;
+        }
+        .column-1,
+        .column-2 {
+            width: 50%;
+            padding-right: $padding-right;
+            padding-top: 30px;
+        }
+    }
+}
+
+.page-6 {
+    background-color: #0093e2;
+    padding: $total-padding;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    >.subPage {
+        width: 50%;
+        padding-right: $padding-right;
+        h2 {
+            @include header-font;
+        }
+        h3 {
+            @include h3;
+        }
+        >div {
+            max-width: $section-width;
+            padding-bottom: 60px;
+            p {
+                @include tiny-font;
+            }
+        }
+    }
+    .table-data {
+        overflow-x: auto;
+        table {
+            width: 100%;
+            tr {
+                td {
+                    text-align: right;
+                    width: 80px;
+                    padding: 5px;
+                    vertical-align: middle;
+                }
+            }
+            tr:nth-child(even) {
+                background-color: rgb(7, 121, 196);
+            }
+        }
+    }
+}
+
+.page-7 {
+    background-color: #1f3d83;
+    padding: $total-padding;
+    >.subPage:nth-child(1) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 60px;
+        .row {
+            width: 100%;
+        }
+        .row-1 {
+            margin-bottom: 50px;
+            h2 {
+                @include header-font;
+            }
+            p {
+                @include tiny-font;
+            }
+            h3 {
+                @include h3;
+            }
+        }
+        .column {
+            display: flex;
+            flex-direction: row;
+            p {
+                @include tiny-font;
+            }
+        }
+        .graph {
+            height: 400px;
+        }
+        .column-1,
+        .column-2 {
+            width: 50%;
+            padding-right: $padding-right;
+            padding-top: 30px;
+        }
+    }
+    >.subPage:nth-child(2) {
+        width: 100%;
+        display: flex;
+        .column {
+            width: 50%;
+            padding-right: $padding-right;
+            padding-top: 30px;
+            p {
+                @include tiny-font;
+            }
+            h2 {
+                @include header-font;
+            }
+            .graph {
+                padding-top: 60px;
+            }
+        }
+    }
+}
+
+.page-8 {
+    background-color: #39424e;
+    padding: $total-padding;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    >.subPage {
+        width: 50%;
+        padding-right: $padding-right;
+        h2 {
+            @include header-font;
+        }
+        h3 {
+            @include h3;
+        }
+        .methodology-cotent {
+            max-width: $section-width;
+            padding-bottom: 60px;
+            p {
+                @include tiny-font;
+            }
+        }
+        .types {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            >div {
+                width: 50%;
+                font-size: 1.0em;
+                line-height: 1.151em;
+                a {
+                    display: block;
+                    margin: 0 20px 20px 0;
+                    height: 140px;
+                    padding: 50px 20px 20px 20px;
+                    text-decoration: none;
+                    color: white;
+                    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.33), 0 5px 8px 0 rgba(0, 0, 0, 0.37), 0 1px 14px 0 rgba(0, 0, 0, 0.11);
+                }
+            }
+            .type-1 a {
+                background-color: #FFA000;
+            }
+            .type-2 a {
+                background-color: #FF5252;
+            }
+            .type-3 a {
+                background-color: #388E3C;
+            }
+            .type-4 a {
+                background-color: #E040FB;
+            }
+        }
+    }
+}
+
+.page-9 {
+    background-color: #39424e;
+    padding: $total-padding/2 $total-padding;
+    background-color: #0e141e;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    >.subPage {
+        width: 50%;
+        padding-right: $padding-right;
+        >div {
+            max-width: $section-width;
+            p {
+                @include tiny-font;
+            }
+        }
+        h2 {
+            @include header-font;
+        }
+    }
+    >.subPage:nth-child(1) {
+        height: 160px;
+        .logo {
+            @include logo;
+            width: 200px;
+            height: 40px;
+        }
+        .personal-info {
+            font-family: customFont;
+            position: absolute;
+            margin-top: 60px;
+            width: 80%;
+            h6,
+            em {
+                @include tiny-font;
+                font-style: normal;
+                line-height: 1.7em;
+            }
+        }
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 200px;
+        height: 40px;
+    } // sticky logo change
+    #navigation {
+        padding-left: 0px !important;
+    }
+    .page {
+        padding: 20px 20px 20px 45px;
+        .subPage {
+            width: 100% !important;
+            padding-right: 0px !important; // every column to be row in small devices
+            .column {
+                width: 100% !important;
+                padding-right: 0px !important;
+                padding-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+        .graph {
+            display: none !important;
+        }
+    }
+    .page-1, .page-9 {
+        .logo {
+            width: 170px;
+            height: 40px;
+        }
+    }
+    .page-1 {
+        h1 {
+            font-size: 40px;
+            max-width: 550px;
+            line-height: 45px;
+        }
+    }
+    .page-2 #sticky-logo {
+        width: 175px;
+        height: 35px;
+        right: 10px;
+        top: 10px;
+    }
+    .page-7 {
+        .column-2 {
+            display: none;
+        }
+    }
+    .page-8 {
+        >.subPage .types>div {
+            width: 100% !important;
+            a {
+                height: auto;
+                padding: 20px;
+            }
+        }
+    }
+}
+
+/* Large devices (laptops/desktops/ipads) */
+
+@media only screen and (max-width: 992px) and (min-width: 769px) {
+    .page {
+        padding: 80px;
+        .subPage {
+            width: 100% !important;
+            padding-right: 0px !important;
+        }
+    }
+}
+
+/* Extra large devices (large laptops and desktops) */
+
+@media only screen and (max-width: 1200px) and (min-width: 993px) {
+    .page {
+        padding: $total-padding/2;
+        .subPage {
+            padding-right: 0px/1.1;
+        }
+    }
+}
