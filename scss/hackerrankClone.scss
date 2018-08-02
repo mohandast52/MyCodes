@@ -499,6 +499,7 @@ body {
 .page-9 {
     background-color: #39424e;
     padding: $total-padding/2 $total-padding;
+    padding-bottom: 0 !important;
     background-color: #0e141e;
     display: flex;
     flex-wrap: wrap;
@@ -506,6 +507,7 @@ body {
     >.subPage {
         width: 50%;
         padding-right: $padding-right;
+        padding-bottom: 20px;
         >div {
             max-width: $section-width;
             p {
@@ -536,6 +538,24 @@ body {
             }
         }
     }
+    .copyright {
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        >div {
+            display: inline-block;
+            >svg {
+                width: 15px;
+                height: 15px;
+                display: inline-block;
+                vertical-align: middle;
+                path {
+                    fill: $accent-color;
+                }
+            }
+        }
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -553,6 +573,12 @@ body {
         .subPage {
             width: 100% !important;
             padding-right: 0px !important; // every column to be row in small devices
+            h2 {
+                font-size: 1.6em !important;
+                word-spacing: 0px !important;
+                letter-spacing: 0px !important;
+                line-height: 1.4 !important;
+            }
             .column {
                 width: 100% !important;
                 padding-right: 0px !important;
@@ -564,7 +590,8 @@ body {
             display: none !important;
         }
     }
-    .page-1, .page-9 {
+    .page-1,
+    .page-9 {
         .logo {
             width: 170px;
             height: 40px;

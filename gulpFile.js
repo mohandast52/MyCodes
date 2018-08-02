@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     // imagemin = require('gulp-imagemin'),    
     livereload = require('gulp-livereload'),
-    prefix = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer');
 
 
 // common function to spit error
@@ -18,7 +18,7 @@ function errorLog(error) {
 gulp.task('scripts', function () {
     gulp.src('js/*.js')
         .pipe(uglify())
-        // .on('error', errorLog)
+        .on('error', errorLog)
         .pipe(gulp.dest('build/js'));
 });
 */
@@ -27,7 +27,8 @@ gulp.task('scripts', function () {
 gulp.task('styles', function () {
     return gulp.src('scss/*.scss')
         // .pipe(plumber())
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({ browser: ['last 2 version', '> 5%'] }))
         .on('error', function (err) {
             console.log(err.toString());
             this.emit('end');
@@ -35,19 +36,6 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('css/'))
         .pipe(livereload()); /* reloads whenever css is changed and saved  */
 });
-
-/*
-// NOT WORKING
-// Image task : compression
-gulp.task('image-compression', function () {
-    return gulp.src('images/*') 
-        .pipe(imagemin({
-            progressive: true,
-            optimizationLevel: 3
-        }))
-        .pipe(gulp.dest('build'));
-});
-*/
 
 
 // Watch Task - Watches JS
@@ -62,7 +50,14 @@ gulp.task('watch', function () {
 
 gulp.task('default', [/*'scripts',*/ 'styles', 'watch']);
 
-
-
-
 // .pipe(plumber()) : runs even when error is occured
+
+
+/*
+--save: adds to package.json's dependencey and when we do npm install, all the things 
+in the package.json's dependency will be downloaded.
+
+--save-dev: they are put into devDependencies. Its just for development
+and it won't be downloaded on npm install
+
+*/

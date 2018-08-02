@@ -450,13 +450,15 @@ body {
 .page-9 {
   background-color: #39424e;
   padding: 80px 160px;
+  padding-bottom: 0 !important;
   background-color: #0e141e;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row; }
   .page-9 > .subPage {
     width: 50%;
-    padding-right: 8%; }
+    padding-right: 8%;
+    padding-bottom: 20px; }
     .page-9 > .subPage > div {
       max-width: 550px; }
       .page-9 > .subPage > div p {
@@ -500,6 +502,20 @@ body {
         font-size: 1.1em;
         font-style: normal;
         line-height: 1.7em; }
+  .page-9 .copyright {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .page-9 .copyright > div {
+      display: inline-block; }
+      .page-9 .copyright > div > svg {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        vertical-align: middle; }
+        .page-9 .copyright > div > svg path {
+          fill: #32c766; }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
@@ -513,6 +529,11 @@ body {
     .page .subPage {
       width: 100% !important;
       padding-right: 0px !important; }
+      .page .subPage h2 {
+        font-size: 1.6em !important;
+        word-spacing: 0px !important;
+        letter-spacing: 0px !important;
+        line-height: 1.4 !important; }
       .page .subPage .column {
         width: 100% !important;
         padding-right: 0px !important;
@@ -520,7 +541,8 @@ body {
         margin-bottom: 10px; }
     .page .graph {
       display: none !important; }
-  .page-1 .logo, .page-9 .logo {
+  .page-1 .logo,
+  .page-9 .logo {
     width: 170px;
     height: 40px; }
   .page-1 h1 {
