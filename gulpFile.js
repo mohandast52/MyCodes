@@ -4,7 +4,9 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     // imagemin = require('gulp-imagemin'),    
     livereload = require('gulp-livereload'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    $ = require('jquery')
+    ;
 
 
 // common function to spit error
