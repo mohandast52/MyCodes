@@ -7,6 +7,9 @@
     <meta content="utf-8" http-equiv="encoding">
     <meta name="viewport" content="width = device-width, initial-scale = 1.0">
 
+    <!-- bootstrap 4.0 and jquery 3.3.1 -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../build/js/bundle.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/parallaxHeader.css">
 </head>
 
@@ -226,9 +229,7 @@
         </footer>
     </div>
     </div>
-    <link rel="stylesheet" type="text/css" href="/MyCodes/css/bootstrap.min.css">
-    <script src="/MyCodes/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/MyCodes/js/bootstrap.min.js"></script>
+
     <script>
         $(window).scroll(function () {
             var wScroll = $(this).scrollTop();
@@ -273,7 +274,7 @@
             if (scrollBottom > $('.blog-posts').offset().top) {
                 Xoffset = Math.max(0, ($('.blog-posts').offset().top).toFixed(2) - (wScroll + ($(window).height() /
                     3)));
-                console.log(Xoffset);
+                // console.log(Xoffset);
                 $('.post-1').css({
                     'transform': 'translate(-' + (Xoffset) + 'px,' + (Xoffset / 2) + 'px)'
                 });
