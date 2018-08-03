@@ -1,6 +1,8 @@
 
-$(document).ready(function () {
 
+console.log($);
+
+$(document).ready(function () {
     var navigationAnchorIds = []; // get all the achors href!
     $.each($.find("[data-nav-link]"), function () {
         navigationAnchorIds.push(this.getAttribute('data-nav-link'));

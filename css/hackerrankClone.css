@@ -6,6 +6,12 @@
   src: url(/MyCodes/fonts/josefin-sans/JosefinSans-Light.ttf);
   font-family: customFontThin; }
 
+@-webkit-keyframes blinks {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }
+
 @keyframes blinks {
   0% {
     opacity: 1; }
@@ -13,7 +19,8 @@
     opacity: 0; } }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: customFont;
   border: 0;
   padding: 0;
@@ -37,8 +44,12 @@ body {
 #navigation {
   position: fixed;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   z-index: 10;
   left: 0;
   top: 0;
@@ -53,7 +64,8 @@ body {
       #navigation ul li a svg {
         height: 30px;
         width: 30px;
-        transform: scale(0.75); }
+        -webkit-transform: scale(0.75);
+                transform: scale(0.75); }
         #navigation ul li a svg circle {
           stroke-width: 2;
           fill-opacity: 0;
@@ -90,6 +102,7 @@ body {
   background-repeat: no-repeat !important;
   position: relative;
   padding: 80px 160px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.92479)), color-stop(69%, rgba(0, 0, 0, 0.84916)), to(rgba(0, 0, 0, 0.737115))), url(../images/Wallpaper-Hd-For-Desktop-Backgrounds-Plain-Plane-Background-Images-Damask.jpg);
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.92479) 0%, rgba(0, 0, 0, 0.84916) 69%, rgba(0, 0, 0, 0.737115) 100%), url(../images/Wallpaper-Hd-For-Desktop-Backgrounds-Plain-Plane-Background-Images-Damask.jpg); }
   .page-1 .logo {
     position: absolute;
@@ -98,7 +111,8 @@ body {
     width: 300px;
     height: 55px;
     background-size: 100%;
-    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
     /* image is slightly tilted */ }
   .page-1 h1 {
     position: absolute;
@@ -118,6 +132,7 @@ body {
   position: relative;
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(55, 233, 117, 0.742717)), color-stop(69%, rgba(64, 193, 90, 0.779132)), to(rgba(0, 0, 0, 0.737115))), url(../images/green.jpg);
   background: linear-gradient(90deg, rgba(55, 233, 117, 0.742717) 0%, rgba(64, 193, 90, 0.779132) 69%, rgba(0, 0, 0, 0.737115) 100%), url(../images/green.jpg);
   padding: 160px; }
   .page-2 #sticky-logo {
@@ -127,7 +142,8 @@ body {
     width: 240px;
     height: 45px;
     background-size: 100%;
-    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
     right: 50px;
     top: 50px; }
   .page-2 .subPage {
@@ -146,7 +162,8 @@ body {
       .page-2 .subPage h2:after {
         content: "\258D";
         color: #32c766;
-        animation: 1.5s blinks infinite;
+        -webkit-animation: 1.5s blinks infinite;
+                animation: 1.5s blinks infinite;
         margin-left: 2px;
         font-size: 1.0em; }
 
@@ -156,12 +173,19 @@ body {
   background-attachment: fixed !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: auto !important;
   max-height: 1200px;
   padding: 160px;
+  background: -webkit-gradient(linear, left top, right top, from(#020024), to(rgba(0, 78, 94, 0.333754))), url(../images/877212.jpg);
   background: linear-gradient(90deg, #020024 0%, rgba(0, 78, 94, 0.333754) 100%), url(../images/877212.jpg); }
   .page-3 div {
     width: 550px; }
@@ -190,16 +214,23 @@ body {
       .page-3 div h2:after {
         content: "\258D";
         color: #32c766;
-        animation: 1.5s blinks infinite;
+        -webkit-animation: 1.5s blinks infinite;
+                animation: 1.5s blinks infinite;
         margin-left: 2px;
         font-size: 1.0em; }
 
 .page-4 {
   background-color: #39424e;
   padding: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
   .page-4 > .subPage {
     width: 50%;
     padding-right: 8%; }
@@ -220,7 +251,8 @@ body {
       .page-4 > .subPage h2:after {
         content: "\258D";
         color: #32c766;
-        animation: 1.5s blinks infinite;
+        -webkit-animation: 1.5s blinks infinite;
+                animation: 1.5s blinks infinite;
         margin-left: 2px;
         font-size: 1.0em; }
     .page-4 > .subPage .graph {
@@ -230,9 +262,15 @@ body {
   background-color: #2e353e;
   padding: 160px; }
   .page-5 > .subPage {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     width: 100%;
     margin-bottom: 30px; }
     .page-5 > .subPage .row {
@@ -250,7 +288,8 @@ body {
         .page-5 > .subPage .row-1 h2:after {
           content: "\258D";
           color: #32c766;
-          animation: 1.5s blinks infinite;
+          -webkit-animation: 1.5s blinks infinite;
+                  animation: 1.5s blinks infinite;
           margin-left: 2px;
           font-size: 1.0em; }
       .page-5 > .subPage .row-1 p {
@@ -260,8 +299,13 @@ body {
         margin: 40px 0px;
         font-size: 1.2em; }
     .page-5 > .subPage .column {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: row; }
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; }
       .page-5 > .subPage .column p {
         font-family: customFontThin;
         font-size: 1.1em; }
@@ -276,9 +320,15 @@ body {
 .page-6 {
   background-color: #0093e2;
   padding: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
   .page-6 > .subPage {
     width: 50%;
     padding-right: 8%; }
@@ -293,7 +343,8 @@ body {
       .page-6 > .subPage h2:after {
         content: "\258D";
         color: #32c766;
-        animation: 1.5s blinks infinite;
+        -webkit-animation: 1.5s blinks infinite;
+                animation: 1.5s blinks infinite;
         margin-left: 2px;
         font-size: 1.0em; }
     .page-6 > .subPage h3 {
@@ -321,9 +372,15 @@ body {
   background-color: #1f3d83;
   padding: 160px; }
   .page-7 > .subPage:nth-child(1) {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     width: 100%;
     margin-bottom: 60px; }
     .page-7 > .subPage:nth-child(1) .row {
@@ -341,7 +398,8 @@ body {
         .page-7 > .subPage:nth-child(1) .row-1 h2:after {
           content: "\258D";
           color: #32c766;
-          animation: 1.5s blinks infinite;
+          -webkit-animation: 1.5s blinks infinite;
+                  animation: 1.5s blinks infinite;
           margin-left: 2px;
           font-size: 1.0em; }
       .page-7 > .subPage:nth-child(1) .row-1 p {
@@ -351,8 +409,13 @@ body {
         margin: 40px 0px;
         font-size: 1.2em; }
     .page-7 > .subPage:nth-child(1) .column {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: row; }
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; }
       .page-7 > .subPage:nth-child(1) .column p {
         font-family: customFontThin;
         font-size: 1.1em; }
@@ -365,6 +428,8 @@ body {
       padding-top: 30px; }
   .page-7 > .subPage:nth-child(2) {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; }
     .page-7 > .subPage:nth-child(2) .column {
       width: 50%;
@@ -384,7 +449,8 @@ body {
         .page-7 > .subPage:nth-child(2) .column h2:after {
           content: "\258D";
           color: #32c766;
-          animation: 1.5s blinks infinite;
+          -webkit-animation: 1.5s blinks infinite;
+                  animation: 1.5s blinks infinite;
           margin-left: 2px;
           font-size: 1.0em; }
       .page-7 > .subPage:nth-child(2) .column .graph {
@@ -393,9 +459,15 @@ body {
 .page-8 {
   background-color: #39424e;
   padding: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
   .page-8 > .subPage {
     width: 50%;
     padding-right: 8%; }
@@ -410,7 +482,8 @@ body {
       .page-8 > .subPage h2:after {
         content: "\258D";
         color: #32c766;
-        animation: 1.5s blinks infinite;
+        -webkit-animation: 1.5s blinks infinite;
+                animation: 1.5s blinks infinite;
         margin-left: 2px;
         font-size: 1.0em; }
     .page-8 > .subPage h3 {
@@ -423,9 +496,15 @@ body {
         font-family: customFontThin;
         font-size: 1.1em; }
     .page-8 > .subPage .types {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-wrap: wrap;
-      flex-direction: row; }
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; }
       .page-8 > .subPage .types > div {
         width: 50%;
         font-size: 1.0em;
@@ -437,7 +516,8 @@ body {
           padding: 50px 20px 20px 20px;
           text-decoration: none;
           color: white;
-          box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.33), 0 5px 8px 0 rgba(0, 0, 0, 0.37), 0 1px 14px 0 rgba(0, 0, 0, 0.11); }
+          -webkit-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.33), 0 5px 8px 0 rgba(0, 0, 0, 0.37), 0 1px 14px 0 rgba(0, 0, 0, 0.11);
+                  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.33), 0 5px 8px 0 rgba(0, 0, 0, 0.37), 0 1px 14px 0 rgba(0, 0, 0, 0.11); }
       .page-8 > .subPage .types .type-1 a {
         background-color: #FFA000; }
       .page-8 > .subPage .types .type-2 a {
@@ -452,9 +532,15 @@ body {
   padding: 80px 160px;
   padding-bottom: 0 !important;
   background-color: #0e141e;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
   .page-9 > .subPage {
     width: 50%;
     padding-right: 8%;
@@ -475,7 +561,8 @@ body {
       .page-9 > .subPage h2:after {
         content: "\258D";
         color: #32c766;
-        animation: 1.5s blinks infinite;
+        -webkit-animation: 1.5s blinks infinite;
+                animation: 1.5s blinks infinite;
         margin-left: 2px;
         font-size: 1.0em; }
   .page-9 > .subPage:nth-child(1) {
@@ -487,7 +574,8 @@ body {
       width: 300px;
       height: 55px;
       background-size: 100%;
-      transform: rotate(-1deg);
+      -webkit-transform: rotate(-1deg);
+              transform: rotate(-1deg);
       /* image is slightly tilted */
       width: 200px;
       height: 40px; }
@@ -504,9 +592,15 @@ body {
         line-height: 1.7em; }
   .page-9 .copyright {
     height: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
     .page-9 .copyright > div {
       display: inline-block; }
       .page-9 .copyright > div > svg {

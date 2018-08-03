@@ -2,21 +2,18 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
     plumber = require('gulp-plumber'),
-    // imagemin = require('gulp-imagemin'),    
     livereload = require('gulp-livereload'),
-    autoprefixer = require('gulp-autoprefixer'),
-    $ = require('jquery')
+    autoprefixer = require('gulp-autoprefixer')
+    , browserify = require('gulp-browserify')
     ;
 
-
-// common function to spit error
 function errorLog(error) {
     console.error.bind(error);
     this.emit('end');
 }
 
-// Scripts Task - Uglifies
 /*
+// Scripts Task - Uglifies
 gulp.task('scripts', function () {
     gulp.src('js/*.js')
         .pipe(uglify())
@@ -30,7 +27,7 @@ gulp.task('styles', function () {
     return gulp.src('scss/*.scss')
         // .pipe(plumber())
         .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({ browser: ['last 2 version', '> 5%'] }))
+        .pipe(autoprefixer({ browsers: ['last 2 version', '> 5%'] }))
         .on('error', function (err) {
             console.log(err.toString());
             this.emit('end');
@@ -40,6 +37,21 @@ gulp.task('styles', function () {
 });
 
 
+// browserify
+gulp.task('browserifyTask', function () {
+    console.log('browserifyTask');
+    gulp.src('bundle.js')
+        .pipe(browserify({
+            insertGlobals: true,
+            debug: !gulp.env.production
+        }))
+        .on('error', function (err) {
+            console.log(err.toString());
+            this.emit('end');
+        })
+        .pipe(gulp.dest('build/js/'))
+});
+
 // Watch Task - Watches JS
 gulp.task('watch', function () {
 
@@ -47,10 +59,17 @@ gulp.task('watch', function () {
 
     // looks for changes in js/*.js (means any js files in js Folder) and runs the scripts in the array
     // gulp.watch('js/*.js', ['scripts']);
+    gulp.watch('bundle.js', ['browserifyTask']);
     gulp.watch('scss/*.scss', ['styles']);
 });
 
-gulp.task('default', [/*'scripts',*/ 'styles', 'watch']);
+gulp.task('default', [/*'scripts',*/ 'styles', 'browserifyTask', 'watch']);
+
+
+
+
+
+
 
 // .pipe(plumber()) : runs even when error is occured
 

@@ -69,7 +69,9 @@ h2 {
   grid-auto-rows: 200px;
   justify-items: center;
   /* from left:  */
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   /* from top: */ }
   .example-4 .box {
     border: 2px solid red; }
@@ -78,9 +80,11 @@ h2 {
   .example-4 .box-2 {
     justify-self: right; }
   .example-4 .box-3 {
-    align-self: start; }
+    -ms-flex-item-align: start;
+        align-self: start; }
   .example-4 .box-4 {
-    align-self: end; }
+    -ms-flex-item-align: end;
+        align-self: end; }
 
 .example-5 {
   display: grid;
@@ -116,9 +120,15 @@ h2 {
   text-align: center;
   color: white; }
   .example-6 .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center; }
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
   .example-6 .eg-6-layout-1 {
     background-color: #673AB7 !important;
     grid-column: 1/-1; }

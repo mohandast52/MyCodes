@@ -39,8 +39,12 @@ and all the variables defined there can be used freely here
   -webkit-border-radius: 20px; }
 
 .make-triangle {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center; }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 /*
  in the above css, we can see that the border are bigger than the 
@@ -55,7 +59,8 @@ and all the variables defined there can be used freely here
   border-bottom: 60px solid red;
   border-left: 60px solid green;
   border-right: 60px solid cyan;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   margin: 20px 100px; }
 
 .triangle-2 {
@@ -66,7 +71,8 @@ and all the variables defined there can be used freely here
   border-bottom: 60px solid red;
   border-left: 60px solid transparent;
   border-right: 60px solid transparent;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   margin: 20px 100px; }
 
 .circle {
@@ -87,7 +93,8 @@ and all the variables defined there can be used freely here
   border-bottom: none;
   border-left: 100px solid transparent;
   border-right: 100px solid transparent;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   display: block; }
 
 .ir {
@@ -193,7 +200,8 @@ ul.social-links {
     width: 100%;
     height: 100px;
     background-color: #fff;
-    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); }
+    -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+            box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); }
   @media only screen and (max-width: 480px) {
     .main-header .header {
       width: 80%; } }
@@ -227,7 +235,8 @@ ul.social-links {
   border-top-left-radius: 10px;
   border-bottom-right-radius: 100px;
   border-bottom-left-radius: 100px;
-  transform: rotateunquote("(") 45degunquote(")");
+  -webkit-transform: rotateunquote("(") 45degunquote(")");
+          transform: rotateunquote("(") 45degunquote(")");
   background-color: red; }
   .boxyy:hover {
     background-color: #1ee3e4; }

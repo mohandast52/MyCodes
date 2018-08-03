@@ -1,5 +1,6 @@
 * {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
 
 body {
   background-color: #d3d3d3; }
@@ -27,11 +28,22 @@ body {
       width: 99%;
       height: 160px;
       position: absolute;
+      background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
       background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-      animation-name: gradient-ani;
-      animation-duration: 1.3s;
-      animation-iteration-count: infinite;
-      animation-direction: normal; }
+      -webkit-animation-name: gradient-ani;
+              animation-name: gradient-ani;
+      -webkit-animation-duration: 1.3s;
+              animation-duration: 1.3s;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      -webkit-animation-direction: normal;
+              animation-direction: normal; }
+
+@-webkit-keyframes gradient-ani {
+  0% {
+    left: -20%; }
+  100% {
+    left: 100%; } }
 
 @keyframes gradient-ani {
   0% {
