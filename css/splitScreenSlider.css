@@ -1,0 +1,80 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif; }
+
+section {
+  position: relative;
+  width: 100%;
+  min-height: 55vw;
+  overflow: hidden; }
+  section .layer {
+    position: absolute;
+    width: 100vw;
+    min-height: 55vw;
+    overflow: hidden; }
+    section .layer .content-wrap {
+      position: absolute;
+      width: 100vw;
+      min-height: 55vw; }
+      section .layer .content-wrap .content-body {
+        width: 15%;
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%); }
+      section .layer .content-wrap img {
+        position: absolute;
+        width: 55%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%); }
+  section .layer.bottom {
+    background-color: #222;
+    z-index: 1; }
+    section .layer.bottom .content-body {
+      right: 5%;
+      color: #fff; }
+      section .layer.bottom .content-body h1 {
+        color: #fda000; }
+  section .layer.top {
+    background-color: #eee;
+    color: #222;
+    z-index: 2; }
+    section .layer.top .content-body {
+      left: 5%; }
+  section .handle {
+    position: absolute;
+    display: block;
+    width: 5px;
+    background-color: #fda000;
+    left: 50%;
+    height: 100%;
+    z-index: 3; }
+
+.skewed .handle {
+  -webkit-transform: rotate(30deg) translateY(-50%);
+          transform: rotate(30deg) translateY(-50%);
+  height: 200%;
+  top: 50%;
+  -webkit-transform-origin: top;
+          transform-origin: top; }
+
+.skewed .top {
+  -webkit-transform: skew(-30deg);
+          transform: skew(-30deg);
+  margin-left: -1000px;
+  width: calc(50vw + 1000px); }
+
+.skewed .top .content-wrap {
+  -webkit-transform: skew(30deg);
+          transform: skew(30deg);
+  margin-left: 1000px; }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Split Screen Slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/splitScreenSlider.css" />
+</head>
+
+<body>
+    <section class="skewed" id="wrapper">
+        <div class="layer bottom">
+            <div class="content-wrap">
+                <div class="content-body">
+                    <h1>Bottom Layer</h1>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel odio nihil doloribus placeat odit quidem
+                        a, corporis magnam maxime explicabo.</p>
+                </div>
+                <img src="../images/ironman-1.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="layer top">
+            <div class="content-wrap">
+                <div class="content-body">
+                    <h1>Top Layer</h1>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel odio nihil doloribus placeat odit quidem
+                        a, corporis magnam maxime explicabo.</p>
+                </div>
+                <img src="../images/ironman-2.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="handle"></div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let wrapper = document.getElementById("wrapper");
+            let topLayer = wrapper.querySelector(".top");
+            let handle = wrapper.querySelector('.handle');
+            let skew = 995;
+            let delta = 0;
+
+            wrapper.addEventListener('mousemove', function (e) {
+                // console.log(e.clientX);
+                delta = (e.clientX - (window.innerWidth) / 2) * 0.5;
+                // console.log(delta);
+                handle.style.left = e.clientX + delta + 'px';
+                topLayer.style.width = e.clientX + skew + delta + 'px';
+            });
+        });
+    </script>
+</body>
+
+</html>
