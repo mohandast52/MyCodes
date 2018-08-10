@@ -140,7 +140,7 @@ window.addEventListener('load', function () {
 
 // to start the game, user has to type 'start'
 wordInput.addEventListener('input', function onUserType() {
-    if (wordInput.value === 'start'.toLowerCase() && score === 0) {
+    if (wordInput.value.toLowerCase() === 'start' && score === 0) {
         init();
     }
 });
@@ -179,7 +179,7 @@ function startMatch() {
 }
 
 function matchWords() {
-    return (wordInput.value === currentWord.innerHTML);
+    return (wordInput.value.toLowerCase() === currentWord.innerHTML.toLowerCase());
 }
 
 function showWord(words) {
