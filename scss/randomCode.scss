@@ -27,31 +27,26 @@ $color-yellow: #FFC107;
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
+    padding: 0;
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
     font-size: 15px;
 }
 
 body {
     font-family: 'Roboto Slab', serif !important; // background: rgb(161, 196, 253);
     // background: linear-gradient(180deg, rgba(161, 196, 253, 1) 0%, rgba(194, 233, 251, 1) 100%);
-    padding: 0;
-    top: 0;
-    left: 0;
-    margin: 0;
     background-color: $color-background-grey !important;
 }
 
-
-
 // media queries
-@media only screen and (max-width:1200px) {
-    
-}
+@media only screen and (max-width:1200px) {}
 
-@media only screen and (max-width: 992px) {
-    
-}
+@media only screen and (max-width: 992px) {}
 
-@media only screen and (max-width: 768px) {
-    
-}
+@media only screen and (max-width: 768px) {}

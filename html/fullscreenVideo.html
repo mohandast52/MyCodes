@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Full Screen Video</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .v-header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 960px;
+            padding-left: 1rem;
+            padding-right: 1em;
+            margin: auto;
+            text-align: center;
+        }
+
+        .fullscreen-video-wrap {
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* to make sure that the video is always full height and weight */
+
+        .fullscreen-video-wrap video {
+            min-width: 100%;
+            mix-height: 100%;
+        }
+
+        .header-overlay {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background-color: #225470;
+            z-index: 1;
+            opacity: .7;
+        }
+
+        .header-content {
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-size: 50px;
+            margin-bottom: 0;
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            display: block;
+            padding-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: #34b3a0;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            text-decoration: none;
+        }
+
+        .section {
+            padding: 20px 0px;
+        }
+
+        .section-2 {
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="v-header container">
+        <div class="fullscreen-video-wrap">
+            <!-- https://production.cdmycdn.com/assets/marketing-pages/intensives/bws/coding-scenes-9a2031e8142b40bdb5d936d5eef33dfa.mp4 -->
+            <video src="https://production.cdmycdn.com/assets/marketing-pages/intensives/bws/coding-scenes-9a2031e8142b40bdb5d936d5eef33dfa.mp4"
+                autoplay="true" loop="true"></video>
+        </div>
+
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1>Mohan Das</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat reiciendis molestias nam obcaecati perferendis
+                alias, magni dolores earum facere delectus?</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </header>
+    <section class="section section-1">
+        <div class="container">
+            <h1>Section A</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione numquam, veritatis facere aut quidem a rerum.
+                Delectus, distinctio dolores! Omnis.</p>
+        </div>
+    </section>
+    <section class="section section-2">
+        <div class="container">
+            <h1>Section B</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione numquam, veritatis facere aut quidem a rerum.
+                Delectus, distinctio dolores! Omnis.</p>
+        </div>
+    </section>
+</body>
+
+</html>

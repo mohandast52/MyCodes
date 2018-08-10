@@ -1,0 +1,306 @@
+// colors
+:root {
+    --v-1: #3519d2;
+    --v-2: #871ee9;
+    --red: #FF4D4D;
+    --green: #32c766;
+    --grey-border: #BDBDBD;
+    --grey-bg: rgba(217, 217, 217, 0.2);
+    --white: #ffffff;
+    --black: #212121;
+}
+
+// reusable
+* {
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    transition: all .2s ease-in-out;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--grey-bg);
+}
+
+.text-green {}
+
+// game-scss
+.header {
+    position: relative;
+    $header-height: 60px; // specifies the height of the header!
+    padding: 10px;
+    color: var(--black);
+    height: $header-height;
+    line-height: calc( #{$header-height} - 20px);
+    background-color: var(--white);
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    border: none;
+    z-index: 10;
+    h1 {
+        display: inline-block;
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+    .settings {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        background-image: url('../images/SVGs/settings.svg');
+        background-size: contain;
+        span {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.settings-menu {
+    position: fixed;
+    width: 200px;
+    height: 100vh;
+    padding: 20px;
+    right: -200px;
+    background-color: var(--white);
+    color: var(--black);
+    z-index: 5;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    u {
+        font-size: .8rem;
+        text-decoration: underline;
+        margin-bottom: 5px;
+    }
+    .difficulty {
+        label {
+            display: block;
+            position: relative;
+            margin: 10px 2px;
+            cursor: pointer;
+            span {
+                position: relative;
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                border: 10px solid var(--red);
+                background: var(--black);
+                border-radius: 50%;
+                margin-bottom: -3px;
+                transition: all .2s ease-in-out;
+            }
+        }
+        input[type=radio] {
+            display: none;
+        }
+    }
+    .night-mode-toggle {
+        u {
+            vertical-align: text-top;
+        }
+        $checkbox-width: 36px;
+        $checkbox-height: 16px;
+        input[type="checkbox"] {
+            position: relative;
+            width: $checkbox-width;
+            height: $checkbox-height;
+            appearance: none;
+            outline: none;
+            cursor: pointer;
+            margin-left: 10px;
+            background-color: var(--grey-border);
+            border: 1px solid var(--grey);
+            border-radius: $checkbox-height;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+            transition: all .3s ease;
+            &:checked[type="checkbox"] {
+                background-color: var(--red);
+                &:before {
+                    left: calc(#{$checkbox-height} - -5px);
+                }
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                width: $checkbox-height;
+                height: $checkbox-height;
+                top: 0px;
+                left: 0;
+                transition: all .3s ease;
+                transform: scale(1.2);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+                background-color: var(--white);
+                border-radius: 50%;
+                border:1px solid var(--black);
+            }
+        }
+    }
+    .instructions {
+        width: 180px;
+        position: absolute;
+        bottom: 80px;
+        left: 10px;
+        p {
+            font-size: .7rem;
+        }
+    }
+}
+
+.container {
+    padding: 20px;
+    .lead {
+        font-size: .6rem;
+        word-spacing: 2px;
+        letter-spacing: 1px;
+        text-align: center;
+        color: var(--black);
+    }
+    .main-content {
+        $word-height: 120px; // height of the actual word 
+        $content-width: 400px; // width of the box
+        width: $content-width;
+        height: 330px;
+        position: relative;
+        margin: 10px auto;
+        background-color: var(--white);
+        color: var(--black);
+        border: 2px solid #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+        .current-word-parent {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            padding: 0 20px;
+            min-height: $word-height;
+            transform: translateX(-50%);
+            min-width: calc(#{$content-width} - -60px); // because adding '+' removes spaces between the variables which gives invalid property
+            border-radius: 2px;
+            background: linear-gradient(to right, var(--v-1), var(--v-2));
+            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+            .glitch {
+                position: relative;
+                color: white;
+                font-size: 2.6rem;
+                letter-spacing: 2px;
+                text-align: center;
+                margin: 35px 0px;
+            }
+            .glitch-toggle {
+                &::before,
+                &::after {
+                    content: attr(data-text);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(to right, var(--v-1), var(--v-2));
+                }
+                @keyframes glitch-it-1 {
+                    $steps: 30;
+                    @for $i from 0 through $steps {
+                        #{percentage($i*(1/$steps))} {
+                            clip: rect(random(100)+px, 9999px, random(40)+px, 0);
+                        }
+                    }
+                }
+                &:after {
+                    left: 2px;
+                    font-size: 2.5rem;
+                    text-shadow: -2px 0 var(--red);
+                    clip: rect(0, 500px, 0, 0);
+                    animation: glitch-it-1 2s infinite linear alternate-reverse;
+                }
+                @keyframes glitch-it-2 {
+                    $steps: 20;
+                    @for $i from 0 through $steps {
+                        #{percentage($i*(1/$steps))} {
+                            clip: rect(random(100)+px, 9999px, random(80)+px, 0);
+                        }
+                    }
+                }
+                &:before {
+                    left: -3px;
+                    font-size: 2.7rem;
+                    text-shadow: 1px -1px var(--red);
+                    clip: rect(0, 900px, 0, 0);
+                    animation: glitch-it-2 3s infinite linear alternate-reverse;
+                }
+            }
+        }
+        .sub-content {
+            position: absolute;
+            top: calc(#{$word-height} - -60px);
+            padding: 0px 20px 20px 20px;
+            #word-input {
+                width: 100%;
+                height: 40px;
+                padding: 5px;
+                font-size: 1.5rem;
+                text-align: center;
+                border: 1px solid (var(--black));
+                border-radius: 5px;
+            }
+            .score-col {
+                margin: 20px 0px 10px 0px;
+                display: flex;
+                flex-wrap: wrap;
+                .score-col-1 {
+                    width: 50%;
+                    p {
+                        >span:nth-child(2) {
+                            font-size: 1.7rem;
+                            color: var(--red);
+                        }
+                    }
+                }
+                .score-col-2 {
+                    width: 50%;
+                    text-align: right;
+                    p {
+                        >span:nth-child(1) {
+                            font-size: 1.7rem;
+                            color: var(--green);
+                        }
+                    }
+                }
+            }
+            .game-status {}
+        }
+    }
+}
+
+.copyright {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: var(--black);
+    border-top: 1px solid var(--grey-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >div {
+        display: inline-block;
+        font-size: 0.8rem;
+        >svg {
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            vertical-align: middle;
+            path {
+                fill: var(--red);
+            }
+        }
+    }
+}
