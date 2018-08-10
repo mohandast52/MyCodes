@@ -1,4 +1,4 @@
-var time = 6; // default
+var time = 8; // default
 var resetTime = time; // global: will change on user's difficulty selection
 let score = 0;
 let isPlaying;
