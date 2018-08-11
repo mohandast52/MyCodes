@@ -1,6 +1,6 @@
-const canvas = document.getElementById("tetris");
+const canvas = document.getElementById("circle");
 console.log(canvas);
-canvas.style.background = "#212121"; // a valid CSS colour.
+// canvas.style.background = "#212121"; // a valid CSS colour.
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 // getContext() method returns an object that provides methods and properties for drawing on the canvas.
@@ -109,14 +109,14 @@ let circleObjects = [];
 
 function init() {
     circleObjects = [];
-    for (let i = 0; i < 700; i++) {
+    for (let i = 0; i < 1000; i++) {
         // (window.innerWidth - (radius * 2)) + radius :: so that circle dont go outside canvas i.e half circle
         let radius = (Math.random() * 3) + 1;
 
         let x = Math.random() * (window.innerWidth - (radius * 2)) + radius;
         let y = Math.random() * (window.innerHeight - (radius * 2)) + radius;
-        let dx = Math.random() * 3; // velocity!
-        let dy = Math.random() * 3; // velocity!
+        let dx = Math.random() * 7; // velocity!
+        let dy = Math.random() * 7; // velocity!
         circleObjects.push(new Circle(x, y, dx, dy, radius));
     }
 
