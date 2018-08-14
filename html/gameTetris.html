@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tetris</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    </head>
+
+    <body>
+        <canvas id="tetris" width="300px" height="500px"></canvas>
+
+        <script>
+            const canvas = document.getElementById("tetris");
+            const context = canvas.getContext('2d');
+
+            context.scale(20, 20); // zoom
+            const matrix = [
+                [0, 0, 0],
+                [1, 1, 1],
+                [0, 1, 0]
+            ];
+
+
+            const player = {
+                pos: {
+                    x: 5,
+                    y: 5
+                },
+                matrix: matrix
+            }
+
+            const arena = createMatrix(12, 20);
+            console.table(arena);
+
+            function draw() {
+                // clearing it
+                context.fillStyle = "#000";
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                drawMatrix(player.matrix, player.pos);
+            }
+
+
+            let dropCounter = 0;
+            let dropInterval = 1000;
+            let lastTime = 0; // just one millisecond            
+            function update(time = 0) {
+                // below 2 lines is just one millisecond
+                const deltaTime = time - lastTime;
+                lastTime = time;
+
+                dropCounter += deltaTime; // incrementing every millisecond
+
+                /* using the above calculation because if we increment time, we may run out of large intergers */
+                if (dropCounter > dropInterval) {
+                    player.pos.y++; // increamenting y-axis (ie. peice going dow) every millisecond
+                    dropCounter = 0;
+                }
+
+                draw();
+                requestAnimationFrame(update);
+            }
+
+            // keyboard functionality
+            document.addEventListener('keydown', function (keyEvent) {
+                if (keyEvent.keyCode === 37) {
+                    player.pos.x--;
+                } else if (keyEvent.keyCode === 39) {
+                    player.pos.x++;
+                } else if (keyEvent.keyCode === 40) {
+                    playerDrop();
+                }
+            });
+
+
+
+
+
+
+
+            update();
+            // LOGICS
+            function createMatrix(width, height) {
+                const matrix = [];
+                while (height--) {
+                    matrix.push(new Array(width).fill(0));
+                }
+                return matrix;
+            }
+
+            function merge(arena, player) {
+                for (let row = 0; row < player.matrix.length; row++) {
+                    for (let col = 0; col < player.matrix[row].length; col++) {
+                        if (player.matrix[row][col] !== 0) {
+                            arena[row + player.pos.y][col + player.pos.x] = player.matrix[row][col];
+                        }
+                    }
+                }
+            }
+
+            function playerDrop() {
+                player.pos.y++;
+                dropCounter = 0; // we should not get immidiate drop after user clicks down arrow, hence reseting it.
+            }
+
+            function drawMatrix(matrix, offset) {
+                for (let row = 0; row < matrix.length; row++) {
+                    for (let col = 0; col < matrix[row].length; col++) {
+                        if (matrix[row][col] !== 0) {
+                            context.fillStyle = 'red';
+                            context.fillRect(col + offset.x, row + offset.y, 1, 1);
+                            /*
+                            column is take first because computer pixel starts from top left!
+                            if you don't understand.. draw col, row! you will. 
+                            [0, 0] [1, 0] [2, 0]
+                            [1, 0] [1, 1] [1, 2]
+                            [2, 0] [2, 1] [2, 2]                        
+                            */
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+
+</html>

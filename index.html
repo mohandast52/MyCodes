@@ -1,190 +1,203 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Projects and Practise</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        :root {
-            --cardWidth: 250px;
-            --cardHeight: 100px;
-            --blue: #3F51B5;
-            --white: rgb(255, 255, 255, 0.87);
-            --green: #388e3c;
-            --red: #FF5252;
-            --grey: #d3d3d3;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--grey);
-
-        }
-
-        .container {
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                width: 750px;
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Projects and Practise</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            :root {
+                --cardWidth: 250px;
+                --cardHeight: 100px;
+                --blue: #3F51B5;
+                --white: rgb(255, 255, 255, 0.87);
+                --green: #388e3c;
+                --red: #FF5252;
+                --grey: #d3d3d3;
             }
-        }
 
-        @media (min-width: 992px) {
-            .container {
-                width: 970px;
+            * {
+                box-sizing: border-box;
             }
-        }
 
-        @media (min-width: 1200px) {
-            .container {
-                width: 1170px;
+            body {
+                background-color: var(--grey);
+
             }
-        }
 
-        .allProjects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
+            .container {
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-right: auto;
+                margin-left: auto;
+            }
 
-        .allProjects a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: var(--cardWidth);
-            height: var(--cardHeight);
-            margin: 20px;
-            text-decoration: none;
-            background: linear-gradient(to right, #3519d2, #871ee9);
-            color: white;
-            border-radius: 7px;
-            transition: all .2s ease;
-            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
-        }
+            @media (min-width: 768px) {
+                .container {
+                    width: 750px;
+                }
+            }
 
-        .allProjects a:hover {
-            width: 270px;
-            height: 120px;
-            margin: 10px;
-            padding: 10px;
-            border-radius: 1px;
-            box-shadow: 0 8px 9px -5px rgba(0, 0, 0, .2), 0 15px 22px 2px rgba(0, 0, 0, .14), 0 6px 28px 5px rgba(0, 0, 0, .12);
-        }
+            @media (min-width: 992px) {
+                .container {
+                    width: 970px;
+                }
+            }
 
-        .allProjects a>div {
-            text-align: center;
-        }
-    </style>
-</head>
+            @media (min-width: 1200px) {
+                .container {
+                    width: 1170px;
+                }
+            }
 
-<body>
-    <main class="container">
-        <div class="allProjects">
+            .allProjects {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
 
-            <a href="/MyCodes/html/animation.html">
-                <div>Animation</div>
-            </a>
+            .allProjects a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: var(--cardWidth);
+                height: var(--cardHeight);
+                margin: 20px;
+                text-decoration: none;
+                background: linear-gradient(to right, #3519d2, #871ee9);
+                color: white;
+                border-radius: 7px;
+                transition: all .2s ease;
+                box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+            }
 
-            <a href="/MyCodes/html/card-ripple.html">
-                <div>Card-ripple</div>
-            </a>
+            .allProjects a:hover {
+                width: 270px;
+                height: 120px;
+                margin: 10px;
+                padding: 10px;
+                border-radius: 1px;
+                box-shadow: 0 8px 9px -5px rgba(0, 0, 0, .2), 0 15px 22px 2px rgba(0, 0, 0, .14), 0 6px 28px 5px rgba(0, 0, 0, .12);
+            }
 
-            <a href="/MyCodes/html/cssGridLearning.html">
-                <div>CSS grid learning</div>
-            </a>
+            .allProjects a>div {
+                text-align: center;
+            }
+        </style>
+    </head>
 
-            <a href="/MyCodes/html/dragAndDrop.html">
-                <div>Drag and Drop using Javascript</div>
-            </a>
+    <body>
+        <main class="container">
+            <div class="allProjects">
 
-            <a href="/MyCodes/html/fcc-productLandingPage.html">
-                <div>FCC Landing Page Project</div>
-            </a>
+                <a href="/MyCodes/html/animation.html">
+                    <div>Animation</div>
+                </a>
 
-            <a href="/MyCodes/html/inboxDesign.html">
-                <div>Inbox Design
-                    <span>(WORKING)</span>
-                </div>
-            </a>
+                <a href="/MyCodes/html/card-ripple.html">
+                    <div>Card-ripple</div>
+                </a>
 
-            <a href="/MyCodes/html/javascriptExploring.html">
-                <div>Javascript Exploring
-                    <span>(WORKING)</span>
-                </div>
-            </a>
+                <a href="/MyCodes/html/cssGridLearning.html">
+                    <div>CSS grid learning</div>
+                </a>
 
-            <a href="/MyCodes/html/modernLoader.html">
-                <div>Modern Loader</div>
-            </a>
+                <a href="/MyCodes/html/dragAndDrop.html">
+                    <div>Drag and Drop using Javascript</div>
+                </a>
 
-            <a href="/MyCodes/html/myButton.html">
-                <div>Different Button Styles</div>
-            </a>
+                <a href="/MyCodes/html/fcc-productLandingPage.html">
+                    <div>FCC Landing Page Project</div>
+                </a>
 
-            <a href="/MyCodes/html/parallaxHeader.html">
-                <div>Parallax</div>
-            </a>
+                <a href="/MyCodes/html/inboxDesign.html">
+                    <div>Inbox Design
+                        <span>(WORKING)</span>
+                    </div>
+                </a>
 
-            <a href="/MyCodes/html/ripple.html">
-                <div>Ripple Effect</div>
-            </a>
+                <a href="/MyCodes/html/javascriptExploring.html">
+                    <div>Javascript Exploring
+                        <span>(WORKING)</span>
+                    </div>
+                </a>
 
-            <a href="/MyCodes/Bootstrap 4 project/index.html">
-                <div>Bootstrap 4 Learning</div>
-            </a>
+                <a href="/MyCodes/html/modernLoader.html">
+                    <div>Modern Loader</div>
+                </a>
 
-            <a href="/MyCodes/html/hackerrankClone.html">
-                <div>hackerrank Research Clone</div>
-            </a>
+                <a href="/MyCodes/html/myButton.html">
+                    <div>Different Button Styles</div>
+                </a>
 
-            <a href="/MyCodes/html/mouseTracker.html">
-                <div>Mouse Tracker</div>
-            </a>
+                <a href="/MyCodes/html/parallaxHeader.html">
+                    <div>Parallax</div>
+                </a>
 
-            <a href="/MyCodes/html/splitLandingPage.html">
-                <div>Split Landing page</div>
-            </a>
+                <a href="/MyCodes/html/ripple.html">
+                    <div>Ripple Effect</div>
+                </a>
 
-            <a href="/MyCodes/html/splitScreenSlider.html">
-                <div>Split Screen slider</div>
-            </a>
+                <a href="/MyCodes/Bootstrap 4 project/index.html">
+                    <div>Bootstrap 4 Learning</div>
+                </a>
 
-            <a href="/MyCodes/html/imageGallery.html">
-                <div>Image Gallery using Javascript</div>
-            </a>
+                <a href="/MyCodes/html/hackerrankClone.html">
+                    <div>hackerrank Research Clone</div>
+                </a>
 
-            <a href="/MyCodes/html/fullScreenImageHover.html">
-                <div>Full Screen Image on Hover</div>
-            </a>
+                <a href="/MyCodes/html/mouseTracker.html">
+                    <div>Mouse Tracker</div>
+                </a>
 
-            <a href="/MyCodes/html/fullscreenVideo.html">
-                <div>Full Screen Video</div>
-            </a>
+                <a href="/MyCodes/html/splitLandingPage.html">
+                    <div>Split Landing page</div>
+                </a>
 
-            <a href="/MyCodes/html/canvasCircle.html">
-                <div>Circle animation (CANVAS)</div>
-            </a>
+                <a href="/MyCodes/html/splitScreenSlider.html">
+                    <div>Split Screen slider</div>
+                </a>
 
-            <a href="/MyCodes/html/gameWordbeater.html">
-                <div>Word Beater</div>
-            </a>
-            <!-- 
+                <a href="/MyCodes/html/imageGallery.html">
+                    <div>Image Gallery using Javascript</div>
+                </a>
+
+                <a href="/MyCodes/html/fullScreenImageHover.html">
+                    <div>Full Screen Image on Hover</div>
+                </a>
+
+                <a href="/MyCodes/html/fullscreenVideo.html">
+                    <div>Full Screen Video</div>
+                </a>
+
+                <a href="/MyCodes/html/canvasCircle.html">
+                    <div>Circle animation (CANVAS)</div>
+                </a>
+
+                <a href="/MyCodes/html/canvasCircle.html">
+                    <div>Circular Motion (CANVAS)</div>
+                </a>
+
+                <a href="/MyCodes/html/canvasCircle.html">
+                    <div>Collision Detection (CANVAS)</div>
+                </a>
+
+
+                <a href="/MyCodes/html/canvasCircle.html">
+                    <div>Memory Card (GAME)</div>
+                </a>
+
+                <a href="/MyCodes/html/gameWordbeater.html">
+                    <div>Word Beater (GAME)</div>
+                </a>
+                <!-- 
             <a href="/MyCodes/html">
                 <div></div>
             </a>
             -->
-        </div>
-    </main>
-</body>
+            </div>
+        </main>
+    </body>
 
 </html>

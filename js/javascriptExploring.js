@@ -196,7 +196,7 @@ box.addEventListener('mousemove', function (event) {
 
 
 /* 
-   Immediately Invked Function Expression (IIFE) : 
+   Immediately Invoked Function Expression (IIFE) : 
    - its JS function runs as soon as it is defined
    - seperated global and local variables.
    
@@ -327,12 +327,142 @@ if we try to access it, we will get error. (means, it is accessible only inside 
 for (var j = 0; j < 5; j++) {
     console.log(j);
 }
-console.log(j);
+console.log("var accessed " + j);
 // we can access it and use that outside block too.
 
 
+console.log('--{ callback function }--');
+/*
+Callbacks : 
+    - functions are first-class objects, ie. they are of the type OBJECT
+    hence, can be stored in variables, passed as arguments to functions, returned from functions 
+    - its basically 'call at the back' (better name would be "call after" function)
+    */
+
+// eg 1
+function greetings(name) {
+    console.log("hey, " + name + " from callback function :) ");
+}
+
+function processUserInput(functionNamePassedHere) {
+    console.log('hey!! fun');
+    let name = 'Mohan'
+    functionNamePassedHere(name);
+}
+
+// we just know the function name, but the args are hidden to user! 
+processUserInput(greetings);
+
+// eg 2
+
+function add(num1, num2) {
+    return "Addition of " + num1 + " and " + num2 + " : " + (num1 + num2);
+}
+
+function sub(num1, num2) {
+    return "Subtraction of " + num1 + " and " + num2 + " : " + (num1 - num2);
+}
+
+function calc(num1, num2, operationName) {
+    // checks if user passed the real function name or some garbage
+    if (typeof operationName === "function") {
+        return operationName(num1, num2);
+    }
+    return "Not a valid function name";
+}
+
+console.log(calc(5, 10, add)); // we know which function to call, but not the logic inside it
+
+// exactly same as above add function
+console.log(calc(5, 10, function (a, b) {
+    // this is a callback function
+    return a + b;
+}));
+
+/*
+    sort function internally uses callback function and give the programmer 
+    to sort in asecending or desending order
+
+    array.sort(function(val1, val2){
+        if(val1.str > val2.str){
+            return -1;
+        } else {
+            return 1;
+        }
+    });
+*/
+
+console.log('--{ Promises }--');
+// eg 1
+let promise = new Promise(function (resolve, reject) {
+    let gotDataFromResource = false;
+    if (gotDataFromResource) {
+        resolve('take the data buddy!!');
+    } else {
+        reject('Sorry, URL is down');
+    }
+});
+
+promise.then(function (data) {
+    console.log(data);
+}).catch(function (rejectedData) {
+    console.log(rejectedData);
+});
+
+// eg 2
+
+let cleanRoom = function () {
+    return new Promise(function (resolve, reject) {
+        resolve('Cleaned the room');
+    });
+};
 
 
+let removeGarbage = function (message) {
+    return new Promise(function (resolve, reject) {
+        resolve(message + ' | remove garbage');
+    });
+};
 
 
+let winIcecream = function (message) {
+    return new Promise(function (resolve, reject) {
+        resolve(message + ' | won icecream');
+    });
+};
 
+// nested promise (one after the other, and takes time) 
+cleanRoom()
+    .then(function (message) {
+        return removeGarbage(message); // returns a promise
+    })
+    .then(function (message) {
+        return winIcecream(message);
+    })
+    .then(function (message) {
+        console.log('NESTED : finally all promise done!');
+        console.log(message);
+    });
+
+// all the promises to be executed parallel
+Promise.all([cleanRoom(), removeGarbage(), winIcecream()]).then(function (message) {
+    console.log(message); // return array of messages[]
+    console.log('PARALLEL : promises executed!');
+});
+
+// any one resolved (when we target for different web servers and even if one return, we are done)
+Promise.race([cleanRoom(), removeGarbage(), winIcecream()]).then(function (message) {
+    console.log(message); // return array of messages[]
+    console.log('RACE : promises executed!');
+});
+
+// async
+console.log('--{ Async/Await }--');
+
+// to use aysnc, function add async keyword before function
+async function promiseAlternative() {
+    const userResponse = (await fetch('https://jsonplaceholder.typicode.com/users'));
+    const userJsonData = await userResponse.json();
+    console.log(userJsonData); // will be executed after cleanRoom() function completely executes.
+}
+promiseAlternative();

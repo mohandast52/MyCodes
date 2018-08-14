@@ -1,191 +1,235 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tracking Myself</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tracking Myself</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
 
-        body {
-            margin: 20px;
-        }
+            body {
+                margin: 20px;
+            }
 
-        .niteMode {
-            color: white;
-            background-color: black;
-        }
+            .niteMode {
+                color: white;
+                background-color: black;
+            }
 
-        .year {
-            font-size: 1.2em;
-        }
+            .year {
+                font-size: 1.2em;
+            }
 
-        .month {
-            font-size: 0.9em;
-        }
+            .month {
+                font-size: 0.9em;
+            }
 
-        .dates>li {
-            font-size: 0.8em;
-            margin: 8px 0px;
-        }
+            .dates>li {
+                font-size: 0.8em;
+                margin: 8px 0px;
+            }
 
-        .sub_parts {
-            font-size: 0.7rem;
-        }
+            .sub_parts {
+                font-size: 0.7rem;
+            }
 
-        .studiedNew {
-            text-decoration: none;
-        }
+            .studiedNew {
+                text-decoration: none;
+            }
 
-        .productive {
-            text-decoration: underline;
-            text-decoration-color: #00d2a5;
-        }
+            .productive {
+                text-decoration: underline;
+                text-decoration-color: #00d2a5;
+            }
 
-        .wasted {
-            text-decoration: underline;
-            text-decoration-color: #FF5252;
-        }
+            .wasted {
+                text-decoration: underline;
+                text-decoration-color: #FF5252;
+            }
 
-        .revised {
-            text-decoration: underline;
-            text-decoration-style: wavy;
-            text-decoration-color: #E040FB;
-        }
+            .revised {
+                text-decoration: underline;
+                text-decoration-style: wavy;
+                text-decoration-color: #E040FB;
+            }
 
-        /*
+            /*
             use '<' and '@' bindings only.
             never change property of passed in object or array (because it javascript feature to do that)
         */
-    </style>
-</head>
+        </style>
+    </head>
 
-<body class="niteMode">
-    <h1></h1>
-    <main>
-        <div>
-            <ul>
-                <li class="year">2018</li>
+    <body class="niteMode">
+        <h1></h1>
+        <main>
+            <div>
                 <ul>
-                    <li class="month">July</li>
-                    <ol class="dates" start="16">
-                        <li class="studiedNew">Explored some javascripts event and methods.</li>
-                        <li class="productive">Created simple image Drag & Drop project.</li>
-                        <li class="wasted">Wasted by OverThinking</li>
-                        <li class="wasted">Wasted by OverThinking and ubuntu update to 18.04</li>
-                        <li class="studiedNew">Wasted by OverThinking and started
-                            <i>Angular project for interview!</i>
-                        </li>
-                        <li class="productive">
-                            <i>AngularJS!</i>
-                            <ul class="sub_parts">
-                                <li>Filter, $scope, $digest, $apply</li>
-                                <li>$watch, $injector</li>
-                                <li>$$ (angularJS internal)</li>
-                                <li>controller 'as' syntax</li>
-                                <li>prototypal interitance</li>
-                                <li>M-V-VM (common design pattern)</li>
-                            </ul>
-                        </li>
-                        <li class="wasted">Sunday and Wasted by OverThinking (k app)</li>
-                        <li class="productive">
-                            <i>AngularJS!</i>
-                            <ul class="sub_parts">
-                                <li>services using Service, Factory, Provider</li>
-                                <li>ng-if, ng-hide, ng-show</li>
-                                <li>Object literal(Singleton) vs Object constructor</li>
-                            </ul>
-                        </li>
-                        <li class="productive">
-                            <i>AngularJS!</i>
-                            <ul class="sub_parts">
-                                <li>$http</li>
-                                <li>directive => restrict, custom directive, =, @ etc</li>
-                                <li class="wasted">Wasted most of the time</li>
-                            </ul>
-                        </li>
-                        <li class="productive">
-                            <i>AngularJS!</i>
-                            <ul class="sub_parts">
-                                <li>directive with controllers</li>
-                                <li>& in directive</li>
-                                <li>link, ng-transclude</li>
-                            </ul>
-                        </li>
-                        <li class="productive">
-                            <i>AngularJS!</i>
-                            <ul class="sub_parts">
-                                <li>Component</li>
-                                <li>publish-subscribe design pattern</li>
-                                <li>$emit, $broadcast, $on</li>
-                            </ul>
-                        </li>
-                        <li class="productive">
-                            <i>AngularJS!</i>
-                            <ul class="sub_parts">
-                                <li>Module (split every component, controller, etc in different files)</li>
-                                <li>Routing</li>
-                                <li></li>
-                            </ul>
-                        </li>
-                        <li class="productive">
-                            <i>AngularJS!</i>
-                            <ul class="sub_parts">
-                                <li>Interview project within a day</li>
-                            </ul>
-                        </li>
-                        <li class="productive">
-                            <ul class="sub_parts">
-                                <li>Made /MyCodes index.html and hosted on github</li>
-                            </ul>
-                        </li>
-                        <li class="productive">
-                            <ul class="sub_parts">
-                                <li>Some more stuff from Online Tutorials (from youtube)</li>
-                                <li>Rough sketch for personal portfolio</li>
-                            </ul>
-                        </li>
-                        <li class="wasted">Sunday and Wasted by OverThinking</li>
-                    </ol>
-                </ul>
+                    <li class="year">2018</li>
+                    <ul>
+                        <li class="month">July</li>
+                        <ol class="dates" start="16">
+                            <li class="studiedNew">Explored some javascripts event and methods.</li>
+                            <li class="productive">Created simple image Drag & Drop project.</li>
+                            <li class="wasted">Wasted by OverThinking</li>
+                            <li class="wasted">Wasted by OverThinking and ubuntu update to 18.04</li>
+                            <li class="studiedNew">Wasted by OverThinking and started
+                                <i>Angular project for interview!</i>
+                            </li>
+                            <li class="productive">
+                                <i>AngularJS!</i>
+                                <ul class="sub_parts">
+                                    <li>Filter, $scope, $digest, $apply</li>
+                                    <li>$watch, $injector</li>
+                                    <li>$$ (angularJS internal)</li>
+                                    <li>controller 'as' syntax</li>
+                                    <li>prototypal interitance</li>
+                                    <li>M-V-VM (common design pattern)</li>
+                                </ul>
+                            </li>
+                            <li class="wasted">Sunday and Wasted by OverThinking (k app)</li>
+                            <li class="productive">
+                                <i>AngularJS!</i>
+                                <ul class="sub_parts">
+                                    <li>services using Service, Factory, Provider</li>
+                                    <li>ng-if, ng-hide, ng-show</li>
+                                    <li>Object literal(Singleton) vs Object constructor</li>
+                                </ul>
+                            </li>
+                            <li class="productive">
+                                <i>AngularJS!</i>
+                                <ul class="sub_parts">
+                                    <li>$http</li>
+                                    <li>directive => restrict, custom directive, =, @ etc</li>
+                                    <li class="wasted">Wasted most of the time</li>
+                                </ul>
+                            </li>
+                            <li class="productive">
+                                <i>AngularJS!</i>
+                                <ul class="sub_parts">
+                                    <li>directive with controllers</li>
+                                    <li>& in directive</li>
+                                    <li>link, ng-transclude</li>
+                                </ul>
+                            </li>
+                            <li class="productive">
+                                <i>AngularJS!</i>
+                                <ul class="sub_parts">
+                                    <li>Component</li>
+                                    <li>publish-subscribe design pattern</li>
+                                    <li>$emit, $broadcast, $on</li>
+                                </ul>
+                            </li>
+                            <li class="productive">
+                                <i>AngularJS!</i>
+                                <ul class="sub_parts">
+                                    <li>Module (split every component, controller, etc in different files)</li>
+                                    <li>Routing</li>
+                                    <li></li>
+                                </ul>
+                            </li>
+                            <li class="productive">
+                                <i>AngularJS!</i>
+                                <ul class="sub_parts">
+                                    <li>Interview project within a day</li>
+                                </ul>
+                            </li>
+                            <li class="productive">
+                                <ul class="sub_parts">
+                                    <li>Made /MyCodes index.html and hosted on github</li>
+                                </ul>
+                            </li>
+                            <li class="productive">
+                                <ul class="sub_parts">
+                                    <li>Some more stuff from Online Tutorials (from youtube)</li>
+                                    <li>Rough sketch for personal portfolio</li>
+                                </ul>
+                            </li>
+                            <li class="wasted">Sunday and Wasted by OverThinking</li>
+                        </ol>
+                    </ul>
 
-                <ul>
-                    <li class="month">August</li>
-                    <ol class="dates" start="1">
-                        <li class="wasted">Talked with Unfound co-founder and rejected it, Wasted by OverThinking</li>
-                        <li class="productive">whole day on browserify</li>
-                        <li class="productive">
-                            <ul class="sub_parts">
-                                <li>Full screen image on hover - Online tutorials</li>
-                            </ul>
-                        </li>
-                        <li class="productive">
-                            Coin changing problem using Recurrsion and Dynamic programming!
-                        </li>
-                        <li class="productive">
-                            Sunday and gave test on hackerearth for American Express Internship</li>
-                        <li class="studiedNew">
-                            <ul class="sub_parts">
-                                <li>Some design like </li>
-                                <li>fullScreenVideo design - Traversy</li>
-                                <li>Image gallery using Javascript - Traversy</li>
-                                <li>Wordpress!!</li>
-                            </ul>
-                        </li>
-                    </ol>
+                    <ul>
+                        <li class="month">August</li>
+                        <ol class="dates" start="1">
+                            <li class="wasted">Talked with Unfound co-founder and rejected it, Wasted by OverThinking</li>
+                            <li class="productive">whole day on browserify</li>
+                            <li class="productive">
+                                <ul class="sub_parts">
+                                    <li>Full screen image on hover - Online tutorials</li>
+                                </ul>
+                            </li>
+                            <li class="productive">
+                                Coin changing problem using Recurrsion and Dynamic programming!
+                            </li>
+                            <li class="productive">
+                                Sunday and gave test on hackerearth for American Express Internship</li>
+                            <li class="studiedNew">
+                                Some design like
+                                <ul class="sub_parts">
+                                    <li>fullScreenVideo design - Traversy</li>
+                                    <li>Image gallery using Javascript - Traversy</li>
+                                    <li>Wordpress!!</li>
+                                </ul>
+                            </li>
+
+                            <li class="">
+                                Working on word beater game
+                            </li>
+
+                            <li class="">
+                                Working on word beater game
+                            </li>
+
+                            <li class="productive">
+                                CANVAS learning
+                            </li>
+
+                            <li class="productive">
+                                CANVAS projects
+                                <ul class="sub_parts">
+                                    <li>Canvas circle</li>
+                                    <li>Circular Motion</li>
+                                    <li>Collision detection</li>
+                                </ul>
+                            </li>
+
+                            <li class="">
+
+                            </li>
+
+                            <li class="productive">
+                                Sunday and went to visit sheela aunty. (so did nothing!)
+                            </li>
+
+                            <li>
+                                Explored javascript
+                                <ul class="sub_parts">
+                                    <li>Callback functions</li>
+                                    <li>Promises, fetch, async, await</li>
+                                </ul>
+                            </li>
+
+                            <li class="productive">
+                                Memory card game
+                            </li>
+
+                            <li class="">
+                                Independence day - went to chruch
+                            </li>
+                        </ol>
+                    </ul>
                 </ul>
-            </ul>
-        </div>
-    </main>
-</body>
+            </div>
+        </main>
+    </body>
 
 </html>
 
 <!-- 
-
     browser-sync start --server --directory --files "**/*"
  -->
