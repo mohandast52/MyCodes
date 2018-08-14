@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Game Beater</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                height: 100vh;
+                background-color: #060AB2;
+                display: flex;
+            }
+
+            .memory-game {
+                margin: auto;
+                width: 640px;
+                height: 640px;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .memory-card {
+                position: relative;
+                width: calc(25% - 10px);
+                height: calc(33.33% - 10px);
+                margin: 5px;
+                transform: scale(1);
+                transform-style: preserve-3d;
+                transition: transform .3s;
+            }
+
+            .memory-card:active {
+                transform: scale(0.97);
+            }
+
+            .memory-card.flipCard {
+                transform: rotateY(180deg);
+            }
+
+            .front-face,
+            .back-face {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+                border-radius: 4px;
+                background-color: #3F51B5;
+                backface-visibility: hidden;
+            }
+
+            .back-face {
+                transform: rotateY(180deg);
+            }
+
+            .front-face {}
+        </style>
+    </head>
+
+    <body>
+        <section class="memory-game">
+
+            <div class="memory-card" data-image="aurelia">
+                <img src="/images/SVGs/aurelia.svg" alt="Aurelia" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="angular">
+                <img src="/images/SVGs/angular.svg" alt="Angular" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="backbone">
+                <img src="/images/SVGs/backbone.svg" alt="Backbone" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="ember">
+                <img src="/images/SVGs/ember.svg" alt="Ember" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="react">
+                <img src="/images/SVGs/react.svg" alt="React" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="vue">
+                <img src="/images/SVGs/vue.svg" alt="Vue" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="aurelia">
+                <img src="/images/SVGs/aurelia.svg" alt="Aurelia" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="angular">
+                <img src="/images/SVGs/angular.svg" alt="Angular" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="backbone">
+                <img src="/images/SVGs/backbone.svg" alt="Backbone" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="ember">
+                <img src="/images/SVGs/ember.svg" alt="Ember" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="react">
+                <img src="/images/SVGs/react.svg" alt="React" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+            <div class="memory-card" data-image="vue">
+                <img src="/images/SVGs/vue.svg" alt="Vue" class="back-face">
+                <img src="/images/SVGs/js-badge.svg" alt="JS-badge" class="front-face">
+            </div>
+
+
+        </section>
+
+        <script>
+            const cards = document.querySelectorAll('.memory-card');
+
+            let firstTimeFlipped = false;
+            let firstCard, secondCard;
+            let lockBoard = false; /* user should not be able to click when 2 cards are already shown, so we lock the board and release it */
+
+            function flipcard() {
+                if (lockBoard) return;
+                if (firstCard === this) /* what is user click the same image twice! */ {
+                    return;
+                }
+                this.classList.add('flipCard');
+
+                if (!firstTimeFlipped) /* card has been flipped first time */ {
+                    firstTimeFlipped = true;
+                    firstCard = this;
+                } else { /* card has been flipped second time */
+                    firstTimeFlipped = false;
+                    secondCard = this;
+                    checkForMatch();
+                }
+            }
+
+            function checkForMatch() {
+                // if both card flipped are same
+                let isMatch = (firstCard.dataset.image) === (secondCard.dataset.image);
+                isMatch ? disableCards() : unflipCards();
+            }
+
+            function disableCards() {
+                firstCard.removeEventListener('click', flipcard);
+                secondCard.removeEventListener('click', flipcard);
+            }
+
+            function unflipCards() {
+                lockBoard = true;
+                setTimeout(() => {
+                    firstCard.classList.remove('flipCard');
+                    secondCard.classList.remove('flipCard');
+                    lockBoard = false;
+                }, 1500);
+            }
+            cards.forEach(card => {
+                card.addEventListener('click', flipcard);
+            });
+
+            // shuffle cards using flex
+            (function suffle() {
+                cards.forEach(card => {
+                    card.style.order = Math.floor(Math.random() * cards.length);
+                });
+            })();
+        </script>
+    </body>
+
+</html>
