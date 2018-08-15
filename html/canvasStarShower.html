@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Star Shower</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                left: 0;
+                top: 0;
+                display: flex;
+            }
+
+            canvas {
+                width: 100%;
+                height: 100%;
+                margin: auto;
+                border: 1px solid #000000;
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="starShower"></canvas>
+        <script>
+            const canvas = document.getElementById("starShower");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight - 1;
+            const ctx = canvas.getContext('2d');
+
+
+            window.addEventListener('resize', function () {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight - 1;
+                init(); // we need circles to be created dynamically so we need this method;
+            });
+
+
+            // utility functions
+            function getDistance(x1, y1, x2, y2) {
+                let xDistance = Math.pow(x2 - x1, 2);
+                let yDistance = Math.pow(y2 - y1, 2);
+                return Math.sqrt(xDistance + yDistance);
+            }
+
+            function randomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+
+            // object
+            function Star(x, y, radius, color) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = color;
+                this.velocity = {
+                    x: randomNumber(-10, 10),
+                    y: 10
+                };
+                this.gravity = 1;
+                this.friction = 0.8; // when something hits the ground, it losses some energy!
+            }
+            Star.prototype.draw = function () {
+                ctx.save(); // shadow is  applied only to mini-star and not the mountain
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.shadowColor = '#e3eaef';
+                ctx.shadowBlur = 20;
+                ctx.fill();
+                ctx.closePath();
+                ctx.restore(); // shadow is  applied only to mini-star and not the mountain
+            }
+
+            Star.prototype.update = function () {
+                this.draw();
+                // bottom hit
+                if (this.y + this.radius + this.velocity.y > canvas.height - groundHeight) {
+                    this.velocity.y = -this.velocity.y * this.friction;
+                    this.shatter(); // when hits the ground, small stars are created
+                } else {
+                    this.velocity.y += this.gravity;
+                }
+
+
+                // side hit
+                if (this.x + this.radius + this.velocity.x > canvas.width ||
+                    this.x - this.radius < 0) {
+                    this.velocity.x = -this.velocity.x;
+                }
+
+                this.y = this.y + this.velocity.y;
+                this.x = this.x + this.velocity.x;
+            }
+
+            Star.prototype.shatter = function () {
+                this.radius -= 5; // reduce balls size, whenever it hits the ground and create star
+                for (let i = 0; i < 8; i++) {
+                    miniStars.push(new MiniStar(this.x, this.y, 2));
+                }
+            }
+
+
+            // mini-stars
+            function MiniStar(x, y, radius, color) {
+                Star.call(this, x, y, radius, color); // inheritance, calling the parents initialization methods
+                this.velocity = {
+                    x: randomNumber(-10, 10),
+                    y: randomNumber(-55, 55)
+                };
+                this.gravity = 1;
+                this.friction = 0.8;
+                this.timeToLive = 200;
+                this.opacity = 1;
+            }
+            MiniStar.prototype.draw = function () {
+                ctx.save(); // shadow is  applied only to mini-star and not the mountain
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                ctx.fillStyle = `rgba(227, 234, 239, ${this.opacity})`;
+                ctx.shadowColor = '#e3eaef';
+                ctx.shadowBlur = 20;
+                ctx.fill();
+                ctx.closePath();
+                ctx.restore();
+            }
+
+            MiniStar.prototype.update = function () {
+                this.draw();
+                // bottom hit
+                if (this.y + this.radius + this.velocity.y > canvas.height - groundHeight) {
+                    this.velocity.y = -this.velocity.y * this.friction;
+                } else {
+                    this.velocity.y += this.gravity;
+                }
+
+                // side hit
+                if (this.x + this.radius + this.velocity.x > canvas.width ||
+                    this.x - this.radius <
+                    0) {
+                    this.velocity.x = -this.velocity.x;
+                }
+
+
+                this.x = this.x + this.velocity.x;
+                this.y = this.y + this.velocity.y;
+
+                this.timeToLive -= 1;
+                this.opacity -= 3 / this.timeToLive; // decreasing opacity
+            }
+
+            // mountains
+            function createMountainRange(mountainAmount, height, mountainColor) {
+                const eachMountainWidth = canvas.width / mountainAmount;
+                for (let i = 0; i < mountainAmount; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(i * eachMountainWidth, canvas.height); // bottom left
+                    ctx.lineTo(i * eachMountainWidth + eachMountainWidth + 325, canvas.height); // line from bottom-left to bottom-right
+                    ctx.lineTo(i * eachMountainWidth + eachMountainWidth / 2, canvas.height - height); // line from bottom-right to middle-heightMountain
+                    ctx.lineTo(i * eachMountainWidth - 325, canvas.height); // line from middle-heightMountain to bottom-left
+                    ctx.fillStyle = mountainColor;
+                    ctx.fill();
+                    ctx.closePath();
+                    // 325 is used to stretch it 
+                }
+            }
+
+
+            var backgroundGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            backgroundGradient.addColorStop(0, '#171e26'); // (fromWhere (top), color)
+            backgroundGradient.addColorStop(1, '#3f586b'); // (fromWhere (last), color)
+
+            var stars = [];
+            var miniStars = [];
+            var backgroundStars = [];
+            var ticker = 0;
+            var starFallingVariation = 75;
+            var groundHeight = 100;
+
+            function init() {
+                stars = [];
+                miniStars = [];
+                backgroundStars = [];
+
+                /*
+                for (let i = 0; i < 1; i++) {
+                    stars.push(new Star(canvas.width / 2, canvas.height / 2, 20, '#E3EAEF'));
+                }
+                */
+                // background stars
+                for (let i = 0; i < 150; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const radius = Math.random() * 3;
+                    backgroundStars.push(new Star(x, y, radius, 'white'));
+                }
+            }
+
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.fillStyle = backgroundGradient;
+                ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+                // draw mountain
+                for (let i = 0; i < backgroundStars.length; i++) {
+                    backgroundStars[i].draw(); // calling draw() function and not the update!!
+                }
+
+
+                createMountainRange(1, canvas.height - 50, '#384551');
+                createMountainRange(2, canvas.height - 100, '#2b3843');
+                createMountainRange(3, 300, '#26333e');
+
+                // ground
+                ctx.fillStyle = "#182028";
+                ctx.fillRect(0, canvas.height - groundHeight, canvas.width, groundHeight);
+
+                if (ticker % starFallingVariation == 0) {
+                    stars.push(new Star(Math.random() * canvas.width, 1, 10, '#E3EAEF'));
+                    starFallingVariation = randomNumber(75, 120);
+                }
+                ticker++;
+
+                for (let i = 0; i < stars.length; i++) {
+                    stars[i].update();
+                    if (stars[i].radius <= 0) {
+                        stars.splice(i, 1);
+                    }
+                }
+                // console.log(miniStars);
+                for (let i = 0; i < miniStars.length; i++) {
+                    miniStars[i].update();
+                    if (miniStars[i].timeToLive <= 0) {
+                        miniStars.splice(i, 1);
+                    }
+                }
+            }
+
+
+            init();
+            animate();
+        </script>
+    </body>
+
+</html>

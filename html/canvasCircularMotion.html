@@ -3,7 +3,6 @@
 
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Circular Motion</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
@@ -12,19 +11,127 @@
                 margin: 0;
                 left: 0;
                 top: 0;
+                display: flex;
             }
 
             canvas {
+                margin: auto;
                 border: 1px solid #000000;
             }
         </style>
     </head>
 
     <body>
-        <canvas id="collisionDetection"></canvas>
+        <canvas id="circularMotion"></canvas>
         <script>
-            const canvas = document.getElementById('collisionDetection');
+            // https://www.mathsisfun.com/sine-cosine-tangent.html
+            const canvas = document.getElementById('circularMotion');
             const ctx = canvas.getContext('2d');
+
+            canvas.width = window.innerWidth - 5;
+            canvas.height = window.innerHeight - 5;
+
+            var mouse = {
+                x: canvas.width / 2,
+                y: canvas.height / 2
+            };
+            window.addEventListener('mousemove', function (event) {
+                mouse.x = event.x;
+                mouse.y = event.y;
+            });
+
+            window.addEventListener('resize', function () {
+                canvas.width = window.innerWidth - 6;
+                canvas.height = window.innerHeight - 6;
+                init();
+            });
+
+
+            var colorArray = [
+                '#13B0BF',
+                // '#212100',
+                // '#F0677F',
+                '#4784DA',
+                // '#F34809'
+            ];
+
+            function randomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+
+            function Particles(x, y, radius, color) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
+                this.radians = Math.random() * Math.PI * 2;
+                this.velocity = 0.05;
+                this.distanceFromCenter = randomNumber(50, 120);
+                this.lastMouse = {
+                    x: x,
+                    y: x
+                }
+                this.update = () => {
+                    // for creating line, to took like circle effect
+                    const lastPoint = {
+                        x: this.x,
+                        y: this.y
+                    };
+
+                    // to create a drag effect and not to move the mouse real-time
+                    this.lastMouse.x += (mouse.x - this.lastMouse.x) * 0.04;
+                    this.lastMouse.y += (mouse.y - this.lastMouse.y) * 0.04;
+
+
+                    this.radians += this.velocity;
+                    // value is always between -1 and 1, so multiplied by 'distanceFromCenter' for better view
+                    this.x = this.lastMouse.x + Math.cos(this.radians) * this.distanceFromCenter;
+                    this.y = this.lastMouse.y + Math.sin(this.radians) * this.distanceFromCenter;
+                    // console.log(this.x, this.y);
+                    if (this.radians > Math.max - 100) {
+                        // radians is always increasing, so it might go into overflow, hence re-assigning to zero
+                        this.radians = 0;
+                    }
+                    this.draw(lastPoint);
+                }
+                this.draw = (lastPoint) => {
+                    ctx.beginPath();
+                    ctx.moveTo(lastPoint.x, lastPoint.y);
+                    ctx.lineTo(this.x, this.y);
+                    ctx.strokeStyle = this.color;
+                    ctx.lineWidth = this.radius;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            }
+
+            // creating particles
+            var particles;
+
+            function init() {
+                particles = [];
+                for (let i = 0; i < 100; i++) {
+                    const radius = Math.random() * 4 + 1;
+                    particles.push(new Particles(canvas.width / 2, canvas.height / 2, radius, 'blue'));
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                /*
+                here, we are not clearing the rect, instead on top we are adding rectage with transparency. So the below circle gets fadeout and we
+                can get the effect
+                */
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update(particles);
+                }
+            }
+
+            // 
+            init();
+            animate();
         </script>
     </body>
 
