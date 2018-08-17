@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Javascript OOPs</title>
+    </head>
+
+    <body>
+
+        <script>
+            (function () {
+                console.log('IIFE');
+            })();
+
+
+            // factory pattern
+            console.log('\n--{ Factory Pattern }--');
+            var peopleFactory = function (name, age, state) {
+                var temp = {};
+                temp.age = age;
+                temp.name = name;
+                temp.state = state;
+                temp.printPerson = function () {
+                    console.log(this.name + " " + this.age + " " + this.state);
+                }
+                return temp;
+            }
+
+            // personFactory1, personFactory2 is nothing but the return 'temp' object!!
+            var personFactory1 = peopleFactory('Mohan', 1, 'Mumbai');
+            var personFactory2 = peopleFactory('DAS', 2, 'ABC');
+            personFactory1.printPerson();
+            personFactory2.printPerson();
+
+            console.log('\n--{ Constructor Pattern }--');
+            var peopleConstructor = function (name, age, state) {
+                // it just attaches the below properties to 'peopleConstructor' using 'NEW' keyword
+                this.age = age;
+                this.name = name;
+                this.state = state;
+                // now, every objects will have printPerson function, which is redundant
+                this.printPerson = function () {
+                    console.log(this.name + " " + this.age + " " + this.state);
+                }
+            }
+
+            var personConstructor1 = new peopleConstructor('MohanCons', 1, 'AAAAA');
+            var personConstructor2 = new peopleConstructor('DasCons', 2, 'XXXXX');
+            personConstructor1.printPerson();
+            personConstructor2.printPerson();
+
+            console.log('\n--{ Prototype Pattern }--');
+            var peoplePro = function (name, age, state) {
+                this.age = age;
+                this.name = name;
+            }
+            peoplePro.prototype.printPerson = function () {
+                console.log(this.name + " " + this.age);
+            }
+            var personPro1 = new peopleConstructor('MohanPro', 1, 'AAAAA');
+            var personPro2 = new peopleConstructor('DasPro', 2, 'XXXXX');
+            // printPerson() function is common to all objects
+            personPro1.printPerson();
+            personPro2.printPerson();
+
+            console.log('name' in personPro1); // return true if personPro1 object contains 'name' property!
+            console.log(personPro1.hasOwnProperty('printPerson'));
+
+            console.log('\n--{ Call, Apply, Bind }--');
+            var obj = {
+                num: 1
+            }
+
+            var addTo = function (a, b, c) {
+                return this.num + a + b + c;
+            }
+            console.log('call() : ' + addTo.call(obj, 1, 1, 1));
+            // call : attaches the obj temporarily as a property to 'addTo' and we can use that as own property
+
+            var addTheNumbersArray = [1, 2, 3];
+            console.log('apply() : ' + addTo.apply(obj, addTheNumbersArray));
+            // apply : exactly same as 'call' but passes the arguments in array!
+
+            var bound = addTo.bind(obj);
+            console.log('bind() : ' + bound(1, 1, 1));
+            // bind : binds the object to the function! and we use 'bound' to call as a normal function
+
+
+
+
+
+            console.log('\n\n--{ ES6 }--');
+            /* arrow function */
+            console.log('--{ Arrow function }--');
+
+            // "a, b" are the arguments and use return 
+            let multiplyArrow = (a, b) => {
+                return a * b;
+            }
+            console.log("Arrow multiplication! ", multiplyArrow(2, 4));
+
+            // arrow function, doesn't has 'this' of itself
+            var arrowX = function () {
+                this.valueX = 1;
+                setTimeout(function () {
+                    this.valueX++;
+                    console.log('setTimout, its own this ', this);
+                    console.log("sets to window object i.e 'this' is window object ", this.valueX);
+                    /*
+                    o/p :   NaN, because setTimout has his own 'this' object, 
+                            which will not point to arrowX function's 'this' (in some browser)
+                    */
+                }, 0);
+            }
+            arrowX();
+
+            // solution to above problem is to use Arrow function!
+            console.log('--{ (spread operator) N arguments using Arrow function }--');
+
+            var arrowXX = function () {
+                this.valueXX = 10;
+                setTimeout(() => {
+                    this.valueXX++;
+                    console.log('parent "this" ', this);
+                    console.log("using Arrow function! ", this.valueXX);
+                }, 0);
+            }
+            arrowXX();
+
+            var argsFunction = function () {
+                console.log('arguments passed (normal function) : ', arguments);
+                /* problems using this : 
+                    - we have to convert this key,value into array.
+                */
+            }
+            argsFunction(1, 2, 3, 4, 5);
+
+            var argsFunctionArrow = (...n) => {
+                console.log('arguments passed (ES6 spreed operator): ', n);
+            }
+            argsFunctionArrow(1, 2, 3, 4, 5);
+
+            var tempArrSpreadOperator1 = [5, 6, 7, 8, 20];
+            var tempArrSpreadOperator2 = [1, 2, 3, 4];
+            tempArrSpreadOperator1.push(...tempArrSpreadOperator2);
+            console.log('combine Arrays', tempArrSpreadOperator1);
+
+
+            /*
+            function declaration vs function expression!
+
+            - "function declaration" is accessable but, "function expression" is not!
+            -  "function expression" can be passed as arguments to other functions (used in callbacks)
+
+            function functionNameA(){
+                console.log('function declaration');
+            }
+
+
+            let functionNameA = function (){
+                console.log('function expression');
+            }
+
+            */
+        </script>
+    </body>
+
+</html>

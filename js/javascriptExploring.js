@@ -95,6 +95,20 @@ parentNodeExample.style.backgroundColor = "#337ab7";
 // then what's the difference? Ans below : 
 // https://stackoverflow.com/questions/8685739/difference-between-dom-parentnode-and-parentelement
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 console.log();
 console.log('{ 7. childNodes, 8. children }');
 // 7. childNodes
@@ -137,8 +151,17 @@ console.log(newDiv);
 
 
 
-// eventListener
 
+
+
+
+
+
+
+
+
+
+// eventListener
 console.log("--{ eventListener }--");
 var buttonClick = document.getElementById("button").addEventListener('click', buttonClickFunction);
 // event is passed as a parameter
@@ -195,26 +218,6 @@ box.addEventListener('mousemove', function (event) {
 });
 
 
-/* 
-   Immediately Invoked Function Expression (IIFE) : 
-   - its JS function runs as soon as it is defined
-   - seperated global and local variables.
-   
-   var a = 2; // global
-   (function (){
-       console.log('Mohan Das');
-       var a = 5;
-       console.log(a); // local
-       // scope is separated.
-   })();
-   console.log(a);
-
-   - frameworks use this technique so that program and library function 
-   or variable names don't conflict.
-
-   Dependency Injection (DI) is a Design pattern which implements Inversion of Control (IoC)
-*/
-
 
 /*
    // 'use strict'
@@ -225,7 +228,8 @@ box.addEventListener('mousemove', function (event) {
                    we haven't specified 'var'.
        ..
    }
-   if we put 'use strict' it will give us error that variable x is not defined.
+   - if we put 'use strict' it will give us error that variable x is not defined.
+   - also tells the brower to use latest functionality.
 */
 
 // --- prototypal inheritance (simple parent child inheritance) ---
@@ -305,16 +309,36 @@ var NewEmployee = new emp();
 */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* const vs let vs var */
 
-// const: as the name suggests, it is used to assing Constant values and unchangable.
+/*
+const: as the name suggests, it is used to assing Constant values and unchangable.
+eg. const variableName; // throws error that it hasn't initialized
+eg. const variableName = 1; 
+    variableName = 10; // throws error, cannot reassign the value
+*/
 console.log('--{ const vs let vs var }--');
 const Pi = 3.14
+const constArray = [1, 2];
+constArray.push(3);
+console.log('value pushed to const array ', constArray);
 // Pi = 1; if i try to change it, it will give an error!
 
 
-// let: block level variables!
-// console.log(i); throws error
+//  if accessed here : console.log(i); throws error
 for (let i = 0; i < 5; i++) {
     console.log(i);
 }
@@ -323,12 +347,33 @@ console.log(i);
 if we try to access it, we will get error. (means, it is accessible only inside a block)
 */
 
-// console.log(j); it knows the variable j is defined but it can't find it; 
+// if accessed here : console.log(j); it knows the variable j is defined but it can't find it; 
 for (var j = 0; j < 5; j++) {
     console.log(j);
 }
 console.log("var accessed " + j);
 // we can access it and use that outside block too.
+
+
+/*
+    difference b/w null and undefined?
+    - if we dont assign a variable, its automatically assigned as undefined by Javascript.
+    - null, assigned by us and used to clean up the value
+
+    - typeof(undefined) is undefined
+    - typeof(null) is object
+*/
+
+
+
+
+
+
+
+
+
+
+
 
 
 console.log('--{ callback function }--');
@@ -391,6 +436,18 @@ console.log(calc(5, 10, function (a, b) {
         }
     });
 */
+
+
+
+
+
+
+
+
+
+
+
+
 
 console.log('--{ Promises }--');
 // eg 1
@@ -456,6 +513,21 @@ Promise.race([cleanRoom(), removeGarbage(), winIcecream()]).then(function (messa
     console.log('RACE : promises executed!');
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // async
 console.log('--{ Async/Await }--');
 
@@ -466,3 +538,85 @@ async function promiseAlternative() {
     console.log(userJsonData); // will be executed after cleanRoom() function completely executes.
 }
 promiseAlternative();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+console.log('--{ IIFE and Closure }--');
+/*                        
+    Immediately Invoked Function Expression (IIFE) : 
+    - its JS function runs as soon as it is defined
+    - seperated global and local variables.
+
+    var a = 2; // global
+    (function (){
+        console.log('Mohan Das');
+        var a = 5;
+        console.log(a); // local
+        // scope is separated.
+    })();
+    console.log(a);
+
+    some ways of writing IIFE:
+    1.   !function(){
+
+            }();
+
+    2.   -function(){
+
+            }();
+
+    3.   +function(){
+
+            }();
+
+    - used in minification! 
+
+    (function($){
+
+    })(window.JQuery);
+    - in the above code, window,JQuery is passed as argument and assigned to dollar,
+    and we can use $ instead of window.JQuery (this is what jquery internally does!)
+
+
+    - frameworks use this technique so that program and library function 
+    or variable names don't conflict.
+
+    Dependency Injection (DI) is a Design pattern which implements Inversion of Control (IoC)
+*/
+
+
+// IIFE below is executed only once, then we use 'get()' and 'increment()' functions
+var counter = (function () {
+    let i = 0; // local variable which can be used to track of counter! (we dont require global variable)
+    return {
+
+        // 'get()' and 'increment()' are closure
+        get: function () {
+            return i;
+        },
+        increment: function () {
+            ++i;
+        }
+    }
+
+    /* CLOSURE : closure is a inner function that has access to outer function's variables, it's own variables and global variables. */
+})();
+
+console.log(counter); // returns the inner expressions!
+counter.increment();
+counter.increment();
+console.log('IIFE counter : ' + counter.get());

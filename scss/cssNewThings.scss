@@ -49,7 +49,7 @@ p {
     position: relative;
     width: 200px;
     height: 200px;
-    margin: 50px auto;
+    margin: 100px auto;
     perspective: 600px;
     perspective-origin: 180% -50%;
     transform-style: preserve-3d;
@@ -96,6 +96,82 @@ p {
     }
     &:hover {
         width: 250px;
-        height: 250px;
+        height: 250px; // transform: rotateY(180deg);
+    }
+}
+
+.quote {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    margin: 10px auto; // background-color: #2112ff;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    transition: .3s;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        border-top: 20px solid white;
+        border-left: 20px solid white;
+        background: transparent;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        border-bottom: 20px solid white;
+        border-right: 20px solid white;
+        background: transparent;
+    }
+    .quoteImage {
+        width: 80px;
+        height: 80px;
+        background-color: white;
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+    }
+    .text {
+        position: absolute;
+        top: 40px;
+        left: -30px;
+        width: calc(100% + 60px);
+        height: calc(100% - 60px);
+        color: white;
+        background-color: #212121;
+        transition: .3s;
+        .textImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            padding: 10px;
+        }
+        >div {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            padding: 40px 80px;
+            text-align: center;
+            transform: translateY(-50%);
+        }
+    } // hover
+    &:hover {
+        transform:  rotateY(-30deg) skewY(5deg);
+    }
+    &:hover .text {
+        transform: rotateY(30deg) skewY(-5deg);
     }
 }
