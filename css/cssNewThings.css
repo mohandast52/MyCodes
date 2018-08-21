@@ -171,3 +171,112 @@ p {
   .quote:hover .text {
     -webkit-transform: rotateY(30deg) skewY(-5deg);
             transform: rotateY(30deg) skewY(-5deg); }
+
+@-webkit-keyframes slideFromDown {
+  to {
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em); } }
+
+@keyframes slideFromDown {
+  to {
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em); } }
+
+.scrollTextAnimation .page-ani {
+  position: relative;
+  height: 100vh; }
+  .scrollTextAnimation .page-ani .textAnimateParent {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+    .scrollTextAnimation .page-ani .textAnimateParent .text-ani {
+      display: inline-block;
+      font-size: 6em;
+      -webkit-transform: translateY(1.2em);
+              transform: translateY(1.2em); }
+
+.scrollTextAnimation .page-ani-1 .textAnimateParent.active .text-ani.text-ani-0 {
+  -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s forwards;
+          animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s forwards; }
+
+.scrollTextAnimation .page-ani-1 .textAnimateParent.active .text-ani.text-ani-1 {
+  -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.05s forwards;
+          animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.05s forwards; }
+
+.scrollTextAnimation .page-ani-1 .textAnimateParent.active .text-ani.text-ani-2 {
+  -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.1s forwards;
+          animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.1s forwards; }
+
+.scrollTextAnimation .page-ani-1 .textAnimateParent.active .text-ani.text-ani-3 {
+  -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s forwards;
+          animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s forwards; }
+
+.scrollTextAnimation .page-ani-1 .textAnimateParent.active .text-ani.text-ani-4 {
+  -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s forwards;
+          animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s forwards; }
+
+.scrollTextAnimation .page-ani-1 .textAnimateParent.active .text-ani.text-ani-5 {
+  -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s forwards;
+          animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s forwards; }
+
+.scrollTextAnimation .page-ani-1 .textAnimateParent.active .text-ani.text-ani-6 {
+  -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s forwards;
+          animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s forwards; }
+
+.scrollTextAnimation .page-ani-1 .textAnimateParent.active .text-ani.text-ani-7 {
+  -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s forwards;
+          animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s forwards; }
+
+.scrollTextAnimation .page-ani-1 .textAnimateParent.active .text-ani.text-ani-8 {
+  -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s forwards;
+          animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s forwards; }
+
+.scrollTextAnimation .page-ani-2 {
+  background-color: #8989ff; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-0 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-1 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.05s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.05s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-2 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.1s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.1s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-3 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-4 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-5 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-6 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-7 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-8 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-9 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.45s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.45s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-10 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-11 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.55s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.55s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-12 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s forwards; }
+  .scrollTextAnimation .page-ani-2 .textAnimateParent.active .text-ani.text-ani-13 {
+    -webkit-animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.65s forwards;
+            animation: slideFromDown 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.65s forwards; }

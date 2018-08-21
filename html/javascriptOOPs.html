@@ -149,6 +149,68 @@
             console.log('combine Arrays', tempArrSpreadOperator1);
 
 
+            console.log('--{ Destructuring }--');
+
+            // eg 1
+            var destruct = {
+                destruct_x: 10,
+                destruct_y: 20
+            };
+            const {
+                destruct_x: a,
+                destruct_y: b
+            } = destruct;
+            console.log('using destructure ', a); // get destruct_x from destruct and assign to a
+
+            function destructuringGetLength(str) {
+                const {
+                    length: len // assign str's length to len and return it
+                } = str;
+                return len;
+            }
+            console.log("length " + destructuringGetLength('MohanDas')); // simply str.length
+
+            const [desX, , , desY, ...desZ] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            console.log(desX, desY, desZ);
+            /*  
+                desX is [0], desY is [3] (because desY) has zeros ahead and ...desZ is a rest, 
+                which takes rest of the array 
+            */
+
+            //    Symbols in ES6 : https://www.youtube.com/watch?v=gANDd4l-G5U
+
+            /*    Object Literal Declarations 
+            
+            Vanilla JS : 
+            const getMousePosition = (x, y) => ({
+                x: x,
+                y: y
+            });
+            
+            
+            ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x.
+            ES6 :
+            const getMousePosition = (x, y) => ({ x, y });
+
+            const person = {
+                name: "Taylor",
+                // no need to write function ie. sayHello : function() { ... }
+                sayHello() { 
+                    return `Hello! My name is ${this.name}.`;
+                }
+            };
+
+            */
+
+            /* import: With it, we can choose which parts of a module or file to load into a given file, saving time and memory, where require in JS loads the entire file */
+
+
+
+
+
+
+
+
             /*
             function declaration vs function expression!
 
@@ -163,6 +225,101 @@
             let functionNameA = function (){
                 console.log('function expression');
             }
+
+            */
+
+
+
+
+            console.log('--{ OOPS }--');
+            console.log('--{ constructors }--');
+            /* 
+                - as in java, constructors are used to initialize
+                - they must to used for variables and better practice to use 'Protoype' to add methods
+                - every constructor has a property called prototpe and we can add method to it 
+                
+            */
+            function CarConstructor(color) {
+                // this execption is thrown when 'new' keyword is not used to call 
+                if (!new.target) throw 'Car() must to called with new';
+                this.color = color;
+            }
+            let redCar = new CarConstructor('red');
+            console.log(redCar.color);
+
+            console.log('--{ constructors }--');
+            CarConstructor.prototype = {
+                getColor: function () {
+                    return this.color;
+                }
+            }
+            let redCarPro = new CarConstructor('yellow');
+            console.log(redCarPro);
+            /* 
+                - if we print that object and can see it's <prototype> which contains getColor function 
+                and if it doesn't finds there, it will go deeper which Object's prototype methods 
+                and search for it (as Object is super Class in javascript)
+                - <prototpye> has the getColor's reference and the actual getColor function resides inside 
+                CarConstructor Object > constructor > getColor function
+            */
+            console.log('--{ Objec.create vs new }--');
+            /* 
+                - Object.create allows us to extend the constructor using reference, where as using
+                classical inheritance we are copying the methods of parent class to child class where memory is consumed
+                - it doesn't runs the constructor
+            */
+
+            const carObject1 = new CarConstructor('black');
+            const carObject2 = Object.create(CarConstructor.prototype);
+            console.log(carObject1);
+            console.log(carObject2); // constructor is not executed, so no color property here!
+
+            const ToyCarObject = function () {};
+            ToyCarObject.prototype = Object.create(CarConstructor.prototype); // inheriting all the methods
+            ToyCarObject.prototype.constructor = CarConstructor; // to call constructor explicity
+            console.log(ToyCarObject);
+
+            console.log((new ToyCarObject) instanceof ToyCarObject); // to check if child of ToyCarObject inherited from CarConstructor
+
+            const PrototpeChainObject = function () {};
+            PrototpeChainObject.prototype = Object.create(CarConstructor.prototype);
+            PrototpeChainObject.prototype.getColor = function () {
+                return "prototypchaining getColor function!!";
+            }
+            console.log((new PrototpeChainObject()).getColor());
+            // getColor() function of CarConstructor has been replaced and inside it's <prototype> we can see CarConstructor's getColor function();
+
+
+
+
+
+
+
+            /* ---Functional programming (https://www.youtube.com/watch?v=qtsbZarFzm8)--- 
+                
+                - It is nothing but, just dealing with the functions
+                - it should never interact with the outer world, but only with the arguments passed!
+                - But why? it is predictable, easier to test/debug and safer!
+
+                - Avoid side effects (ie. do nothing, but just return.. even no console.log())
+                - Avoid Mutable, ie dont't change instead replace it (just return new array, object etc)
+                - don't iterate, just recurse!
+                - don't loop but use map, filter, reduce!
+                - use higher-order functions ie. passing functions as arguments to functions
+                -  declare your dependencies explicitly. This means if a function depends on a variable or object being present, 
+                then pass that variable or object directly into the function as an argument.           
+            */
+
+            /*
+            ---Regex (https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)---
+                
+                - g : checks everything i.e doesn't returns as first is matched, matches everything in the specified string
+                - i : case insensitive
+
+                - /every regex should be passed between these/
+                - /[a-z]at/ matches everything with 3 letters and ends with 'at'
+                - /[^aeiou]at/ ^ is negation ie. matches everything which doesnt starts with vowel
+
 
             */
         </script>

@@ -620,3 +620,8 @@ console.log(counter); // returns the inner expressions!
 counter.increment();
 counter.increment();
 console.log('IIFE counter : ' + counter.get());
+
+
+/*
+splice(index, numberOfItemsFromIndex, Optional - add item in that gap)
+*/

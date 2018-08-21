@@ -16,6 +16,41 @@
     </head>
 
     <body>
+
+        <div class="scrollTextAnimation">
+            <div class="page-ani page-ani-1">
+                <div class="textAnimateParent active">
+                    <div class="text-ani text-ani-0">M</div>
+                    <div class="text-ani text-ani-1">O</div>
+                    <div class="text-ani text-ani-2">H</div>
+                    <div class="text-ani text-ani-3">A</div>
+                    <div class="text-ani text-ani-4">N</div>
+                    <div class="text-ani text-ani-5">D</div>
+                    <div class="text-ani text-ani-6">A</div>
+                    <div class="text-ani text-ani-7">S</div>
+                </div>
+            </div>
+
+            <div class="page-ani page-ani-2">
+                <div class="textAnimateParent">
+                    <div class="text-ani text-ani-0">I</div>
+                    <div class="text-ani text-ani-1"></div>
+                    <div class="text-ani text-ani-2">l</div>
+                    <div class="text-ani text-ani-3">o</div>
+                    <div class="text-ani text-ani-4">v</div>
+                    <div class="text-ani text-ani-5">e</div>
+                    <div class="text-ani text-ani-6"></div>
+                    <div class="text-ani text-ani-7">D</div>
+                    <div class="text-ani text-ani-8">E</div>
+                    <div class="text-ani text-ani-9">S</div>
+                    <div class="text-ani text-ani-10">I</div>
+                    <div class="text-ani text-ani-11">G</div>
+                    <div class="text-ani text-ani-12">N</div>
+
+                </div>
+            </div>
+        </div>
+
         <p>using image-mask, image-position</p>
         <div class="mask-container">
             <div id="mask-image">
@@ -46,6 +81,21 @@
                 </div>
             </div>
         </div>
+
+
+        <script>
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            let page_ani_2 = document.querySelector(".page-ani-2");
+            // if crosses the half of the 2nd page
+
+            console.log(page_ani_2);
+            window.addEventListener('scroll', function (event) {
+                if (window.pageYOffset > page_ani_2.clientHeight / 2) {
+                    document.querySelector(".page-ani-2 .textAnimateParent").classList.add("active");
+                }
+            });
+        </script>
     </body>
 
 </html>
