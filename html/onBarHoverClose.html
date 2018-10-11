@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<style type="text/css">
+			.bar{
+			  width: 50px;
+			  height: 50px;
+			  background-color: black;
+			  position: relative;
+			  text-align: center;
+			}
+			.line1, .line2, .line3{
+			  position: absolute;
+			  background-color: white;
+			  height: 2%;
+			  top: 25%;
+			  width: 50%;
+			  left: 25%;
+			  transition: 200ms;
+			  transform-origin: top left;
+			}
+			.line2{
+			  top: 50%;
+			  transition: 100ms
+			}
+			.line3{
+			   top: 75%;
+			}
+			.bar:hover .line1{
+			  width: 71%;
+			  transform: rotate(45deg)
+			}
+			.bar:hover .line2{
+			  width: 0%;
+			}
+			.bar:hover .line3{
+			  width: 71%;
+			  transform: rotate(-45deg)
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bar">
+		  <div class="line1"></div>
+		  <div class="line2"></div>
+		  <div class="line3"></div>
+		</div>
+	</body>
+</html>
